@@ -1,5 +1,6 @@
-import { TooltipStep } from '../types';
+import { ProgressType, TooltipStep } from '../types';
 import Tooltip from './elements/tooltip';
+import EventManager from '../lib/EventManager';
 
 function getElementBySelector(selector: string) {
   return document.body.querySelector(selector);
@@ -16,10 +17,14 @@ function getStepTarget(element: string | Element) {
   return target;
 }
 
-function getTooltipMarkup(headerText: string, bodyText: string) {}
-
 function createTooltipElement(step: TooltipStep) {
   const tooltip = new Tooltip(step);
+  return tooltip;
+}
+
+function onNext(tooltipElement: Tooltip) {
+  tooltipElement.removeFromDom();
+  EventManager.emit('next-step');
 }
 
 export function buildTooltip(step: TooltipStep) {
@@ -29,6 +34,11 @@ export function buildTooltip(step: TooltipStep) {
   }
 
   step.element = target;
-
   const tooltipElement = createTooltipElement(step);
+
+  if (step.progressOn === ProgressType.ELEMENT) {
+    target.addEventListener('click', () => onNext(tooltipElement), { once: true });
+  }
+
+  return step;
 }

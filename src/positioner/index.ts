@@ -1,10 +1,12 @@
 import { Side } from '../types';
 
-function getHorizontalCenter(elementRect: DOMRect) {
+const SPACER: number = 15;
+
+function getHorizontalCenter(elementRect: DOMRect): number {
   return elementRect.left + elementRect.width / 2;
 }
 
-function getVerticalCenter(elementRect: DOMRect) {
+function getVerticalCenter(elementRect: DOMRect): number {
   return elementRect.bottom + elementRect.height / 2;
 }
 
@@ -34,12 +36,12 @@ export function getOptimalSideForRect(elementRect: DOMRect): Side {
 export function getPositionForSide(side: Side, elementRect: DOMRect): { x: number; y: number } {
   switch (side) {
     case Side.BOTTOM:
-      return { x: getHorizontalCenter(elementRect), y: elementRect.bottom };
+      return { x: getHorizontalCenter(elementRect), y: elementRect.bottom + SPACER };
     case Side.TOP:
-      return { x: getHorizontalCenter(elementRect), y: elementRect.top };
+      return { x: getHorizontalCenter(elementRect), y: elementRect.top + SPACER };
     case Side.LEFT:
-      return { x: elementRect.left, y: getVerticalCenter(elementRect) };
+      return { x: elementRect.left + SPACER, y: getVerticalCenter(elementRect) };
     case Side.RIGHT:
-      return { x: elementRect.right, y: getVerticalCenter(elementRect) };
+      return { x: elementRect.right + SPACER, y: getVerticalCenter(elementRect) };
   }
 }

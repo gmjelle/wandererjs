@@ -8,8 +8,12 @@ class Tooltip extends TemplateComponent {
   caret: Caret;
   rect: DOMRect;
   constructor(step: Step) {
-    super('gdx-absolute gdx-border gdx-shadow-lg gdx-rounded', step);
+    super('gdx-absolute gdx-border gdx-shadow-lg gdx-rounded gdx-bg-white gdx-z-50', step);
     this.step = step;
+    this.setup();
+  }
+
+  setup() {
     this.caret = new Caret();
     this.appendCaret();
     this.addToDOM();
