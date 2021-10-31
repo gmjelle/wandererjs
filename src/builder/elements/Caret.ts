@@ -1,5 +1,5 @@
 import TemplateComponent from '../../framework/TemplateComponent';
-import { Direction } from '../../types';
+import { Direction, Side } from '../../types';
 
 class Caret extends TemplateComponent {
   direction: Direction;
@@ -16,12 +16,11 @@ class Caret extends TemplateComponent {
       [Direction.RIGHT]: '135deg',
       [Direction.LEFT]: '315deg',
     };
+  }
 
-    // We wait for the next tick so that it will already be appended to the DOM
-    queueMicrotask(() => {
-      this.setupDimensions();
-      this.adjustForDirection();
-    });
+  init() {
+    this.setupDimensions();
+    this.adjustForDirection();
   }
 
   adjustForDirection() {
@@ -41,20 +40,45 @@ class Caret extends TemplateComponent {
   }
 
   adjustCaretForUp() {
-    this.container.style.transform = `rotate(${this.degreeMap[Direction.UP]})`;
-  }
-
-  adjustCaretForRight() {
-    this.container.style.transform = `rotate(${this.degreeMap[Direction.RIGHT]})`;
-  }
-
-  adjustCaretForLeft() {
-    this.container.style.transform = `rotate(${this.degreeMap[Direction.LEFT]})`;
+    this.container.style.transform = `translate(-50%) rotate(${this.degreeMap[Direction.UP]})`;
+    this.container.style.left = '50%';
+    this.container.style.top = `-${this.rect.height / 2}px`;
   }
 
   adjustCaretForDown() {
-    this.container.style.transform = `rotate(${this.degreeMap[Direction.DOWN]})`;
-    this.container.style.bottom = `-${this.rect.height / 2}px`;
+    this.container.style.transform = `translate(-50%)  rotate(${this.degreeMap[Direction.DOWN]})`;
+    this.container.style.left = '50%';
+    this.container.style.top = `calc(100% - ${this.rect.height / 2}px)`;
+  }
+
+  adjustCaretForRight() {
+    this.container.style.transform = `translate(0, -50%) rotate(${this.degreeMap[Direction.RIGHT]})`;
+    this.container.style.left = `calc(100% - ${this.rect.width / 2}px)`;
+    this.container.style.top = '50%';
+  }
+
+  adjustCaretForLeft() {
+    this.container.style.transform = `translate(0, -50%)  rotate(${this.degreeMap[Direction.LEFT]})`;
+    this.container.style.left = `-${this.rect.width / 2}px`;
+    this.container.style.top = '50%';
+  }
+
+  setDirection(direction: Direction) {
+    this.direction = direction;
+    this.adjustForDirection();
+  }
+
+  moveForTooltipSide(side: Side) {
+    switch (side) {
+      case Side.BOTTOM:
+        return this.setDirection(Direction.UP);
+      case Side.TOP:
+        return this.setDirection(Direction.DOWN);
+      case Side.LEFT:
+        return this.setDirection(Direction.RIGHT);
+      case Side.RIGHT:
+        return this.setDirection(Direction.LEFT);
+    }
   }
 
   setupDimensions() {

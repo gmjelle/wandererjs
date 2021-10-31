@@ -6,12 +6,15 @@ import Caret from './Caret';
 class Tooltip extends TemplateComponent {
   step: Step;
   caret: Caret;
+  rect: DOMRect;
   constructor(step: Step) {
-    super('gdx-absolute', step);
+    super('gdx-absolute gdx-border gdx-shadow-lg gdx-rounded', step);
     this.step = step;
     this.caret = new Caret();
     this.appendCaret();
     this.addToDOM();
+    this.rect = this.container.getBoundingClientRect();
+    this.caret.init();
     this.setPosition();
   }
 
@@ -29,17 +32,17 @@ class Tooltip extends TemplateComponent {
     const side: Side = getOptimalSideForRect(targetRect);
     const position = getPositionForSide(side, targetRect);
     this.moveToPosition(position);
+    this.caret.moveForTooltipSide(side);
   }
 
   moveToPosition(position: { x: number; y: number }) {
-    console.log(this.container);
-    this.container.style.left = `${position.x}px`;
+    this.container.style.left = `${position.x - this.rect.width / 2}px`;
     this.container.style.top = `${position.y}px`;
   }
 
   setHtml({ headerText, bodyText }: Step) {
     this.html = `
-      <div class="gdx-flex gdx-flex-col  gdx-px-5 gdx-py-2 gdx-shadow-lg gdx-rounded">
+      <div class="gdx-flex gdx-flex-col gdx-px-5 gdx-py-2">
         <div class="gdx-text-2xl">${headerText}</div>
         <div class="">${bodyText}</div>
       </div>
