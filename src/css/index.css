@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.soft-backdrop-shadow {
+  box-shadow: inset 0px 0px 8px 4px rgb(0 0 0 / 15%), 0px 0px 1500px 1500px rgb(0 0 0 / 15%);
+}
+
+.hard-backdrop-shadow {
+  box-shadow: 0px 0px 1500px 1500px rgb(0 0 0 / 15%);
+}

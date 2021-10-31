@@ -1,6 +1,10 @@
-import { ProgressType, TooltipStep } from '../types';
+import { HighlightType, ProgressType, TooltipStep } from '../types';
 import Tooltip from './elements/tooltip';
 import EventManager from '../lib/EventManager';
+import { container } from 'tsyringe';
+import SoftBackdrop from '../backdrops/SoftBackdrop';
+import HardBackdrop from '../backdrops/HardBackdrop';
+import { Step } from '../../lib/types';
 
 function getElementBySelector(selector: string) {
   return document.body.querySelector(selector);
@@ -22,9 +26,24 @@ function createTooltipElement(step: TooltipStep) {
   return tooltip;
 }
 
+function hideBackdrops() {
+  container.resolve(SoftBackdrop).hide();
+  container.resolve(HardBackdrop).hide();
+}
+
 function onNext(tooltipElement: Tooltip) {
   tooltipElement.removeFromDom();
+  hideBackdrops();
   EventManager.emit('next-step');
+}
+
+function showBackdropForStep(step: TooltipStep) {
+  switch (step.highlightType) {
+    case HighlightType.SOFT:
+      return container.resolve(SoftBackdrop).show(<Element>step.element);
+    case HighlightType.HARD:
+      return container.resolve(HardBackdrop).show(<Element>step.element);
+  }
 }
 
 export function buildTooltip(step: TooltipStep) {
@@ -39,6 +58,8 @@ export function buildTooltip(step: TooltipStep) {
   if (step.progressOn === ProgressType.ELEMENT) {
     target.addEventListener('click', () => onNext(tooltipElement), { once: true });
   }
+
+  showBackdropForStep(step);
 
   return step;
 }

@@ -1,4 +1,5 @@
 import './css/index.css';
+import 'reflect-metadata';
 import EventManager from './lib/EventManager';
 
 import { processStep } from './runner/runner';
