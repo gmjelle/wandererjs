@@ -1,14 +1,22 @@
 import TemplateComponent from '../../framework/TemplateComponent';
 import { getOptimalSideForRect, getPositionForSide } from '../../positioner';
 import { Side, Step } from '../../types';
+import Caret from './Caret';
 
 class Tooltip extends TemplateComponent {
   step: Step;
+  caret: Caret;
   constructor(step: Step) {
     super('gdx-absolute', step);
     this.step = step;
+    this.caret = new Caret();
+    this.appendCaret();
     this.addToDOM();
     this.setPosition();
+  }
+
+  appendCaret() {
+    this.container.appendChild(this.caret.container);
   }
 
   addToDOM() {

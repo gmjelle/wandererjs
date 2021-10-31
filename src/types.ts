@@ -21,6 +21,13 @@ export enum Side {
   BOTTOM = 'BOTTOM',
 }
 
+export enum Direction {
+  RIGHT = 'RIGHT',
+  LEFT = 'LEFT',
+  UP = 'UP',
+  DOWN = 'DOWN',
+}
+
 export type Step = {
   type: StepType;
   highlightType?: HighlightType;
