@@ -5,7 +5,7 @@ const steps: Step[] = [
   {
     type: StepType.TOOLTIP,
     element: '#element2',
-    highlightType: HighlightType.HARD,
+    highlightType: HighlightType.NONE,
     progressOn: ProgressType.ELEMENT,
     headerText: 'Favorites',
     bodyText: 'Click here to add to favorites',

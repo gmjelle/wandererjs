@@ -10,7 +10,8 @@ class Tooltip extends TemplateComponent {
   popperMap: { [key: string]: Side };
 
   constructor(step: Step) {
-    super('gdx-absolute gdx-border gdx-shadow-lg gdx-rounded gdx-bg-white gdx-z-50', step);
+    super('gdx-absolute gdx-border gdx-shadow-lg gdx-rounded gdx-bg-white gdx-z-50 gdx-px-5 gdx-py-2', step);
+    this.container.id = 'tooltip';
     this.step = step;
     this.popperMap = {
       bottom: Side.BOTTOM,
@@ -41,8 +42,13 @@ class Tooltip extends TemplateComponent {
   setPosition() {
     const element = <Element>this.step.element;
     const inst = createPopper(element, this.container, {
-      modifiers: [{ name: 'offset', options: { offset: [10, 20] } }],
+      modifiers: [
+        { name: 'offset', options: { offset: [10, 20] } },
+        { name: 'arrow', options: { element: this.caret } },
+      ],
     });
+
+    console.log(inst);
 
     // this.caret.moveForTooltipSide(this.popperMap[inst.state.placement]);
   }
@@ -54,7 +60,8 @@ class Tooltip extends TemplateComponent {
 
   setHtml({ headerText, bodyText }: Step) {
     this.html = `
-      <div class="gdx-flex gdx-flex-col gdx-px-5 gdx-py-2">
+      <div id="arrow" js="caret"></div>
+      <div class="gdx-flex gdx-flex-col">
         <div class="gdx-text-2xl">${headerText}</div>
         <div class="">${bodyText}</div>
       </div>
