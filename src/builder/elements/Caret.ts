@@ -6,10 +6,12 @@ class Caret extends TemplateComponent {
   dimensions: number;
   degreeMap: { [key: string]: string };
   rect: DOMRect;
-  constructor() {
+  targetRect: DOMRect;
+  constructor(element: Element) {
     super('gdx-absolute gdx-bg-white gdx-border-l gdx-border-t gdx-box-content gdx-rotate-center gdx-z-10');
     this.direction = Direction.DOWN;
     this.dimensions = 20;
+    this.targetRect = element.getBoundingClientRect();
     this.degreeMap = {
       [Direction.UP]: '45deg',
       [Direction.DOWN]: '225deg',
@@ -24,6 +26,7 @@ class Caret extends TemplateComponent {
   }
 
   adjustForDirection() {
+    console.log(this.direction);
     switch (this.direction) {
       case Direction.DOWN:
         return this.adjustCaretForDown();
@@ -40,8 +43,11 @@ class Caret extends TemplateComponent {
   }
 
   adjustCaretForUp() {
-    this.container.style.transform = `translate(-50%) rotate(${this.degreeMap[Direction.UP]})`;
-    this.container.style.left = '50%';
+    console.log(this.targetRect);
+    console.log(this.rect);
+    // const x = this.targetRect.x - this.rect.x;
+    this.container.style.transform = `translate(50%) rotate(${this.degreeMap[Direction.UP]})`;
+    this.container.style.left = '0px';
     this.container.style.top = `-${this.rect.height / 2}px`;
   }
 

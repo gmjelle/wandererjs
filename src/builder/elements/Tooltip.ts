@@ -1,24 +1,32 @@
 import TemplateComponent from '../../framework/TemplateComponent';
-import { getOptimalSideForRect, getPositionForSide } from '../../positioner';
 import { Side, Step } from '../../types';
 import Caret from './Caret';
+import { createPopper } from '@popperjs/core';
 
 class Tooltip extends TemplateComponent {
   step: Step;
   caret: Caret;
   rect: DOMRect;
+  popperMap: { [key: string]: Side };
+
   constructor(step: Step) {
     super('gdx-absolute gdx-border gdx-shadow-lg gdx-rounded gdx-bg-white gdx-z-50', step);
     this.step = step;
+    this.popperMap = {
+      bottom: Side.BOTTOM,
+      top: Side.TOP,
+      left: Side.LEFT,
+      right: Side.RIGHT,
+    };
     this.setup();
   }
 
   setup() {
-    this.caret = new Caret();
-    this.appendCaret();
+    // this.caret = new Caret(<Element>this.step.element);
+    // this.appendCaret();
     this.addToDOM();
     this.rect = this.container.getBoundingClientRect();
-    this.caret.init();
+    // this.caret.init();
     this.setPosition();
   }
 
@@ -32,15 +40,15 @@ class Tooltip extends TemplateComponent {
 
   setPosition() {
     const element = <Element>this.step.element;
-    const targetRect = element.getBoundingClientRect();
-    const side: Side = getOptimalSideForRect(targetRect);
-    const position = getPositionForSide(side, targetRect);
-    this.moveToPosition(position);
-    this.caret.moveForTooltipSide(side);
+    const inst = createPopper(element, this.container, {
+      modifiers: [{ name: 'offset', options: { offset: [10, 20] } }],
+    });
+
+    // this.caret.moveForTooltipSide(this.popperMap[inst.state.placement]);
   }
 
   moveToPosition(position: { x: number; y: number }) {
-    this.container.style.left = `${position.x - this.rect.width / 2}px`;
+    this.container.style.left = `${position.x}px`;
     this.container.style.top = `${position.y}px`;
   }
 

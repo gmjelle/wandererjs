@@ -4,7 +4,7 @@ import { HighlightType, ProgressType, Step, StepType } from './types';
 const steps: Step[] = [
   {
     type: StepType.TOOLTIP,
-    element: '#element',
+    element: '#element2',
     highlightType: HighlightType.SOFT,
     progressOn: ProgressType.ELEMENT,
     headerText: 'Favorites',
