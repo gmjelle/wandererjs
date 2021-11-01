@@ -14,7 +14,9 @@ class SoftBackdrop extends TemplateComponent {
   }
 
   showOnElement(element: Element) {
-    matchBounds(<HTMLElement>element, <HTMLElement>this.gradientElement, 25);
+    queueMicrotask(() => {
+      matchBounds(<HTMLElement>element, <HTMLElement>this.gradientElement, 25);
+    });
   }
 
   show(element: Element) {
