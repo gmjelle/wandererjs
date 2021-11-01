@@ -5,6 +5,8 @@ import { container } from 'tsyringe';
 import SoftBackdrop from '../backdrops/SoftBackdrop';
 import HardBackdrop from '../backdrops/HardBackdrop';
 import { Step } from '../../lib/types';
+import { isElementInViewport } from '../utils';
+import scrollToElement from 'scroll-to-element';
 
 function getElementBySelector(selector: string) {
   return document.body.querySelector(selector);
@@ -46,6 +48,12 @@ function showBackdropForStep(step: TooltipStep) {
   }
 }
 
+function scrollToElementIfNecessary(element: Element) {
+  const isVisible = isElementInViewport(element);
+  if (isVisible) return;
+  scrollToElement(element);
+}
+
 export function buildTooltip(step: TooltipStep) {
   const target = getStepTarget(step.element);
   if (!target) {
@@ -53,6 +61,7 @@ export function buildTooltip(step: TooltipStep) {
   }
 
   step.element = target;
+  scrollToElementIfNecessary(step.element);
   const tooltipElement = createTooltipElement(step);
 
   if (step.progressOn === ProgressType.ELEMENT) {
@@ -60,6 +69,5 @@ export function buildTooltip(step: TooltipStep) {
   }
 
   showBackdropForStep(step);
-
   return step;
 }

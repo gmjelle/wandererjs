@@ -7,9 +7,7 @@ class SoftBackdrop extends TemplateComponent {
   gradientElement: HTMLDivElement;
   activeElement: Element;
   constructor() {
-    super(
-      'gdx-absolute gdx-top-0 gdx-left-0 gdx-w-full gdx-h-full gdx-pointer-events-none gdx-overflow-hidden gdx-soft-backdrop gdx-z-20',
-    );
+    super('gdx-absolute gdx-top-0 gdx-left-0 gdx-w-full gdx-h-full gdx-pointer-events-none gdx-soft-backdrop gdx-z-20');
 
     this.hide();
     document.body.appendChild(this.container);

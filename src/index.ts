@@ -3,14 +3,18 @@ import 'reflect-metadata';
 import EventManager from './lib/EventManager';
 
 import { processStep } from './runner/runner';
-import { Step, TooltipStep } from './types';
+import { GuideOptions, Step, TooltipStep } from './types';
 class Guide {
   steps: Step[] | TooltipStep[];
   currentIndex: number;
+  onNext: (step: Step) => void;
+  onDone: () => void;
 
-  constructor(steps: Step[]) {
+  constructor(steps: Step[], options: GuideOptions) {
     this.steps = steps;
     this.currentIndex = 0;
+    this.onNext = options.onNext ? options.onNext : () => {};
+    this.onDone = options.onDone ? options.onDone : () => {};
   }
   start() {
     const currentStep = this.steps[this.currentIndex];
@@ -30,8 +34,10 @@ class Guide {
     this.currentIndex++;
     const currentStep = this.steps[this.currentIndex];
     if (!currentStep) {
-      return console.log('DONE');
+      return this.onDone();
     }
+
+    this.onNext(currentStep);
     this.run(currentStep);
   }
   back() {}

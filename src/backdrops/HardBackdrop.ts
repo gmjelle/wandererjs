@@ -7,16 +7,16 @@ class HardBackdrop extends TemplateComponent {
   gradientElement: HTMLDivElement;
   activeElement: Element;
   constructor() {
-    super(
-      'gdx-absolute gdx-top-0 gdx-left-0 gdx-w-full gdx-h-full gdx-pointer-events-none gdx-overflow-hidden hard-backdrop gdx-z-20',
-    );
+    super('gdx-absolute gdx-top-0 gdx-left-0 gdx-w-full gdx-h-full gdx-pointer-events-none hard-backdrop gdx-z-20');
 
     this.hide();
     document.body.appendChild(this.container);
   }
 
   showOnElement(element: Element) {
-    matchBounds(<HTMLElement>element, <HTMLElement>this.gradientElement, 0);
+    queueMicrotask(() => {
+      matchBounds(<HTMLElement>element, <HTMLElement>this.gradientElement, 0);
+    });
   }
 
   show(element: Element) {

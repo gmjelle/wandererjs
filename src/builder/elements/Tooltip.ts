@@ -47,10 +47,6 @@ class Tooltip extends TemplateComponent {
         { name: 'arrow', options: { element: this.caret } },
       ],
     });
-
-    console.log(inst);
-
-    // this.caret.moveForTooltipSide(this.popperMap[inst.state.placement]);
   }
 
   moveToPosition(position: { x: number; y: number }) {

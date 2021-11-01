@@ -41,3 +41,8 @@ export type TooltipStep = Step & {
   headerText: string;
   bodyText: string;
 };
+
+export type GuideOptions = {
+  onNext?: (step: Step) => void;
+  onDone?: () => void;
+};
