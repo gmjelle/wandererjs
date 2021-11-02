@@ -28,19 +28,16 @@ export enum Direction {
   DOWN = 'DOWN',
 }
 
-export type Step = {
-  type: StepType;
+export type TooltipStep = {
+  type: StepType.TOOLTIP;
   highlightType?: HighlightType;
   progressOn?: ProgressType;
   element?: string | Element | null;
-  headerText?: string;
-  bodyText?: string;
-};
-
-export type TooltipStep = Step & {
   headerText: string;
   bodyText: string;
 };
+
+export type Step = TooltipStep;
 
 export type GuideOptions = {
   onNext?: (step: Step) => void;

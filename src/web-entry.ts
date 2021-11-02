@@ -5,29 +5,20 @@ const steps: Step[] = [
   {
     type: StepType.TOOLTIP,
     element: '#element',
-    highlightType: HighlightType.HARD,
-    progressOn: ProgressType.ELEMENT,
+    highlightType: HighlightType.NONE,
+    progressOn: ProgressType.BUTTON,
     headerText: 'Favorites',
     bodyText: 'Click here to add to favorites',
   },
   {
     type: StepType.TOOLTIP,
     element: '#element2',
-    highlightType: HighlightType.SOFT,
+    highlightType: HighlightType.HARD,
     progressOn: ProgressType.ELEMENT,
     headerText: 'Favorites',
     bodyText: 'Click here to add to favorites',
   },
 ];
 
-const options = {
-  onNext(step: Step) {
-    console.log('next: ', step);
-  },
-  onDone() {
-    console.log('done');
-  },
-};
-
-const guide = new Guide(steps, options);
+const guide = new Guide(steps);
 guide.start();

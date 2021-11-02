@@ -10,11 +10,11 @@ class Guide {
   onNext: (step: Step) => void;
   onDone: () => void;
 
-  constructor(steps: Step[], options: GuideOptions) {
+  constructor(steps: Step[], options: GuideOptions = { onNext: () => {}, onDone: () => {} }) {
     this.steps = steps;
     this.currentIndex = 0;
-    this.onNext = options.onNext ? options.onNext : () => {};
-    this.onDone = options.onDone ? options.onDone : () => {};
+    this.onNext = options.onNext;
+    this.onDone = options.onDone;
   }
   start() {
     const currentStep = this.steps[this.currentIndex];
@@ -23,7 +23,7 @@ class Guide {
   }
 
   run(step: Step) {
-    EventManager.once('next-step', () => {
+    EventManager.once('nextStep.tooltipBuilder', () => {
       this.next();
     });
     processStep(step);
@@ -36,7 +36,6 @@ class Guide {
     if (!currentStep) {
       return this.onDone();
     }
-
     this.onNext(currentStep);
     this.run(currentStep);
   }
