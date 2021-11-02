@@ -27,9 +27,9 @@ function onNext(tooltipElement: Tooltip) {
 function showBackdropForStep(step: TooltipStep) {
   switch (step.highlightType) {
     case HighlightType.SOFT:
-      return container.resolve(SoftBackdrop).show(<Element>step.element);
+      return container.resolve(SoftBackdrop).show(step.element as Element);
     case HighlightType.HARD:
-      return container.resolve(HardBackdrop).show(<Element>step.element);
+      return container.resolve(HardBackdrop).show(step.element as Element);
   }
 }
 

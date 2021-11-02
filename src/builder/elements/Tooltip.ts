@@ -1,12 +1,11 @@
 import TemplateComponent from '../../framework/TemplateComponent';
 import { ProgressType, Side, Step } from '../../types';
-import Caret from './Caret';
 import { createPopper } from '@popperjs/core';
 import EventManager from '../../lib/EventManager';
 
 class Tooltip extends TemplateComponent {
   step: Step;
-  caret: Caret;
+  caret: HTMLElement;
   rect: DOMRect;
   popperMap: { [key: string]: Side };
   bottomContainer: HTMLElement;
@@ -49,7 +48,7 @@ class Tooltip extends TemplateComponent {
   }
 
   setupProgressForElement() {
-    const target = <Element>this.step.element;
+    const target = this.step.element as Element;
     target.addEventListener(
       'click',
       () => {
@@ -70,16 +69,12 @@ class Tooltip extends TemplateComponent {
     );
   }
 
-  appendCaret() {
-    this.container.appendChild(this.caret.container);
-  }
-
   addToDOM() {
     document.body.appendChild(this.container);
   }
 
   setPosition() {
-    const element = <Element>this.step.element;
+    const element = this.step.element as Element;
     const inst = createPopper(element, this.container, {
       modifiers: [
         { name: 'offset', options: { offset: [10, 20] } },

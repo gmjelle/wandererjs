@@ -10,6 +10,7 @@ class Guide {
   onNext: (step: Step) => void;
   onDone: () => void;
 
+  /* tslint:disable:no-empty */
   constructor(steps: Step[], options: GuideOptions = { onNext: () => {}, onDone: () => {} }) {
     this.steps = steps;
     this.currentIndex = 0;
@@ -29,7 +30,7 @@ class Guide {
     processStep(step);
   }
 
-  skipTo(index: number) {}
+  // skipTo(index: number) {}
   next() {
     this.currentIndex++;
     const currentStep = this.steps[this.currentIndex];
@@ -39,8 +40,8 @@ class Guide {
     this.onNext(currentStep);
     this.run(currentStep);
   }
-  back() {}
-  stop() {}
+  // back() {}
+  // stop() {}
 }
 
 export default Guide;

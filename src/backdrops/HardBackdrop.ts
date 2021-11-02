@@ -15,7 +15,7 @@ class HardBackdrop extends TemplateComponent {
 
   showOnElement(element: Element) {
     queueMicrotask(() => {
-      matchBounds(<HTMLElement>element, <HTMLElement>this.gradientElement, 0);
+      matchBounds(element as HTMLElement, this.gradientElement as HTMLElement, 0);
     });
   }
 
