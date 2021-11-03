@@ -1,8 +1,8 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/web-entry.ts',
+  entry: './src/index.ts',
   cache: false,
   module: {
     rules: [
@@ -17,15 +17,17 @@ module.exports = {
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin({ template: './index.html' })],
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
+  plugins: [new CleanWebpackPlugin()],
   output: {
-    filename: 'main.[chunkhash].js',
+    filename: 'guidance.js',
     path: path.resolve(__dirname, 'dist'),
-  },
-  devServer: {
-    hot: false,
+    library: {
+      name: 'Guide',
+      type: 'umd',
+      export: 'default',
+    },
   },
 };

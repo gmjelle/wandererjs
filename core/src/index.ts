@@ -4,6 +4,7 @@ import EventManager from './lib/EventManager';
 
 import { processStep } from './runner/runner';
 import { GuideOptions, Step, TooltipStep } from './types';
+
 class Guide {
   steps: Step[] | TooltipStep[];
   currentIndex: number;
