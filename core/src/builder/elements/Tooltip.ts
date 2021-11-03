@@ -16,10 +16,10 @@ class Tooltip extends TemplateComponent {
     this.container.id = 'tooltip';
     this.step = step;
     this.popperMap = {
-      bottom: Side.BOTTOM,
-      top: Side.TOP,
-      left: Side.LEFT,
-      right: Side.RIGHT,
+      bottom: 'BOTTOM',
+      top: 'TOP',
+      left: 'LEFT',
+      right: 'RIGHT',
     };
     this.setup();
   }
@@ -35,10 +35,10 @@ class Tooltip extends TemplateComponent {
 
   setupProgress() {
     switch (this.step.progressOn) {
-      case ProgressType.ELEMENT:
+      case 'ELEMENT':
         return this.setupProgressForElement();
 
-      case ProgressType.BUTTON:
+      case 'BUTTON':
         return this.setupProgressForButton();
     }
   }

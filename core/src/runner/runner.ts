@@ -33,7 +33,7 @@ function processTooltipStep(step: TooltipStep) {
 
 export function processStep(currentStep: Step) {
   switch (currentStep.type) {
-    case StepType.TOOLTIP:
+    case 'TOOLTIP':
       return processTooltipStep(currentStep as TooltipStep);
   }
 }

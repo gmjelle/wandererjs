@@ -1,4 +1,4 @@
-import { HighlightType, ProgressType, TooltipStep } from '../types';
+import { ProgressType, TooltipStep } from '../types';
 import Tooltip from './elements/tooltip';
 import EventManager from '../lib/EventManager';
 import { container } from 'tsyringe';
@@ -26,9 +26,9 @@ function onNext(tooltipElement: Tooltip) {
 
 function showBackdropForStep(step: TooltipStep) {
   switch (step.highlightType) {
-    case HighlightType.SOFT:
+    case 'SOFT':
       return container.resolve(SoftBackdrop).show(step.element as Element);
-    case HighlightType.HARD:
+    case 'HARD':
       return container.resolve(HardBackdrop).show(step.element as Element);
   }
 }

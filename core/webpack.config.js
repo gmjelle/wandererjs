@@ -2,7 +2,10 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.ts',
+  entry: {
+    'guidance-core': './src/index.ts',
+  },
+  target: 'web',
   cache: false,
   module: {
     rules: [
@@ -20,14 +23,14 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
+  devtool: 'source-map',
   plugins: [new CleanWebpackPlugin()],
   output: {
-    filename: 'guidance.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
-    library: {
-      name: 'Guide',
-      type: 'umd',
-      export: 'default',
-    },
+    library: 'Guidance',
+    libraryTarget: 'umd',
+    globalObject: 'this',
+    umdNamedDefine: true,
   },
 };

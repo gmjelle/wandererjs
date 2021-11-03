@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "guidance-core1": "file:../core/dist"
+    "guidance-core": "^1.0.12"
   }
 }
