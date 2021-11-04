@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "parcel index.html"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "guidance-core": "^1.0.12"
+    "parcel": "^2.0.0"
   }
 }

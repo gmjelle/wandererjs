@@ -3,3 +3,4 @@ dist
 lib
 lib-esm
 _bundles
+.parcel-cache
