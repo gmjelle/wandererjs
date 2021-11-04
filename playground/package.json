@@ -2,7 +2,6 @@
   "name": "playground",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "dev": "parcel index.html --no-cache --no-hmr"
   },
@@ -11,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "guidance-core": "file:../core",
-    "parcel": "^2.0.0"
+    "parcel-bundler": "^1.12.5"
   }
 }

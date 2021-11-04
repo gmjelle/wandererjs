@@ -28,9 +28,9 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
-    library: 'Guidance',
-    libraryTarget: 'umd',
-    globalObject: 'this',
-    umdNamedDefine: true,
+    library: {
+      name: 'Guidance',
+      type: 'umd',
+    },
   },
 };

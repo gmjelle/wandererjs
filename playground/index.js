@@ -1,4 +1,6 @@
+// import Guide from ".";
 import Guide from "guidance-core";
+
 const g = new Guide([
   {
     element: "#step-1",

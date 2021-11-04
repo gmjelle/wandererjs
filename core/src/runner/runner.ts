@@ -58,7 +58,6 @@ function validateStep({
 
 export function processStep(currentStep: Step) {
   const validatedStep: Step = validateStep(currentStep);
-  console.log(validatedStep);
   switch (validatedStep.type) {
     case 'TOOLTIP':
       return processTooltipStep(validatedStep as TooltipStep);
