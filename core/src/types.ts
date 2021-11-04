@@ -9,7 +9,7 @@ export type TooltipStep = {
   highlightType?: HighlightType;
   progressOn?: ProgressType;
   element?: string | Element | null;
-  headerText: string;
+  headerText?: string;
   bodyText: string;
 };
 

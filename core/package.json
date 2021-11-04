@@ -6,6 +6,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "npm run clean && webpack --mode production",
+    "dev": "npm run clean && webpack watch --mode production",
     "prepublishOnly": "npm run patch && npm run build",
     "clean": "rm -rf dist",
     "patch": "npm version patch",

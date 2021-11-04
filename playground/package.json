@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel index.html"
+    "dev": "parcel index.html --no-cache --no-hmr"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "guidance-core": "file:../core",
     "parcel": "^2.0.0"
   }
 }
