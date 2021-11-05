@@ -44,6 +44,7 @@
     "reflect-metadata": "^0.1.13",
     "scroll-to-element": "^2.0.3",
     "tsyringe": "^4.6.0",
+    "vue": "^3.2.21",
     "webpack": "^5.61.0"
   }
 }
