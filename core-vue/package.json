@@ -6,6 +6,8 @@
     "dev": "webpack watch --mode development"
   },
   "dependencies": {
+    "@popperjs/core": "^2.10.2",
+    "postcss-import": "^14.0.2",
     "ts-loader": "^9.2.6",
     "vue": "^3.2.21",
     "webpack": "^5.61.0",

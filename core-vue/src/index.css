@@ -2,6 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-.container {
-  background-color: "red";
+#tooltip[data-popper-placement^="top"] > #arrow::before {
+  @apply gdx-border-r gdx-border-b;
+}
+
+#tooltip[data-popper-placement^="bottom"] > #arrow::before {
+  @apply gdx-border-l gdx-border-t;
+}
+
+#tooltip[data-popper-placement^="left"] > #arrow::before {
+  @apply gdx-border-t gdx-border-r;
+}
+
+#tooltip[data-popper-placement^="right"] > #arrow::before {
+  @apply gdx-border-b gdx-border-l;
+}
+
+/*  */
+
+#tooltip[data-popper-placement^="top"] > #arrow {
+  bottom: -10px;
+}
+
+#tooltip[data-popper-placement^="bottom"] > #arrow {
+  top: -10px;
+}
+
+#tooltip[data-popper-placement^="left"] > #arrow {
+  right: -10px;
+}
+
+#tooltip[data-popper-placement^="right"] > #arrow {
+  left: -10px;
+}
+
+#arrow,
+#arrow::before {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  z-index: -1;
+}
+
+#arrow::before {
+  content: "";
+  transform: rotate(45deg);
+  background: white;
+}
+
+.soft-highlight-shadow {
+  box-shadow: inset 0px 0px 8px 4px rgb(0 0 0 / 15%),
+    0px 0px 10000px 10000px rgb(0 0 0 / 15%);
+}
+
+.hard-highlight-shadow {
+  box-shadow: 0px 0px 10000px 10000px rgb(0 0 0 / 15%);
 }

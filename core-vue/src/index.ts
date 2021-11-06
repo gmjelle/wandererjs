@@ -5,6 +5,7 @@ import "./index.css";
 
 const root = document.createElement("div");
 root.id = "main";
+root.className = "guidance";
 document.body.appendChild(root);
 const DEFAULT_PROGRESS_ON: ProgressType = "BUTTON";
 const DEFAULT_TYPE: StepType = "TOOLTIP";
