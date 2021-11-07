@@ -7,6 +7,7 @@ const root = document.createElement("div");
 root.id = "main";
 root.className = "guidance";
 document.body.appendChild(root);
+
 const DEFAULT_PROGRESS_ON: ProgressType = "BUTTON";
 const DEFAULT_TYPE: StepType = "TOOLTIP";
 const DEFAULT_HIGHLIGHT_TYPE: HighlightType = "NONE";
@@ -45,12 +46,30 @@ function validateSteps(steps: Step[]) {
   return steps.map((step) => validateStep(step));
 }
 
+interface AppExport {
+  next: () => {};
+  back: () => {};
+}
+
 export default class Guide {
   steps: any;
+  app: null | AppExport;
   constructor(steps: Step[]) {
     this.steps = validateSteps(steps);
+    this.app = null;
   }
   start() {
-    createApp(App, { steps: this.steps }).mount("#main");
+    // @ts-ignore
+    this.app = createApp(App, { steps: this.steps }).mount(
+      "#main"
+    ) as AppExport;
+  }
+
+  next() {
+    this.app?.next();
+  }
+
+  back() {
+    this.app?.back();
   }
 }

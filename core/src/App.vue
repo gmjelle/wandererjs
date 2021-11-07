@@ -12,7 +12,7 @@
   <component
     :is="type"
     :step="currentStep"
-    @NEXT_STEP="goToNextStep"
+    @NEXT_STEP="next"
     v-if="!isDone"
   ></component>
 </template>
@@ -56,8 +56,15 @@ function onDone() {
   isDone.value = true;
 }
 
-function goToNextStep() {
+function next() {
   if (currentIndex.value + 1 >= props.steps.length) return onDone();
   currentIndex.value++;
 }
+
+function back() {
+  if (currentIndex.value === 0) return;
+  currentIndex.value--;
+}
+
+defineExpose({ next, back });
 </script>

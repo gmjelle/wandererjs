@@ -1,8 +1,9 @@
 import Guide from "@guidance/core";
 const guide = new Guide([
   {
-    headerText: "Header",
-    bodyText: "Body",
+    headerText: "Favorites button",
+    bodyText:
+      "Click here to add this picture to your favorites. And some more text to make it long",
     element: "#element",
     progressOn: "ELEMENT",
     highlightType: "HARD",

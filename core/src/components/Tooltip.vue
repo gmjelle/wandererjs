@@ -11,6 +11,7 @@
       gdx-z-50
       gdx-px-5
       gdx-py-2
+      gdx-max-w-sm
     "
   >
     <div ref="arrow" id="arrow"></div>
