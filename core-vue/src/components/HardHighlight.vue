@@ -11,10 +11,33 @@
       gdx-z-20
     "
   >
-    BlaBla
+    <div ref="gradientElement" class="gdx-absolute hard-highlight-shadow"></div>
   </div>
 </template>
 
 <script setup lang="ts">
-defineProps<{ target: Element }>();
+import { onUpdated, onMounted } from "@vue/runtime-core";
+import { ref } from "@vue/reactivity";
+import { matchBounds } from "../utils/utils.ts";
+
+const props = defineProps<{ target: Element }>();
+const gradientElement = ref<HTMLElement | null>(null);
+
+function showForElement() {
+  queueMicrotask(() => {
+    matchBounds(
+      props.target as HTMLElement,
+      gradientElement.value as HTMLElement,
+      0
+    );
+  });
+}
+
+onMounted(() => {
+  showForElement();
+});
+
+onUpdated(() => {
+  showForElement();
+});
 </script>
