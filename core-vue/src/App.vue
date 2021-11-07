@@ -4,6 +4,11 @@
     :target="currentTarget"
   />
 
+  <SoftHighlight
+    v-if="!isDone && highlightType === 'SOFT'"
+    :target="currentTarget"
+  />
+
   <component
     :is="type"
     :step="currentStep"
@@ -17,6 +22,7 @@ import { computed, ref } from "@vue/reactivity";
 import tooltip from "./components/Tooltip.vue";
 import { Step } from "./types";
 import HardHighlight from "./components/HardHightlight.vue";
+import SoftHighlight from "./components/SoftHighlight.vue";
 
 const props = defineProps<{ steps: Step[] }>();
 const currentIndex = ref(0);

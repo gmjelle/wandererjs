@@ -18,7 +18,10 @@
       <div class="gdx-text-2xl">{{ step.headerText }}</div>
       <div class="">{{ step.bodyText }}</div>
     </div>
-    <div v-if="shouldShowButton" class="gdx-flex gdx-justify-between gdx-mt-2">
+    <div
+      v-if="progressType === 'BUTTON'"
+      class="gdx-flex gdx-justify-between gdx-mt-2"
+    >
       <div></div>
       <div
         class="
@@ -73,9 +76,12 @@ watch(targetElement, () => {
   performSetup();
 });
 
-const shouldShowButton = props.step.progressOn === "BUTTON";
+const progressType = computed(() => {
+  return props.step.progressOn;
+});
 
 function setupProgress() {
+  if (progressType.value === "BUTTON") return;
   targetElement.value?.addEventListener(
     "click",
     () => {

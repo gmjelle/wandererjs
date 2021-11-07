@@ -5,13 +5,17 @@ export function matchBounds(
 ) {
   const fromRect = fromElement.getBoundingClientRect();
 
-  const scrollY = window.scrollY;
-  const scrollX = window.scrollX;
+  const { scrollX, scrollY } = window;
 
-  toElement.style.width = `${fromRect.width + padding}px`;
-  toElement.style.height = `${fromRect.height + padding}px`;
-  toElement.style.top = `${fromRect.top + scrollY + padding}px`;
-  toElement.style.left = `${fromRect.left + scrollX + padding}px`;
+  const top = fromRect.top + scrollY - padding / 2;
+  const left = fromRect.left + scrollX - padding / 2;
+  const width = fromRect.width + padding;
+  const height = fromRect.height + padding;
+
+  toElement.style.width = `${width}px`;
+  toElement.style.height = `${height}px`;
+  toElement.style.top = `${top}px`;
+  toElement.style.left = `${left}px`;
 }
 
 export function isElementInViewport(element: Element) {

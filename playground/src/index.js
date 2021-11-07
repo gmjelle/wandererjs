@@ -13,6 +13,7 @@ const g = new Guide([
     bodyText: "Body",
     element: "#element2",
     progressOn: "BUTTON",
+    highlightType: "SOFT",
   },
   {
     headerText: "Header",
