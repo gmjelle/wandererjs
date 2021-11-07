@@ -1,8 +1,8 @@
-export type StepType = 'TOOLTIP' | 'MODAL';
-export type HighlightType = 'HARD' | 'SOFT' | 'NONE';
-export type ProgressType = 'ELEMENT' | 'BUTTON';
-export type Side = 'RIGHT' | 'LEFT' | 'TOP' | 'BOTTOM';
-export type Direction = 'RIGHT' | 'LEFT' | 'UP' | 'DOWN';
+export type StepType = "TOOLTIP" | "MODAL";
+export type HighlightType = "HARD" | "SOFT" | "NONE";
+export type ProgressType = "ELEMENT" | "BUTTON";
+export type Side = "RIGHT" | "LEFT" | "TOP" | "BOTTOM";
+export type Direction = "RIGHT" | "LEFT" | "UP" | "DOWN";
 
 export type TooltipStep = {
   type: StepType;

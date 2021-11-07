@@ -1,6 +1,5 @@
-import Guide from "guidance-core-vue";
-
-const g = new Guide([
+import Guide from "@guidance/core";
+const guide = new Guide([
   {
     headerText: "Header",
     bodyText: "Body",
@@ -24,5 +23,5 @@ const g = new Guide([
 ]);
 
 setTimeout(() => {
-  g.start();
+  guide.start();
 }, 1000);

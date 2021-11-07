@@ -1,22 +1,14 @@
 {
   "compilerOptions": {
-    "typeRoots": ["@types", "./node_modules/@types"],
-    "lib": ["es2015", "dom"],
+    "lib": ["esnext", "dom"],
+    "target": "esnext",
+    "module": "esnext",
     "outDir": "dist",
-    "esModuleInterop": true,
-    "noImplicitAny": true,
-    "module": "es6",
-    "target": "es5",
-    "allowJs": true,
-    "declaration": true,
     "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "allowSyntheticDefaultImports": true,
-    "isolatedModules": true,
-    "sourceMap": false,
-    "baseUrl": "./"
-  },
-  "include": ["src/**/*"],
-  "exclude": ["test/**/*"]
+    "declaration": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "sourceMap": true,
+    "resolveJsonModule": true
+  }
 }

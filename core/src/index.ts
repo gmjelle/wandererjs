@@ -1,48 +1,56 @@
-import './css/index.css';
-import 'reflect-metadata';
-import EventManager from './lib/EventManager';
+import { createApp } from "vue";
+import App from "./App.vue";
+import { HighlightType, ProgressType, Step, StepType } from "./types";
+import "./index.css";
 
-import { processStep } from './runner/runner';
-import { GuideOptions, Step, TooltipStep } from './types';
+const root = document.createElement("div");
+root.id = "main";
+root.className = "guidance";
+document.body.appendChild(root);
+const DEFAULT_PROGRESS_ON: ProgressType = "BUTTON";
+const DEFAULT_TYPE: StepType = "TOOLTIP";
+const DEFAULT_HIGHLIGHT_TYPE: HighlightType = "NONE";
 
-class Guide {
-  steps: Step[] | TooltipStep[];
-  currentIndex: number;
-  onNext: (step: Step) => void;
-  onDone: () => void;
-
-  /* tslint:disable:no-empty */
-  constructor(steps: Step[], options: GuideOptions = { onNext: () => {}, onDone: () => {} }) {
-    this.steps = steps;
-    this.currentIndex = 0;
-    this.onNext = options.onNext;
-    this.onDone = options.onDone;
-  }
-  start() {
-    const currentStep = this.steps[this.currentIndex];
-    if (!currentStep) return;
-    this.run(currentStep);
-  }
-
-  run(step: Step) {
-    EventManager.once('nextStep.tooltipBuilder', () => {
-      this.next();
-    });
-    processStep(step);
+function validateStep({
+  element,
+  type = DEFAULT_TYPE,
+  progressOn = DEFAULT_PROGRESS_ON,
+  highlightType = DEFAULT_HIGHLIGHT_TYPE,
+  headerText = "",
+  bodyText = "",
+}: Step): Step {
+  if (!element) {
+    throw new Error('Missing property "element"');
   }
 
-  // skipTo(index: number) {}
-  next() {
-    this.currentIndex++;
-    const currentStep = this.steps[this.currentIndex];
-    if (!currentStep) {
-      return this.onDone();
-    }
-    this.onNext(currentStep);
-    this.run(currentStep);
+  if (!headerText && !bodyText) {
+    console.warn(
+      `The ${type} will not have any text because you didn't set the headerText or bodyText properties`
+    );
   }
-  // back() {}
-  // stop() {}
+
+  const cloned: Step = {
+    element,
+    type,
+    progressOn,
+    highlightType,
+    headerText,
+    bodyText,
+  };
+
+  return cloned;
 }
 
-export default Guide;
+function validateSteps(steps: Step[]) {
+  return steps.map((step) => validateStep(step));
+}
+
+export default class Guide {
+  steps: any;
+  constructor(steps: Step[]) {
+    this.steps = validateSteps(steps);
+  }
+  start() {
+    createApp(App, { steps: this.steps }).mount("#main");
+  }
+}

@@ -1,36 +1,45 @@
-const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { VueLoaderPlugin } = require("vue-loader");
+const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
-  entry: {
-    'guidance-core': './src/index.ts',
+  entry: "./src/index.ts",
+  output: {
+    filename: "[name].js",
+    path: path.resolve(__dirname, "dist"),
+    library: {
+      name: "Guidance",
+      type: "umd",
+    },
   },
-  target: 'web',
-  cache: false,
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        loader: "ts-loader",
+        options: {
+          appendTsSuffixTo: [/\.vue$/],
+        },
         exclude: /node_modules/,
       },
       {
+        test: /\.vue$/,
+        loader: "vue-loader",
+      },
+      {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
+        use: ["style-loader", "css-loader", "postcss-loader"],
       },
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: [".ts", ".tsx", ".js"],
   },
-  devtool: 'source-map',
-  plugins: [new CleanWebpackPlugin()],
-  output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, 'dist'),
-    library: {
-      name: 'Guidance',
-      type: 'umd',
-    },
-  },
+  plugins: [
+    new VueLoaderPlugin(),
+    new webpack.DefinePlugin({
+      __VUE_OPTIONS_API__: true,
+      __VUE_PROD_DEVTOOLS__: true,
+    }),
+  ],
 };

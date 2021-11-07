@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "guidance-core-vue": "file:../core-vue",
+    "@guidance/core": "file:../core",
     "html-webpack-plugin": "^5.5.0",
     "webpack": "^5.61.0",
     "webpack-cli": "^4.9.1",
