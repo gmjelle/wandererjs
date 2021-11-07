@@ -1,6 +1,6 @@
 import Guide from "guidance-core-vue";
 
-new Guide([
+const g = new Guide([
   {
     headerText: "Header",
     bodyText: "Body",
@@ -14,4 +14,15 @@ new Guide([
     element: "#element2",
     progressOn: "BUTTON",
   },
-]).start();
+  {
+    headerText: "Header",
+    bodyText: "Body",
+    element: "#element3",
+    progressOn: "ELEMENT",
+    highlightType: "HARD",
+  },
+]);
+
+setTimeout(() => {
+  g.start();
+}, 1000);

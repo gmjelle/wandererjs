@@ -4,15 +4,14 @@ export function matchBounds(
   padding: number = 0
 ) {
   const fromRect = fromElement.getBoundingClientRect();
-  const toRect = toElement.getBoundingClientRect();
 
-  const top = fromRect.top - toRect.top - padding / 2;
-  const left = fromRect.left - toRect.left - padding / 2;
+  const scrollY = window.scrollY;
+  const scrollX = window.scrollX;
 
   toElement.style.width = `${fromRect.width + padding}px`;
   toElement.style.height = `${fromRect.height + padding}px`;
-  toElement.style.top = `${top}px`;
-  toElement.style.left = `${left}px`;
+  toElement.style.top = `${fromRect.top + scrollY + padding}px`;
+  toElement.style.left = `${fromRect.left + scrollX + padding}px`;
 }
 
 export function isElementInViewport(element: Element) {

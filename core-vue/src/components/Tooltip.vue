@@ -39,29 +39,50 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, watch } from "@vue/runtime-core";
+import { onBeforeUnmount, onMounted, watch } from "@vue/runtime-core";
 import { Step } from "../types";
 import { computed, ref } from "@vue/reactivity";
 import { createPopper, Instance } from "@popperjs/core";
+import { NEXT_STEP } from "../events";
+import { isElementInViewport } from "../utils/utils";
 
 const props = defineProps<{ step: Step }>();
 
+const emit = defineEmits([NEXT_STEP]);
 let popper: Instance | null = null;
 
-const targetElement = computed(() => {
-  return props.step.element;
+const targetElement = computed((): Element => {
+  return props.step.element as Element;
 });
 const container = ref<HTMLElement | null>(null);
 const arrow = ref<HTMLElement | null>(null);
 
-watch(targetElement, (value) => {
+function performSetup() {
+  scrollToElementIfNecessary();
   setupPopper();
+  setupProgress();
+}
+
+function scrollToElementIfNecessary() {
+  const isVisible = isElementInViewport(targetElement.value);
+  if (isVisible) return;
+  targetElement.value.scrollIntoView(true);
+}
+
+watch(targetElement, () => {
+  performSetup();
 });
 
 const shouldShowButton = props.step.progressOn === "BUTTON";
 
-function goToNextStep() {
-  console.log("Next Step");
+function setupProgress() {
+  targetElement.value?.addEventListener(
+    "click",
+    () => {
+      goToNextStep();
+    },
+    { once: true }
+  );
 }
 
 function setupPopper() {
@@ -79,8 +100,16 @@ function setupPopper() {
   );
 }
 
+function goToNextStep() {
+  emit(NEXT_STEP);
+}
+
 onMounted(() => {
-  setupPopper();
+  performSetup();
+});
+
+onBeforeUnmount(() => {
+  popper?.destroy();
 });
 </script>
 

@@ -8,18 +8,39 @@
   </head>
   <body>
     <style>
+      /* body {
+        overflow: hidden;
+      } */
+
+      /* #element-container {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        overflow: scroll;
+      } */
+
       #element {
         display: inline-block;
-        margin-top: 150px;
+        margin-top: 250px;
       }
 
       #element2 {
         display: inline-block;
-        margin-top: 150px;
+        position: relative;
+        top: 500px;
+        margin-left: 150px;
+      }
+
+      #element3 {
+        display: inline-block;
+        position: relative;
+        top: 1000px;
         margin-left: 150px;
       }
     </style>
     <div id="element">Step 1</div>
     <div id="element2">Step 2</div>
+    <div id="element3">Step 3</div>
+    <div id="element-container"></div>
   </body>
 </html>
