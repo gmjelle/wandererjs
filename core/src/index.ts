@@ -52,7 +52,7 @@ interface AppExport {
 }
 
 export default class Guide {
-  steps: any;
+  steps: Step[];
   app: null | AppExport;
   constructor(steps: Step[]) {
     this.steps = validateSteps(steps);
