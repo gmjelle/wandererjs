@@ -3,7 +3,8 @@
   "types": "./dist/index.d.ts",
   "name": "@guidance/core",
   "scripts": {
-    "dev": "webpack watch --mode development"
+    "dev": "webpack watch --mode development",
+    "test": "jest"
   },
   "dependencies": {
     "@popperjs/core": "^2.10.2",
