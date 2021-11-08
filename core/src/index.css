@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --arrow-color: #fff;
+}
+
 #tooltip[data-popper-placement^="top"] > #arrow::before {
   @apply gdx-border-r gdx-border-b;
 }
@@ -47,7 +51,8 @@
 #arrow::before {
   content: "";
   transform: rotate(45deg);
-  background: white;
+  background: var(--arrow-color);
+  border-color: var(--arrow-color);
 }
 
 .soft-highlight-shadow {

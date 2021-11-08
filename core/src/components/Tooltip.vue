@@ -2,12 +2,11 @@
   <div
     ref="container"
     id="tooltip"
+    :style="styles.container"
     class="
       gdx-absolute
-      gdx-border
       gdx-shadow-lg
       gdx-rounded
-      gdx-bg-white
       gdx-z-50
       gdx-px-5
       gdx-py-2
@@ -16,8 +15,10 @@
   >
     <div ref="arrow" id="arrow"></div>
     <div class="gdx-flex gdx-flex-col">
-      <div class="gdx-text-2xl">{{ step.headerText }}</div>
-      <div class="">{{ step.bodyText }}</div>
+      <div class="gdx-text-2xl" :style="styles.header">
+        {{ step.headerText }}
+      </div>
+      <div class="" :style="styles.body">{{ step.bodyText }}</div>
     </div>
     <div
       v-if="progressType === 'BUTTON'"
@@ -44,13 +45,14 @@
 
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, watch } from "@vue/runtime-core";
-import { Step } from "../types";
+import { Step, Theme } from "../types";
 import { computed, ref } from "@vue/reactivity";
 import { createPopper, Instance } from "@popperjs/core";
 import { NEXT_STEP } from "../events";
 import { isElementInViewport } from "../utils/utils";
+import { parseTheme } from "../utils/theme";
 
-const props = defineProps<{ step: Step }>();
+const props = defineProps<{ step: Step; theme: Theme }>();
 
 const emit = defineEmits([NEXT_STEP]);
 let popper: Instance | null = null;
@@ -76,6 +78,42 @@ function scrollToElementIfNecessary() {
 watch(targetElement, () => {
   performSetup();
 });
+
+const styles = computed(() => {
+  let {
+    backgroundColor,
+    headerTextColor,
+    bodyTextColor,
+    fontFamily,
+    headerSize,
+    bodySize,
+    textColor,
+  } = parseTheme(props.theme);
+
+  const container = {
+    backgroundColor,
+    fontFamily,
+  };
+
+  const header = {
+    fontSize: headerSize,
+    color: headerTextColor,
+  };
+
+  const body = {
+    fontSize: bodySize,
+    color: bodyTextColor,
+  };
+
+  return {
+    header,
+    body,
+    container,
+  };
+});
+
+const root = document.documentElement;
+root.style.setProperty("--arrow-color", props.theme.backgroundColor);
 
 const progressType = computed(() => {
   return props.step.progressOn;

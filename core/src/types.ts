@@ -15,6 +15,21 @@ export type TooltipStep = {
 
 export type Step = TooltipStep;
 
+type TextStylingOptions = {
+  headerTextColor: string;
+  bodyTextColor: string;
+};
+
+export type Theme = {
+  backgroundColor: string;
+  textColor?: string;
+  headerTextColor?: string;
+  bodyTextColor?: string;
+  fontFamily: string;
+  headerSize: string;
+  bodySize: string;
+};
+
 export type GuideOptions = {
   onNext?: (step: Step) => void;
   onDone?: () => void;

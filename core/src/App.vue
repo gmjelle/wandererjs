@@ -12,6 +12,7 @@
   <component
     :is="type"
     :step="currentStep"
+    :theme="theme"
     @NEXT_STEP="next"
     v-if="!isDone"
   ></component>
@@ -19,12 +20,12 @@
 
 <script setup lang="ts">
 import { computed, ref } from "@vue/reactivity";
-import tooltip from "./components/Tooltip.vue";
-import { Step } from "./types";
+import Tooltip from "./components/Tooltip.vue";
+import { Step, Theme } from "./types";
 import HardHighlight from "./components/HardHightlight.vue";
 import SoftHighlight from "./components/SoftHighlight.vue";
 
-const props = defineProps<{ steps: Step[] }>();
+const props = defineProps<{ steps: Step[]; theme: Theme }>();
 const currentIndex = ref(0);
 const isDone = ref(false);
 
@@ -47,9 +48,13 @@ const highlightType = computed(() => {
 });
 
 let type = computed(() => {
-  return currentStep.value?.type.toLowerCase() === "tooltip"
-    ? tooltip
-    : tooltip;
+  switch (currentStep.value?.type.toLowerCase()) {
+    case "tooltip":
+      return Tooltip;
+
+    default:
+      return Tooltip;
+  }
 });
 
 function onDone() {
