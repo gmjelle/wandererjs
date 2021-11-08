@@ -26,15 +26,8 @@
     >
       <div></div>
       <div
-        class="
-          gdx-px-3
-          gdx-py-1
-          gdx-bg-blue-500
-          gdx-text-white
-          gdx-text-xs
-          gdx-rounded
-          gdx-cursor-pointer
-        "
+        class="gdx-px-3 gdx-py-1 gdx-text-xs gdx-rounded gdx-cursor-pointer"
+        :style="styles.button"
         @click="goToNextStep"
       >
         Next
@@ -88,6 +81,8 @@ const styles = computed(() => {
     headerSize,
     bodySize,
     textColor,
+    buttonColor,
+    buttonTextColor,
   } = parseTheme(props.theme);
 
   const container = {
@@ -105,10 +100,16 @@ const styles = computed(() => {
     color: bodyTextColor,
   };
 
+  const button = {
+    color: buttonTextColor,
+    backgroundColor: buttonColor,
+  };
+
   return {
     header,
     body,
     container,
+    button,
   };
 });
 

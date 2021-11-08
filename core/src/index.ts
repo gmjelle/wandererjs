@@ -57,6 +57,8 @@ const DEFAULT_THEME: Theme = {
   fontFamily: "sans-serif",
   headerSize: "24px",
   bodySize: "16px",
+  buttonColor: "#3B82F6",
+  buttonTextColor: "#FFF",
 };
 
 export default class Guide {

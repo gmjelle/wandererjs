@@ -28,6 +28,8 @@ export type Theme = {
   fontFamily: string;
   headerSize: string;
   bodySize: string;
+  buttonColor?: string;
+  buttonTextColor?: string;
 };
 
 export type GuideOptions = {
