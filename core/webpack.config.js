@@ -10,6 +10,7 @@ module.exports = {
     library: {
       name: "Guidance",
       type: "umd",
+      export: "default",
     },
   },
   module: {

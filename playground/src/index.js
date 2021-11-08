@@ -1,5 +1,5 @@
-import Guide from "@guidance/core";
-const guide = new Guide(
+import Guidance from "@guidance/core";
+const guide = new Guidance(
   [
     {
       headerText: "Add to cart button",
