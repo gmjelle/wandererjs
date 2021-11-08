@@ -10,8 +10,8 @@ const guide = new Guide(
       highlightType: "HARD",
     },
     {
-      headerText: "Header",
-      bodyText: "Body",
+      headerText: "Another header",
+      bodyText: "Body text goes here",
       element: "#element2",
       progressOn: "BUTTON",
     },
@@ -24,7 +24,7 @@ const guide = new Guide(
     },
   ],
   {
-    backgroundColor: "#FFF",
+    preset: "DARK",
   }
 );
 

@@ -15,12 +15,10 @@ export type TooltipStep = {
 
 export type Step = TooltipStep;
 
-type TextStylingOptions = {
-  headerTextColor: string;
-  bodyTextColor: string;
-};
+export type ThemePreset = "LIGHT" | "DARK";
 
 export type Theme = {
+  preset?: ThemePreset;
   backgroundColor: string;
   textColor?: string;
   headerTextColor?: string;
@@ -30,6 +28,10 @@ export type Theme = {
   bodySize: string;
   buttonColor?: string;
   buttonTextColor?: string;
+};
+
+export type Options = {
+  showCloseButton: boolean;
 };
 
 export type GuideOptions = {

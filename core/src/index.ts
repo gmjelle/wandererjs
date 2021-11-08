@@ -1,7 +1,15 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import { HighlightType, ProgressType, Step, StepType, Theme } from "./types";
+import {
+  HighlightType,
+  Options,
+  ProgressType,
+  Step,
+  StepType,
+  Theme,
+} from "./types";
 import "./index.css";
+import themePresets from "./themePresets";
 
 const root = document.createElement("div");
 root.id = "main";
@@ -51,25 +59,22 @@ interface AppExport {
   back: () => {};
 }
 
-const DEFAULT_THEME: Theme = {
-  backgroundColor: "#FFF",
-  textColor: "#000",
-  fontFamily: "sans-serif",
-  headerSize: "24px",
-  bodySize: "16px",
-  buttonColor: "#3B82F6",
-  buttonTextColor: "#FFF",
-};
-
 export default class Guide {
   steps: Step[];
   app: null | AppExport;
   theme: Theme;
-  constructor(steps: Step[], theme: Theme = DEFAULT_THEME) {
+  options: Options;
+  constructor(
+    steps: Step[],
+    theme: Theme = themePresets.LIGHT,
+    options: Options
+  ) {
     this.steps = validateSteps(steps);
-    this.theme = { ...DEFAULT_THEME, ...theme };
+    this.theme = { ...themePresets[theme.preset || "LIGHT"], ...theme };
+    this.options = options;
     this.app = null;
   }
+
   start() {
     // @ts-ignore
     this.app = createApp(App, { steps: this.steps, theme: this.theme }).mount(
