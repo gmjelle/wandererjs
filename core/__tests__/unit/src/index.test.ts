@@ -1,5 +1,5 @@
-import Guide from "../../src";
-import { steps, theme } from "./data/data";
+import Guide from "../../../src";
+import { steps, theme } from "../data/data";
 
 describe("index.ts", () => {
   beforeAll(() => {

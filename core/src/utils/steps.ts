@@ -1,10 +1,11 @@
 import { HighlightType, ProgressType, Step, StepType } from "../types";
+import { warn } from "./logger";
 
-const DEFAULT_PROGRESS_ON: ProgressType = "BUTTON";
-const DEFAULT_TYPE: StepType = "TOOLTIP";
-const DEFAULT_HIGHLIGHT_TYPE: HighlightType = "NONE";
+export const DEFAULT_PROGRESS_ON: ProgressType = "BUTTON";
+export const DEFAULT_TYPE: StepType = "TOOLTIP";
+export const DEFAULT_HIGHLIGHT_TYPE: HighlightType = "NONE";
 
-function validateStep({
+export function validateStep({
   element,
   type = DEFAULT_TYPE,
   progressOn = DEFAULT_PROGRESS_ON,
@@ -17,7 +18,7 @@ function validateStep({
   }
 
   if (!headerText && !bodyText) {
-    console.warn(
+    warn(
       `The ${type} will not have any text because you didn't set the headerText or bodyText properties`
     );
   }
