@@ -1,5 +1,5 @@
 import { Step } from "../../../../src/types";
-import { validateStep } from "../../../../src/utils/steps";
+import validateSteps, { validateStep } from "../../../../src/utils/steps";
 
 describe("steps.ts", () => {
   describe("validateStep", () => {
@@ -45,5 +45,48 @@ describe("steps.ts", () => {
       consoleWarnMock.mockRestore();
     });
   });
-  describe("validateSteps", () => {});
+  describe("validateSteps", () => {
+    it("should return the input array if no properties are missing", () => {
+      const step: Step = {
+        element: "#element",
+        type: "TOOLTIP",
+        progressOn: "ELEMENT",
+        highlightType: "NONE",
+        headerText: "Header",
+        bodyText: "",
+      };
+
+      const steps: Step[] = [step, step];
+
+      const validatedSteps = validateSteps(steps);
+
+      expect(validatedSteps).toEqual(steps);
+    });
+
+    it("should add missing properties to all steps", () => {
+      const consoleWarnMock = jest.spyOn(console, "warn").mockImplementation();
+
+      const step: Step = {
+        element: "#element",
+      };
+
+      const steps: Step[] = [step, step];
+
+      const validated = {
+        element: "#element",
+        type: "TOOLTIP",
+        progressOn: "BUTTON",
+        highlightType: "NONE",
+        headerText: "",
+        bodyText: "",
+      };
+
+      const validatedSteps = validateSteps(steps);
+
+      expect(consoleWarnMock).toHaveBeenCalled();
+      expect(validatedSteps).toEqual([validated, validated]);
+
+      consoleWarnMock.mockRestore();
+    });
+  });
 });

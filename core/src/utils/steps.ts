@@ -35,6 +35,6 @@ export function validateStep({
   return cloned;
 }
 
-export default function validateSteps(steps: Step[]) {
+export default function validateSteps(steps: Step[] = []) {
   return steps.map((step) => validateStep(step));
 }
