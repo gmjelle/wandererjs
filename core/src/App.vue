@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "@vue/reactivity";
+import { computed, ref } from "vue";
 import Tooltip from "./components/Tooltip.vue";
 import { Step, Theme } from "./types";
 import HardHighlight from "./components/HardHightlight.vue";
@@ -39,7 +39,7 @@ const currentStep = computed(() => {
 });
 
 const currentTarget = computed(() => {
-  return currentStep.value.element as Element;
+  return currentStep.value.element as HTMLElement;
 });
 
 const highlightType = computed(() => {

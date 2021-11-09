@@ -37,9 +37,8 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, watch } from "@vue/runtime-core";
+import { onBeforeUnmount, onMounted, watch, computed, ref } from "vue";
 import { Step, Theme } from "../types";
-import { computed, ref } from "@vue/reactivity";
 import { createPopper, Instance } from "@popperjs/core";
 import { NEXT_STEP } from "../events";
 import { isElementInViewport } from "../utils/utils";

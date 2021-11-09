@@ -1,10 +1,14 @@
 {
-  "main": "./dist/main.js",
+  "main": "./dist/index.js",
   "types": "./dist/src/index.d.ts",
   "name": "guide.js",
+  "version": "0.0.0",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack watch",
-    "build": "cross-env NODE_ENV=production webpack",
+    "build": "cross-env NODE_ENV=production webpack --env production",
     "test": "jest",
     "lint": "eslint --ext js,vue,ts"
   },
@@ -23,8 +27,6 @@
     "@typescript-eslint/eslint-plugin": "^5.3.1",
     "@typescript-eslint/parser": "^5.3.1",
     "@vue/compiler-sfc": "^3.2.21",
-    "@vue/test-utils": "^2.0.0-rc.16",
-    "@vue/vue3-jest": "^27.0.0-alpha.3",
     "autoprefixer": "^10.4.0",
     "babel-jest": "^27.3.1",
     "css-loader": "^6.5.1",

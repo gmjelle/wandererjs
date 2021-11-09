@@ -1,41 +1,42 @@
-const { VueLoaderPlugin } = require("vue-loader");
-const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const path = require("path");
-const webpack = require("webpack");
+const { VueLoaderPlugin } = require("vue-loader");
 
-module.exports = {
-  entry: "./src/index.ts",
-  output: {
-    filename: "[name].js",
-    path: path.resolve(__dirname, "dist"),
-    library: {
-      name: "Guide",
-      type: "umd",
+module.exports = (env) => {
+  return {
+    entry: "./src/index.ts",
+    mode: env.production ? "production" : "developent",
+    output: {
+      filename: "index.js",
+      path: path.resolve(__dirname, "dist"),
+      library: {
+        name: "Guide",
+        type: "umd",
+      },
+      clean: true,
     },
-    clean: true,
-  },
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        loader: "ts-loader",
-        options: {
-          appendTsSuffixTo: [/\.vue$/],
+    module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          loader: "ts-loader",
+          options: {
+            appendTsSuffixTo: [/\.vue$/],
+          },
+          exclude: /node_modules/,
         },
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.vue$/,
-        loader: "vue-loader",
-      },
-      {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader", "postcss-loader"],
-      },
-    ],
-  },
-  resolve: {
-    extensions: [".ts", ".tsx", ".js"],
-  },
-  plugins: [new VueLoaderPlugin()],
+        {
+          test: /\.vue$/,
+          loader: "vue-loader",
+        },
+        {
+          test: /\.css$/i,
+          use: ["style-loader", "css-loader", "postcss-loader"],
+        },
+      ],
+    },
+    resolve: {
+      extensions: [".ts", ".tsx", ".js"],
+    },
+    plugins: [new VueLoaderPlugin()],
+  };
 };

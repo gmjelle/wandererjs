@@ -23,8 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import { onUpdated, onMounted, onBeforeUnmount } from "@vue/runtime-core";
-import { ref } from "@vue/reactivity";
+import { onUpdated, onMounted, onBeforeUnmount, ref } from "vue";
 import { matchBounds } from "../utils/utils";
 import { Teleport as teleport_, TeleportProps, VNodeProps } from "vue";
 
