@@ -1,7 +1,7 @@
 {
   "main": "./dist/main.js",
   "types": "./dist/src/index.d.ts",
-  "name": "@guidance/core",
+  "name": "guide.js",
   "scripts": {
     "dev": "webpack watch --mode development",
     "test": "jest"

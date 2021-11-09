@@ -8,7 +8,7 @@ module.exports = {
     filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
     library: {
-      name: "Guidance",
+      name: "Guide",
       type: "umd",
     },
     clean: true,

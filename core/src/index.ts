@@ -5,9 +5,10 @@ import "./index.css";
 import themePresets from "./themePresets";
 import validateSteps from "./utils/steps";
 
+const ROOT_ID = "guidejs-main";
+
 const root = document.createElement("div");
-root.id = "main";
-root.className = "guidance";
+root.id = ROOT_ID;
 document.body.appendChild(root);
 
 interface AppExport {
@@ -37,7 +38,7 @@ export default class Guide {
   start() {
     // @ts-ignore
     this.app = createApp(App, { steps: this.steps, theme: this.theme }).mount(
-      "#main"
+      `#${ROOT_ID}`
     ) as AppExport;
   }
 
