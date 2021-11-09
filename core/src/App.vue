@@ -35,7 +35,6 @@ const currentStep = computed(() => {
     typeof step.element === "string"
       ? document.body.querySelector(step.element)
       : step.element;
-
   return step;
 });
 
@@ -48,7 +47,7 @@ const highlightType = computed(() => {
 });
 
 let type = computed(() => {
-  switch (currentStep.value?.type.toLowerCase()) {
+  switch (currentStep.value?.type?.toLowerCase()) {
     case "tooltip":
       return Tooltip;
 

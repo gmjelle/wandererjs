@@ -10,8 +10,8 @@ module.exports = {
     library: {
       name: "Guidance",
       type: "umd",
-      export: "default",
     },
+    clean: true,
   },
   module: {
     rules: [

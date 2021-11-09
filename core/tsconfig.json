@@ -11,5 +11,5 @@
     "sourceMap": true,
     "resolveJsonModule": true
   },
-  "exclude": ["./__tests__"]
+  "exclude": ["./dist"]
 }

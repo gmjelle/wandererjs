@@ -5,12 +5,12 @@ export type Side = "RIGHT" | "LEFT" | "TOP" | "BOTTOM";
 export type Direction = "RIGHT" | "LEFT" | "UP" | "DOWN";
 
 export type TooltipStep = {
-  type: StepType;
+  type?: StepType;
   highlightType?: HighlightType;
   progressOn?: ProgressType;
-  element?: string | Element | null;
+  element: string | Element | null;
   headerText?: string;
-  bodyText: string;
+  bodyText?: string;
 };
 
 export type Step = TooltipStep;
