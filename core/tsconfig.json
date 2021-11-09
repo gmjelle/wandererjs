@@ -1,15 +1,12 @@
 {
   "compilerOptions": {
-    "lib": ["esnext", "dom"],
-    "target": "esnext",
-    "module": "esnext",
+    "target": "ES5",
+    "module": "CommonJS",
+    "lib": ["DOM", "ES2020"],
     "outDir": "dist",
-    "moduleResolution": "node",
-    "declaration": true,
     "esModuleInterop": true,
-    "strict": true,
-    "sourceMap": true,
-    "resolveJsonModule": true
-  },
-  "exclude": ["./dist"]
+    "sourceMap": false,
+    "declaration": true,
+    "skipLibCheck": true
+  }
 }

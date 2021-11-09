@@ -1,6 +1,6 @@
 <template>
   <div>
-    <teleport to="body">
+    <component :is="Teleport" to="body">
       <div
         class="
           gdx-absolute
@@ -18,7 +18,7 @@
           class="gdx-absolute hard-highlight-shadow"
         ></div>
       </div>
-    </teleport>
+    </component>
   </div>
 </template>
 
@@ -26,17 +26,20 @@
 import { onUpdated, onMounted, onBeforeUnmount } from "@vue/runtime-core";
 import { ref } from "@vue/reactivity";
 import { matchBounds } from "../utils/utils";
+import { Teleport as teleport_, TeleportProps, VNodeProps } from "vue";
 
-const props = defineProps<{ target: Element }>();
-const gradientElement = ref<HTMLElement | null>(null);
+const Teleport = teleport_ as {
+  new (): {
+    $props: VNodeProps & TeleportProps;
+  };
+};
+
+const props = defineProps<{ target: HTMLElement }>();
+const gradientElement = ref();
 
 function showForElement() {
   queueMicrotask(() => {
-    matchBounds(
-      props.target as HTMLElement,
-      gradientElement.value as HTMLElement,
-      0
-    );
+    matchBounds(props.target, gradientElement.value, 0);
   });
 }
 

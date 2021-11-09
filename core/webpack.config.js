@@ -1,4 +1,5 @@
 const { VueLoaderPlugin } = require("vue-loader");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const path = require("path");
 const webpack = require("webpack");
 
@@ -36,11 +37,5 @@ module.exports = {
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
   },
-  plugins: [
-    new VueLoaderPlugin(),
-    new webpack.DefinePlugin({
-      __VUE_OPTIONS_API__: true,
-      __VUE_PROD_DEVTOOLS__: true,
-    }),
-  ],
+  plugins: [new VueLoaderPlugin()],
 };

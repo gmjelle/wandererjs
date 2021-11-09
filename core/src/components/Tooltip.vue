@@ -53,8 +53,8 @@ let popper: Instance | null = null;
 const targetElement = computed((): Element => {
   return props.step.element as Element;
 });
-const container = ref<HTMLElement | null>(null);
-const arrow = ref<HTMLElement | null>(null);
+const container = ref();
+const arrow = ref();
 
 function performSetup() {
   scrollToElementIfNecessary();
@@ -80,7 +80,6 @@ const styles = computed(() => {
     fontFamily,
     headerSize,
     bodySize,
-    textColor,
     buttonColor,
     buttonTextColor,
   } = parseTheme(props.theme);
@@ -134,16 +133,12 @@ function setupProgress() {
 function setupPopper() {
   if (popper) popper.destroy();
 
-  popper = createPopper(
-    targetElement.value as Element,
-    container.value as HTMLElement,
-    {
-      modifiers: [
-        { name: "offset", options: { offset: [10, 20] } },
-        { name: "arrow", options: { element: arrow.value } },
-      ],
-    }
-  );
+  popper = createPopper(targetElement.value, container.value, {
+    modifiers: [
+      { name: "offset", options: { offset: [10, 20] } },
+      { name: "arrow", options: { element: arrow.value } },
+    ],
+  });
 }
 
 function goToNextStep() {
