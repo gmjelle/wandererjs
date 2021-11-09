@@ -5,7 +5,7 @@ import "./index.css";
 import themePresets from "./themePresets";
 import validateSteps from "./utils/steps";
 
-const ROOT_ID = "guidejs-main";
+const ROOT_ID = "wandererjs-main";
 
 const root = document.createElement("div");
 root.id = ROOT_ID;
@@ -19,7 +19,7 @@ interface AppExport {
   stop(): void;
 }
 
-export default class Path {
+export default class Trip {
   steps: Step[];
   app: null | AppExport;
   theme: Theme | Pick<Theme, "preset">;

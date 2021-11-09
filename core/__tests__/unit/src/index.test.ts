@@ -1,4 +1,4 @@
-import Guide from "../../../src";
+import Trip from "../../../src";
 import { steps, theme } from "../data/data";
 
 describe("index.ts", () => {
@@ -14,18 +14,18 @@ describe("index.ts", () => {
   });
   describe("constructor", () => {
     it("should be able to create an instance of the library", () => {
-      const guide = new Guide(steps, theme);
-      expect(guide).toHaveProperty("steps");
-      expect(guide).toHaveProperty("theme");
-      expect(guide).toHaveProperty("options");
+      const trip = new Trip(steps, theme);
+      expect(trip).toHaveProperty("steps");
+      expect(trip).toHaveProperty("theme");
+      expect(trip).toHaveProperty("options");
     });
   });
 
   describe("start", () => {
     it("should be able to create the UI", () => {
-      const guide = new Guide(steps, theme);
-      guide.start();
-      expect(guide).toHaveProperty("app");
+      const trip = new Trip(steps, theme);
+      trip.start();
+      expect(trip).toHaveProperty("app");
     });
   });
 });

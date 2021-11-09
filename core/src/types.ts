@@ -34,7 +34,7 @@ export type Options = {
   showCloseButton: boolean;
 };
 
-export type GuideOptions = {
+export type TripOptions = {
   onNext?: (step: Step) => void;
   onDone?: () => void;
 };

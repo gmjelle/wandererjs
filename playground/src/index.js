@@ -1,6 +1,6 @@
-// import Guide from "guide.js";
+import Trip from "wanderer.js";
 
-const guide = new Guide.default(
+const trip = new Trip(
   [
     {
       headerText: "Add to cart button",
@@ -30,5 +30,5 @@ const guide = new Guide.default(
 );
 
 setTimeout(() => {
-  guide.start();
+  trip.start();
 }, 1000);
