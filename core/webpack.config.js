@@ -9,7 +9,7 @@ module.exports = (env) => {
       filename: "index.js",
       path: path.resolve(__dirname, "dist"),
       library: {
-        name: "Guide",
+        name: "Path",
         type: "umd",
       },
       clean: true,

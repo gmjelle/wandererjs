@@ -19,7 +19,7 @@ interface AppExport {
   stop(): void;
 }
 
-export default class Guide {
+export default class Path {
   steps: Step[];
   app: null | AppExport;
   theme: Theme | Pick<Theme, "preset">;

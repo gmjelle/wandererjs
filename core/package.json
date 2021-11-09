@@ -1,7 +1,7 @@
 {
   "main": "./dist/index.js",
   "types": "./dist/src/index.d.ts",
-  "name": "guide.js",
+  "name": "wanderer.js",
   "version": "0.0.1",
   "files": [
     "dist/**/*"
