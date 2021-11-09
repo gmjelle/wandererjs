@@ -70,5 +70,21 @@ function back() {
   currentIndex.value--;
 }
 
-defineExpose({ next, back });
+function skipTo(index: number) {
+  if (index > props.steps.length - 1 || index < 0) {
+    throw new Error(`Index: ${index} is out of bounds`);
+  }
+
+  currentIndex.value = index;
+}
+
+function addStep(step: Step) {
+  props.steps.push(step);
+}
+
+function stop() {
+  return onDone();
+}
+
+defineExpose({ next, back, skipTo, addStep, stop });
 </script>

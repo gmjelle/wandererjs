@@ -13,6 +13,9 @@ document.body.appendChild(root);
 interface AppExport {
   next: () => {};
   back: () => {};
+  skipTo: (index: number) => {};
+  addStep: (step: Step) => {};
+  stop: () => {};
 }
 
 export default class Guide {
@@ -44,5 +47,17 @@ export default class Guide {
 
   back() {
     this.app?.back();
+  }
+
+  skipTo(index: number) {
+    this.app?.skipTo(index);
+  }
+
+  addStep(step: Step) {
+    this.app?.addStep(step);
+  }
+
+  stop() {
+    this.app?.stop();
   }
 }
