@@ -1,8 +1,8 @@
-## Name
+# Name
 
 Wanderer.js
 
-# Descrtiption
+# Description
 
 Wanderer.js is an easy-to user, customizable user-onboarding library
 
@@ -16,11 +16,44 @@ I created Wanderer.js for 3 main reasons.
 
 # Features
 
-Currently, the only onboarding UI element that Wanderer.js is able to create are tooltips, and it does that very well (IMHO). In the future I plan on adding
+Currently, the only onboarding UI element that Wanderer.js is able to create are tooltips, and it does that very well (IMHO). In the future I plan on adding:
 
-1. Modals (For the introduction screen)
+1. Modals (For the introduction to the tour)
 2. Hotspots (As indicators for where to click)
 
-Within tooltips however there are tons of customizability options which well get into now.
-
 # Installation
+
+You can install the package with npm using:
+
+```bash
+npm i wanderer.js
+```
+
+# Usage
+
+```javascript
+// Import the library
+import Tour from "wanderer.js";
+
+// All the configuration options can be found [HERE]
+const steps = [
+  {
+    type: "TOOLTIP",
+    highlightType: "HARD" // HARD | SOFT | NONE,
+    progressOn: "ELEMENT" // ELEMENT | BUTTON,
+    element: "#element" // Selector | Actual Element
+    headerText: "Welcome!",
+    bodyText: "Welcome to our great app"
+  },
+];
+
+const theme = { preset: "DARK" };
+
+const tour = new Tour(steps, theme);
+
+tour.start();
+```
+
+This will generate a tooltip that looks like this:
+
+[INSERT IMAGE HERE]
