@@ -18,7 +18,7 @@ I created Wanderer.js for 3 main reasons.
 
 Currently, the only onboarding UI element that Wanderer.js is able to create are tooltips, and it does that very well (IMHO). In the future I plan on adding:
 
-1. Modals (For the introduction to the tour)
+1. Modals (For the introduction to the trip)
 2. Hotspots (As indicators for where to click)
 
 # Installation
@@ -33,7 +33,7 @@ npm i wanderer.js
 
 ```javascript
 // Import the library
-import Tour from "wanderer.js";
+import Trip from "wanderer.js";
 
 // All the configuration options can be found [HERE]
 const steps: Step = [
@@ -49,9 +49,9 @@ const steps: Step = [
 
 const theme = { preset: "DARK" };
 
-const tour = new Tour(steps, theme);
+const trip = new Trip(steps, theme);
 
-tour.start();
+trip.start();
 ```
 
 This will generate a tooltip that looks like this:
