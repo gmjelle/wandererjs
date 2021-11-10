@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import { Options, Step, Theme } from "./types";
+import { Step, Theme } from "./types";
 import "./index.css";
 import themePresets from "./themePresets";
 import validateSteps from "./utils/steps";
@@ -23,15 +23,12 @@ export default class Trip {
   steps: Step[];
   app: null | AppExport;
   theme: Theme | Pick<Theme, "preset">;
-  options: Options;
   constructor(
     steps: Step[],
-    theme: Theme | Partial<Theme> = themePresets.LIGHT,
-    options: Options = { showCloseButton: false }
+    theme: Theme | Partial<Theme> = themePresets.LIGHT
   ) {
     this.steps = validateSteps(steps);
     this.theme = { ...themePresets[theme.preset || "LIGHT"], ...theme };
-    this.options = options;
     this.app = null;
   }
 
