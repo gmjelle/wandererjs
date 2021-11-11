@@ -1,8 +1,4 @@
-# Name
-
-Wanderer.js
-
-# Description
+# Wanderer.js
 
 Wanderer.js is an easy-to user, customizable user-onboarding library
 
@@ -20,6 +16,7 @@ Currently, the only onboarding UI element that Wanderer.js is able to create are
 
 1. Modals (For the introduction to the trip)
 2. Hotspots (As indicators for where to click)
+3. And more...
 
 # Installation
 
@@ -56,4 +53,4 @@ trip.start();
 
 This will generate a tooltip that looks like this:
 
-[INSERT IMAGE HERE]
+![DarkTooltip.ong](docs/dark_tooltip.svg)

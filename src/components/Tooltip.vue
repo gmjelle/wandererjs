@@ -18,7 +18,7 @@
       <div class="gdx-text-2xl" :style="styles.header">
         {{ step.headerText }}
       </div>
-      <div class="" :style="styles.body">{{ step.bodyText }}</div>
+      <div class="gdx-mt-1" :style="styles.body">{{ step.bodyText }}</div>
     </div>
     <div
       v-if="progressType === 'BUTTON'"
