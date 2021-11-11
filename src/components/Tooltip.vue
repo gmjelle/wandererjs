@@ -1,5 +1,15 @@
 <template>
+  <HardHighlight
+    v-if="step.highlightType === 'HARD' && ready"
+    :target="highlightTarget"
+  />
+  <SoftHighlight
+    v-if="step.highlightType === 'SOFT' && ready"
+    :target="highlightTarget"
+  />
+
   <div
+    v-if="ready"
     ref="container"
     id="tooltip"
     :style="styles.container"
@@ -37,37 +47,63 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, watch, computed, ref } from "vue";
+import {
+  onBeforeUnmount,
+  onMounted,
+  watch,
+  computed,
+  ref,
+  nextTick,
+} from "vue";
 import { Step, Theme } from "../types";
 import { createPopper, Instance } from "@popperjs/core";
 import { NEXT_STEP } from "../events";
 import { isElementInViewport } from "../utils/utils";
 import { parseTheme } from "../utils/theme";
+import HardHighlight from "./HardHightlight.vue";
+import SoftHighlight from "./SoftHighlight.vue";
+import arrive from "../utils/arrive";
 
 const props = defineProps<{ step: Step; theme: Theme }>();
 
 const emit = defineEmits([NEXT_STEP]);
 let popper: Instance | null = null;
 
-const targetElement = computed((): Element => {
-  return props.step.element as Element;
+const ready = ref(false);
+
+const target = computed(() => {
+  const { element } = props.step;
+  if (typeof element === "string") {
+    return <HTMLElement>document.body.querySelector(element);
+  }
+
+  return <HTMLElement>element;
 });
+
+const highlightTarget = ref();
+
 const container = ref();
 const arrow = ref();
 
-function performSetup() {
-  scrollToElementIfNecessary();
-  setupPopper();
-  setupProgress();
+async function performSetup() {
+  ready.value = false;
+  const element = await arrive(props.step.element);
+  highlightTarget.value = element;
+  ready.value = true;
+  nextTick(() => {
+    scrollToElementIfNecessary(element);
+    setupPopper(element);
+    setupProgress(element);
+  });
 }
 
-function scrollToElementIfNecessary() {
-  const isVisible = isElementInViewport(targetElement.value);
+function scrollToElementIfNecessary(element) {
+  const isVisible = isElementInViewport(element);
   if (isVisible) return;
-  targetElement.value.scrollIntoView(true);
+  element.scrollIntoView(true);
 }
 
-watch(targetElement, () => {
+watch(target, () => {
   performSetup();
 });
 
@@ -118,9 +154,9 @@ const progressType = computed(() => {
   return props.step.progressOn;
 });
 
-function setupProgress() {
+function setupProgress(element) {
   if (progressType.value === "BUTTON") return;
-  targetElement.value?.addEventListener(
+  element.addEventListener(
     "click",
     () => {
       goToNextStep();
@@ -129,10 +165,10 @@ function setupProgress() {
   );
 }
 
-function setupPopper() {
+function setupPopper(element) {
   if (popper) popper.destroy();
 
-  popper = createPopper(targetElement.value, container.value, {
+  popper = createPopper(element, container.value, {
     modifiers: [
       { name: "offset", options: { offset: [10, 20] } },
       { name: "arrow", options: { element: arrow.value } },

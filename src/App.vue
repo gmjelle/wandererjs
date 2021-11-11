@@ -1,14 +1,4 @@
 <template>
-  <HardHighlight
-    v-if="!isDone && highlightType === 'HARD'"
-    :target="currentTarget"
-  />
-
-  <SoftHighlight
-    v-if="!isDone && highlightType === 'SOFT'"
-    :target="currentTarget"
-  />
-
   <component
     :is="type"
     :step="currentStep"
@@ -22,28 +12,13 @@
 import { computed, ref } from "vue";
 import Tooltip from "./components/Tooltip.vue";
 import { Step, Theme } from "./types";
-import HardHighlight from "./components/HardHightlight.vue";
-import SoftHighlight from "./components/SoftHighlight.vue";
 
 const props = defineProps<{ steps: Step[]; theme: Theme }>();
 const currentIndex = ref(0);
 const isDone = ref(false);
 
 const currentStep = computed(() => {
-  const step = props.steps[currentIndex.value];
-  step.element =
-    typeof step.element === "string"
-      ? document.body.querySelector(step.element)
-      : step.element;
-  return step;
-});
-
-const currentTarget = computed(() => {
-  return currentStep.value.element as HTMLElement;
-});
-
-const highlightType = computed(() => {
-  return currentStep.value.highlightType;
+  return props.steps[currentIndex.value];
 });
 
 let type = computed(() => {
