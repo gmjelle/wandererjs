@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "target": "ES5",
-    "module": "CommonJS",
-    "lib": ["DOM", "ES2020"],
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["esnext", "dom"],
     "outDir": "dist",
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "sourceMap": false,
     "declaration": true,

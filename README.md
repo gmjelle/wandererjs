@@ -33,7 +33,7 @@ npm i wanderer.js
 import Trip from "wanderer.js";
 
 // All the configuration options can be found [HERE]
-const steps: Step = [
+const steps = [
   {
     type: "TOOLTIP",
     highlightType: "HARD" // HARD | SOFT | NONE,
