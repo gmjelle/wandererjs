@@ -9,9 +9,10 @@ module.exports = (env) => {
       filename: "index.js",
       path: path.resolve(__dirname, "dist"),
       library: {
-        name: "Path",
+        name: "Trip",
         type: "umd",
       },
+      libraryExport: "default",
       clean: true,
     },
     module: {

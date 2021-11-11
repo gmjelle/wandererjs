@@ -12,6 +12,7 @@
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack watch",
+    "patch": "npm version patch",
     "build": "cross-env NODE_ENV=production webpack --env production",
     "test": "jest",
     "lint": "eslint --ext js,vue,ts",
