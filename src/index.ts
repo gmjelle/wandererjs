@@ -1,4 +1,4 @@
-import { createApp } from "vue";
+import { createApp, getCurrentInstance } from "vue";
 import App from "./App.vue";
 import { Step, Theme } from "./types";
 import "./index.css";
@@ -17,6 +17,7 @@ interface AppExport {
   skipTo(index: number): void;
   addStep(step: Step): void;
   stop(): void;
+  start(): void;
 }
 
 export default class Trip {
@@ -33,10 +34,16 @@ export default class Trip {
   }
 
   start() {
+    if (this.app) {
+      return this.app.start();
+    }
+
     // @ts-ignore
     this.app = createApp(App, { steps: this.steps, theme: this.theme }).mount(
       `#${ROOT_ID}`
-    ) as AppExport;
+    );
+
+    this.app.start();
   }
 
   next() {
@@ -53,6 +60,10 @@ export default class Trip {
 
   addStep(step: Step) {
     this.app?.addStep(step);
+  }
+
+  addSteps(steps: Step[]) {
+    steps.forEach((step) => this.addStep(step));
   }
 
   stop() {

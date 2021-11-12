@@ -1,5 +1,6 @@
 const path = require("path");
 const { VueLoaderPlugin } = require("vue-loader");
+const webpack = require("webpack");
 
 module.exports = (env) => {
   return {
@@ -41,6 +42,12 @@ module.exports = (env) => {
         vue: "/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       },
     },
-    plugins: [new VueLoaderPlugin()],
+    plugins: [
+      new VueLoaderPlugin(),
+      new webpack.DefinePlugin({
+        __VUE_OPTIONS_API__: true,
+        __VUE_PROD_DEVTOOLS__: false,
+      }),
+    ],
   };
 };

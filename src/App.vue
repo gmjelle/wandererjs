@@ -4,18 +4,18 @@
     :step="currentStep"
     :theme="theme"
     @NEXT_STEP="next"
-    v-if="!isDone"
+    v-if="!shouldHide"
   ></component>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref, nextTick } from "vue";
 import Tooltip from "./components/Tooltip.vue";
 import { Step, Theme } from "./types";
 
 const props = defineProps<{ steps: Step[]; theme: Theme }>();
 const currentIndex = ref(0);
-const isDone = ref(false);
+const shouldHide = ref(true);
 
 const currentStep = computed(() => {
   return props.steps[currentIndex.value];
@@ -32,7 +32,12 @@ let type = computed(() => {
 });
 
 function onDone() {
-  isDone.value = true;
+  shouldHide.value = true;
+}
+
+function start() {
+  currentIndex.value = 0;
+  shouldHide.value = false;
 }
 
 function next() {
@@ -61,5 +66,5 @@ function stop() {
   return onDone();
 }
 
-defineExpose({ next, back, skipTo, addStep, stop });
+defineExpose({ next, back, skipTo, addStep, stop, start });
 </script>
