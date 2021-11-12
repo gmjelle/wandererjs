@@ -28,6 +28,7 @@ jobs:
           node-version: '14'
       - name: Install operating system dependencies
         run: npx playwright install-deps
-      
+      - name: Install all deps
+        run: npm ci
       - name: Run your tests
         run: npm run build:test
