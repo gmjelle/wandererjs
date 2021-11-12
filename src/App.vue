@@ -9,9 +9,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, nextTick } from "vue";
+import { computed, ref, watch } from "vue";
 import Tooltip from "./components/Tooltip.vue";
 import { Step, Theme } from "./types";
+import { removeTrip, updateIndex } from "./utils/storage";
 
 const props = defineProps<{ steps: Step[]; theme: Theme }>();
 const currentIndex = ref(0);
@@ -19,6 +20,10 @@ const shouldHide = ref(true);
 
 const currentStep = computed(() => {
   return props.steps[currentIndex.value];
+});
+
+watch(currentIndex, () => {
+  updateIndex(currentIndex.value);
 });
 
 let type = computed(() => {
@@ -33,10 +38,11 @@ let type = computed(() => {
 
 function onDone() {
   shouldHide.value = true;
+  removeTrip();
 }
 
-function start() {
-  currentIndex.value = 0;
+function start(startAt: number = 0) {
+  currentIndex.value = startAt;
   shouldHide.value = false;
 }
 

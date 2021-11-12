@@ -37,4 +37,5 @@ export type Options = {
 export type TripOptions = {
   onNext?: (step: Step) => void;
   onDone?: () => void;
+  multiPage: boolean;
 };

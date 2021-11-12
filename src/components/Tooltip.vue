@@ -63,6 +63,7 @@ import { parseTheme } from "../utils/theme";
 import HardHighlight from "./HardHightlight.vue";
 import SoftHighlight from "./SoftHighlight.vue";
 import arrive from "../utils/arrive";
+import scrollToElementIfNecessary from "../utils/scroller";
 
 const props = defineProps<{ step: Step; theme: Theme }>();
 
@@ -97,18 +98,12 @@ async function performSetup() {
   });
 }
 
-function scrollToElementIfNecessary(element) {
-  const isVisible = isElementInViewport(element);
-  if (isVisible) return;
-  element.scrollIntoView(true);
-}
-
 watch(target, () => {
   performSetup();
 });
 
 const styles = computed(() => {
-  let {
+  const {
     backgroundColor,
     headerTextColor,
     bodyTextColor,
