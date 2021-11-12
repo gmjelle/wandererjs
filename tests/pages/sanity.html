@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sanity</title>
+  </head>
+  <body>
+    <div id="element">Element 1</div>
+    <script src="../../dist/index.js"></script>
+    <style>
+      #element {
+        display: inline-block;
+      }
+    </style>
+    <script>
+      const trip = new Trip([
+        {
+          headerText: "Welcome",
+          bodyText: "Another welcome",
+          element: "#element",
+        },
+      ]);
+
+      trip.start();
+    </script>
+  </body>
+</html>

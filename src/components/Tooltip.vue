@@ -11,7 +11,8 @@
   <div
     v-if="ready"
     ref="container"
-    id="tooltip"
+    id="wanderer-tooltip"
+    data-wanderer-id="tooltip"
     :style="styles.container"
     class="
       gdx-absolute
@@ -112,11 +113,13 @@ const styles = computed(() => {
     bodySize,
     buttonColor,
     buttonTextColor,
+    border,
   } = parseTheme(props.theme);
 
   const container = {
     backgroundColor,
     fontFamily,
+    border,
   };
 
   const header = {
@@ -144,6 +147,7 @@ const styles = computed(() => {
 
 const root = document.documentElement;
 root.style.setProperty("--arrow-color", props.theme.backgroundColor);
+root.style.setProperty("--border", props.theme.border);
 
 const progressType = computed(() => {
   return props.step.progressOn;

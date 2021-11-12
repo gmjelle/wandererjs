@@ -28,6 +28,7 @@ export type Theme = {
   bodySize: string;
   buttonColor?: string;
   buttonTextColor?: string;
+  border?: string;
 };
 
 export type Options = {

@@ -7,6 +7,7 @@ export default {
     bodySize: "16px",
     buttonColor: "#3B82F6",
     buttonTextColor: "#FFF",
+    border: "1px solid #D1D5DB",
   },
   DARK: {
     backgroundColor: "#1F2937",
@@ -16,5 +17,6 @@ export default {
     bodySize: "16px",
     buttonColor: "#3B82F6",
     buttonTextColor: "#FFF",
+    border: "none",
   },
 };
