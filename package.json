@@ -13,7 +13,9 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack watch",
     "patch": "npm version patch",
-    "build": "cross-env NODE_ENV=production webpack --env production",
+    "build:esm": "cross-env NODE_ENV=production webpack --env production --config webpack-esm.config.js",
+    "build:umd": "cross-env NODE_ENV=production webpack --env production",
+    "build": "npm run build:umd && npm run build:esm",
     "serve": "serve -l 5000 ./",
     "test": "npx playwright test",
     "test:serve": "concurrently 'npm run serve' 'sleep 5 && npx playwright test'",
