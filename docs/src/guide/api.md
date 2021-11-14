@@ -19,7 +19,7 @@ _**IMPORTANT - Wanderer.js uses 0-based indexing**_
 
 ```js
 const trip = new Trip(steps);
-trip.start(2);
+trip.start(2); // Will start at the 3rd step
 ```
 
 ### `.stop()`
@@ -31,9 +31,75 @@ const trip = new Trip(steps);
 trip.start();
 ...
 ...
-...
 // At some later point
 trip.stop();
+```
+
+### `.next()`
+
+If you want to programatically go to the next step in the trip, without the user interacting, you can call the `.next()` method.
+
+```js
+const trip = new Trip(steps);
+trip.start();
+...
+...
+trip.next();
+```
+
+### `.back()`
+
+If you want to programatically go to the previous step in the trip, without the user interacting, you can call the `.back()` method.
+
+```js
+const trip = new Trip(steps);
+trip.start();
+...
+trip.next();
+...
+trip.back();
+```
+
+### `.skipTo(index)`
+
+If you want to skip to a specific step in the trip, you can call the `.skipTo(index)` method. Note that Wanderer.js uses 0-based indexing.
+
+```js
+const trip = new Trip(steps);
+trip.start();
+...
+...
+trip.skipTo(2); // Will skip to the 3rd step
+```
+
+### `.addStep(step)`
+
+You can dynamically add a step to the end of the trip using this method. This can be useful for creating non-linear trips. Meaning, that, based on a certain interaction, you can send them down a different path.
+
+```js
+const trip = new Trip(steps);
+trip.start();
+
+if (user.isLoggedIn) {
+  trip.addStep(stepForLoggedInUser);
+} else {
+  trip.addStep(stepForLoggedOutUser);
+}
+```
+
+### `.addSteps(steps)`
+
+This method is does the same thing as the `.addStep(step)` method, except that you can pass an array of steps instead of just a single one
+
+```js
+const trip = new Trip(steps);
+trip.start();
+
+if (user.isLoggedIn) {
+  trip.addStep([stepForLoggedInUser1, stepForLoggedInUser2]);
+} else {
+  trip.addStep([stepForLoggedOutUser1, stepForLoggedOutUser2]);
+}
 ```
 
 ## Step
