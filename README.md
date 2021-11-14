@@ -1,58 +1,161 @@
-# WANRING - This is not production ready!!!
+<div id="top"></div>
 
-# Wanderer.js
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-Wanderer.js is an easy-to user, customizable user-onboarding library
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/yaakov123/wandererjs">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-# Motivation
+<h3 align="center">Wanderer.js</h3>
 
-I created Wanderer.js for 3 main reasons.
+  <p align="center">
+    Simple, Beautiful onboarding
+    <br />
+    <a href="https://github.com/yaakov123/wandererjs"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/yaakov123/wandererjs">View Demo</a>
+    ·
+    <a href="https://github.com/yaakov123/wandererjs/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/yaakov123/wandererjs/issues">Request Feature</a>
+  </p>
+</div>
 
-1. I constantly make new websites, and the one thing that they always need is some form of onboarding to show users what to do.
-2. I can't afford the exorbitant prices the existing commercial tools charge
-3. The existing open source libraries create tooltips that don't look very nice (in my opinion) and were missing some crucial functionality
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
-# Features
+<!-- ABOUT THE PROJECT -->
 
-Currently, the only onboarding UI element that Wanderer.js is able to create are tooltips, and it does that very well (IMHO). In the future I plan on adding:
+## About The Project
 
-1. Modals (For the introduction to the trip)
-2. Hotspots (As indicators for where to click)
-3. And more...
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-# Installation
+Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `yaakov123`, `wandererjs`, `@JacobBeckerman`, `linkedin_username`, `email`, `email_client`, `project_title`, `project_description`
 
-You can install the package with npm using:
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-```bash
-npm i wanderer.js
-```
+### Built With
 
-# Usage
+- [Vue.js](https://vuejs.org/)
+- [Typescript](https://www.typescriptlang.org/)
 
-```javascript
-// Import the library
-import Trip from "wanderer.js";
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-// All the configuration options can be found [HERE]
-const steps = [
-  {
-    type: "TOOLTIP",
-    highlightType: "HARD" // HARD | SOFT | NONE,
-    progressOn: "ELEMENT" // ELEMENT | BUTTON,
-    element: "#element" // Selector | Actual Element
-    headerText: "Welcome!",
-    bodyText: "Welcome to our great app"
-  },
-];
+<!-- GETTING STARTED -->
 
-const theme = { preset: "DARK" };
+## Getting Started
 
-const trip = new Trip(steps, theme);
+This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
 
-trip.start();
-```
+## Usage
 
-This will generate a tooltip that looks like this:
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-![DarkTooltip.ong](assets/dark_tooltip.svg)
+_For more examples, please refer to the [Documentation](https://example.com)_
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- ROADMAP -->
+
+## Roadmap
+
+- [] Feature 1
+- [] Feature 2
+- [] Feature 3
+  - [] Nested Feature
+
+See the [open issues](https://github.com/yaakov123/wandererjs/issues) for a full list of proposed features (and known issues).
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- CONTRIBUTING -->
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- LICENSE -->
+
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- CONTACT -->
+
+## Contact
+
+Your Name - [@@JacobBeckerman](https://twitter.com/@JacobBeckerman)
+
+Project Link: [https://github.com/yaakov123/wandererjs](https://github.com/yaakov123/wandererjs)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGMENTS -->
+
+## Acknowledgments
+
+- [Me]()
+- [Myself]()
+- [I]()
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+[contributors-shield]: https://img.shields.io/github/contributors/yaakov123/wandererjs.svg?style=for-the-badge
+[contributors-url]: https://github.com/yaakov123/wandererjs/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/yaakov123/wandererjs.svg?style=for-the-badge
+[forks-url]: https://github.com/yaakov123/wandererjs/network/members
+[stars-shield]: https://img.shields.io/github/stars/yaakov123/wandererjs.svg?style=for-the-badge
+[stars-url]: https://github.com/yaakov123/wandererjs/stargazers
+[issues-shield]: https://img.shields.io/github/issues/yaakov123/wandererjs.svg?style=for-the-badge
+[issues-url]: https://github.com/yaakov123/wandererjs/issues
+[license-shield]: https://img.shields.io/github/license/yaakov123/wandererjs.svg?style=for-the-badge
+[license-url]: https://github.com/yaakov123/wandererjs/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/yaakov-beckerman-85722a141
+[product-screenshot]: images/screenshot.png
