@@ -7,7 +7,8 @@
     <title>Sanity</title>
   </head>
   <body>
-    <div id="element">Element 1</div>
+    <div id="element1">Element 1</div>
+    <div id="element2">Element 2</div>
     <script src="../../dist/index.js"></script>
     <style>
       #element {
@@ -19,7 +20,14 @@
         {
           headerText: "Welcome",
           bodyText: "Another welcome",
-          element: "#element",
+          element: "#element1",
+          progressOn: "ELEMENT",
+        },
+        {
+          headerText: "Welcome",
+          bodyText: "Another welcome",
+          element: "#element2",
+          progressOn: "ELEMENT",
         },
       ]);
 

@@ -12,10 +12,26 @@ test("The Trip constructor should be on the window", async ({ page }) => {
     return Boolean(window.Trip);
   });
   expect(exists).toBe(true);
-  expect(await page.screenshot()).toMatchSnapshot("sanity1.png");
 });
 
-test("it should show a tooltip", async ({ page }) => {
+test("should show a tooltip", async ({ page }) => {
   await page.waitForSelector(ATTRIBUTE_SELECTOR.replace("@@@", "tooltip"));
-  expect(await page.screenshot()).toMatchSnapshot("sanity2.png");
+});
+
+test("should show a tooltip on the second element", async ({ page }) => {
+  await page.waitForSelector(ATTRIBUTE_SELECTOR.replace("@@@", "tooltip"));
+  await page.click("#element1");
+  expect(await page.screenshot()).toMatchSnapshot("sanity1.png", {
+    threshold: 0.2,
+  });
+});
+
+test("should hide the tooltip once the trip is completed", async ({ page }) => {
+  await page.waitForSelector(ATTRIBUTE_SELECTOR.replace("@@@", "tooltip"));
+  await page.click("#element1");
+  await page.click("#element2");
+
+  await page.waitForSelector(ATTRIBUTE_SELECTOR.replace("@@@", "tooltip"), {
+    state: "detached",
+  });
 });
