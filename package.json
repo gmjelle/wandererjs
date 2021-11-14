@@ -16,7 +16,7 @@
     "build": "cross-env NODE_ENV=production webpack --env production",
     "serve": "serve -l 5000 ./",
     "test": "npx playwright test",
-    "test:serve": "concurrently 'npm run serve' 'npx playwright test'",
+    "test:serve": "concurrently 'npm run serve' 'sleep 5 && npx playwright test'",
     "build:test": "npm run build && npm run test:serve",
     "lint": "eslint --ext js,vue,ts",
     "prepare": "npm run build",
