@@ -1,0 +1,17 @@
+{
+  "name": "wandererjs",
+  "version": "0.0.1",
+  "description": "Easy to use, customizable user-onboarding",
+  "main": "index.js",
+  "authors": {
+    "name": "Jacob Beckerman"
+  },
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
