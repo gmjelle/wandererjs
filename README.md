@@ -55,4 +55,4 @@ trip.start();
 
 This will generate a tooltip that looks like this:
 
-![DarkTooltip.ong](docs/dark_tooltip.svg)
+![DarkTooltip.ong](assets/dark_tooltip.svg)
