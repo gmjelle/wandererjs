@@ -197,4 +197,50 @@ In the example below, the user will need to click on the next button in order to
     <img style="height: 250px" src="/tooltip-next-button.png" />
 </div>
 
+### `Step.element`
+
+You can use this property to tell Wanderer.js, which element you want the tooltip to target. This can either be a selector of the element, or a reference to the element itself.
+
+```js
+const step = {
+  element: "#button",
+};
+```
+
+**OR**
+
+```js
+const step = {
+  element: document.body.querySelector("#button");
+}
+```
+
+### `Step.headerText`
+
+This is the text that you want to appear in the tooltip header:
+
+```js
+const step = {
+  headerText: "Welcome!",
+};
+```
+
+and related to this property, we have:
+
+### `Step.bodyText`
+
+This is the text that you want to appear in the tooltip body:
+
+```js
+const step = {
+  bodyText: "Click here to sign in",
+};
+```
+
+Below is an example of what using `.bodyText` and `.headerText` looks like visually:
+
+<div style="width: 100%; display: flex; justify-content: center;">
+    <img style="height:250px" src="/tooltip-none.png" />
+</div>
+
 ## Theme
