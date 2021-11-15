@@ -2,7 +2,7 @@
 
 A trip is the name of the class that you instantiate when you want to create a new user-onboaring flow. It has a whole bunch of methods to allow you to programatically control the user's progress throughout the trip.
 
-<hr>
+---
 
 ### `.start()`
 
@@ -104,6 +104,85 @@ if (user.isLoggedIn) {
 
 ## Step
 
-A `step` is a single step (for lack of a better word) on a trip.
+In this section we'll go over the structure of a `Step`. Essentially, a `Step` is an object which defines a single step within a `Trip`. As you saw in the previous section, you pass an array of `Steps` when creating a new `Trip`. First we'll outline all the properties that can exist on a `Step`
+
+```js
+const step = {
+  type: "TOOLTIP", // This is currently the only type
+  highlightType: "HARD" | "SOFT" | "NONE",
+  progressOn: "ELEMENT" | "BUTTON",
+  element: "#element" | document.body.querySelector("#element"),
+  headerText: "Welcome!",
+  bodyText: "Welcome to Wanderer.js",
+};
+```
+
+### `Step.type`
+
+This property denotes what onboarding element will be shown for this step. Currently the only option is `TOOLTIP`, but in the future this will be extended with other options.
+
+---
+
+### `Step.highlightType`
+
+This property controls how the target element will be emphasized on screen. The current options are `HARD`, `SOFT` or `NONE`.
+
+**`Step.highlightType = "SOFT"`**
+
+- This creates a soft highlight around the target element as seen here:
+
+```js
+const step = {
+  highlightType: "SOFT",
+};
+```
+
+<div style="width: 100%; display: flex; justify-content: center;">
+    <img style="width: 100%" src="/tooltip-soft.png" />
+</div>
+
+**`Step.highlightType = "HARD"`**
+
+- This creates a hard highlight around the target element
+
+```js
+const step = {
+  highlightType: "HARD",
+};
+```
+
+<div style="width: 100%; display: flex; justify-content: center;">
+    <img style="width: 100%" src="/tooltip-hard.png" />
+</div>
+
+**`Step.highlightType = "NONE"`**
+
+- This just shows the tooltip on the target element without any highlight
+
+```js
+const step = {
+  highlightType: "NONE",
+};
+```
+
+<div style="width: 100%; display: flex; justify-content: center;">
+    <img style="width: 100%" src="/tooltip-none.png" />
+</div>
+
+### `Step.progressOn`
+
+This property controls how the user progresses from one step to the next. There current options are - `ELEMENT` and `BUTTON`.
+
+**`Step.progressOn = "ELEMENT"`**
+
+This option means that the user will be shown the next step once they click on the target element. This option can be useful when the target element of the next step appears only after the user interacts with the target element of the current step. You can think of this option as more of a guided trip where the user interacts with your website.
+
+In the example below, the user will need to click on the "Sign In" button in order to progress to the next step.
+
+<div style="width: 100%; display: flex; justify-content: center;">
+    <img style="height: 250px" src="/tooltip-none.png" />
+</div>
+
+**`Step.progressOn = "BUTTON"`**
 
 ## Theme
