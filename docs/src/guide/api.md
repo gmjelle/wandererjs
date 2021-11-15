@@ -1,3 +1,7 @@
+# API
+
+In this section, we'll take a deep dive into all the configuration options that are available
+
 ## Trip
 
 A trip is the name of the class that you instantiate when you want to create a new user-onboaring flow. It has a whole bunch of methods to allow you to programatically control the user's progress throughout the trip.
@@ -184,5 +188,13 @@ In the example below, the user will need to click on the "Sign In" button in ord
 </div>
 
 **`Step.progressOn = "BUTTON"`**
+
+This option means that the user will be shown the next step once they click on the next button. This option can be useful when you just want to show your user around a single page.
+
+In the example below, the user will need to click on the next button in order to progress to the next step
+
+<div style="width: 100%; display: flex; justify-content: center;">
+    <img style="height: 250px" src="/tooltip-next-button.png" />
+</div>
 
 ## Theme
