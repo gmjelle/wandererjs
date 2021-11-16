@@ -92,7 +92,7 @@ This option means that the user will be shown the next step once they click on t
 In the example below, the user will need to click on the next button in order to progress to the next step
 
 <div style="width: 100%; display: flex; justify-content: center;">
-    <img style="height: 250px" :src="$withBase('/tooltip-next-button.png')" />
+    <img style="width: 100%" :src="$withBase('/tooltip-next-button.png')" />
 </div>
 
 ### `Step.element`
