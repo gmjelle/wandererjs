@@ -144,7 +144,7 @@ const step = {
 ```
 
 <div style="width: 100%; display: flex; justify-content: center;">
-    <img style="width: 100%" src="/tooltip-soft.png" />
+    <img style="width: 100%" :src="$withBase('/tooltip-soft.png')" />
 </div>
 
 **`Step.highlightType = "HARD"`**
@@ -158,7 +158,7 @@ const step = {
 ```
 
 <div style="width: 100%; display: flex; justify-content: center;">
-    <img style="width: 100%" src="/tooltip-hard.png" />
+    <img style="width: 100%" :src="$withBase('/tooltip-hard.png')" />
 </div>
 
 **`Step.highlightType = "NONE"`**
@@ -172,7 +172,7 @@ const step = {
 ```
 
 <div style="width: 100%; display: flex; justify-content: center;">
-    <img style="width: 100%" src="/tooltip-none.png" />
+    <img style="width: 100%" :src="$withBase('/tooltip-none.png')" />
 </div>
 
 ### `Step.progressOn`
@@ -186,7 +186,7 @@ This option means that the user will be shown the next step once they click on t
 In the example below, the user will need to click on the "Sign In" button in order to progress to the next step.
 
 <div style="width: 100%; display: flex; justify-content: center;">
-    <img style="height: 250px" src="/tooltip-none.png" />
+    <img style="height: 250px" :src="$withBase('/tooltip-none.png')" />
 </div>
 
 **`Step.progressOn = "BUTTON"`**
@@ -196,7 +196,7 @@ This option means that the user will be shown the next step once they click on t
 In the example below, the user will need to click on the next button in order to progress to the next step
 
 <div style="width: 100%; display: flex; justify-content: center;">
-    <img style="height: 250px" src="/tooltip-next-button.png" />
+    <img style="height: 250px" :src="$withBase('/tooltip-next-button.png')" />
 </div>
 
 ### `Step.element`
@@ -242,7 +242,7 @@ const step = {
 Below is an example of what using `.bodyText` and `.headerText` looks like visually:
 
 <div style="width: 100%; display: flex; justify-content: center;">
-    <img style="height:250px" src="/tooltip-none.png" />
+    <img style="height:250px" :src="$withBase('/tooltip-none.png')" />
 </div>
 
 ## Theme
@@ -278,11 +278,11 @@ As you can see in the above code snippet, there are a lot of theme options, and 
 <div style="display: flex;">
   <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
       <code>DARK</code>
-      <img style="width:100%; margin-top: 5px" src="/tooltip-dark.png" />
+      <img style="width:100%; margin-top: 5px" :src="$withBase('/tooltip-dark.png')" />
   </div>
   <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
       <code>LIGHT</code>
-      <img style="width:100%;margin-top: 5px" src="/tooltip-light.png" />
+      <img style="width:100%;margin-top: 5px" :src="$withBase('/tooltip-light.png')" />
   </div>
 </div>
 

@@ -33,7 +33,7 @@ trip.start();
 This will create a tooltip that looks something like this.
 
 <div style="width: 100%; display: flex; justify-content: center;">
-    <img style="height: 250px" src="/tooltip-step-1.png" />
+    <img style="height: 250px" :src="$withBase('/tooltip-step-1.png')" />
 </div>
 
 And when you click on the "Sign In" button, the trip will be finished (since there is only one step)
