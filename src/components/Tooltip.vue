@@ -20,7 +20,7 @@
       gdx-rounded
       gdx-z-50
       gdx-px-5
-      gdx-py-2
+      gdx-py-3
       gdx-max-w-sm
     "
   >

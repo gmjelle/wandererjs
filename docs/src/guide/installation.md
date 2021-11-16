@@ -13,7 +13,6 @@ import Trip from "wanderer.js"
 
 const steps = [
   {
-    highlightType: "SOFT",
 	progressOn: "ELEMENT",
 	element: "#button",
 	headerText: "Welcome!",
