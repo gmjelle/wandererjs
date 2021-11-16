@@ -11,19 +11,12 @@
 <br />
 <div align="center">
 
-<h3 align="center">Wanderer.js</h3>
-
+<h2 align="center">Wanderer.js</h3>
+  <img src="./assets/logo.svg"/>
   <p align="center">
     Simple, Beautiful onboarding
     <br />
-    <a href="https://github.com/yaakov123/wandererjs"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/yaakov123/wandererjs">View Demo</a>
-    ·
-    <a href="https://github.com/yaakov123/wandererjs/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/yaakov123/wandererjs/issues">Request Feature</a>
+    <a href="https://yaakov123.github.io/wandererjs/"><strong>Explore the docs »</strong></a>
   </p>
 </div>
 
@@ -36,56 +29,103 @@
 - [Vue.js](https://vuejs.org/)
 - [Typescript](https://www.typescriptlang.org/)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 <!-- GETTING STARTED -->
 
-## Getting Started
+# Introduction
 
-Getting started with Wanderer.js is very simple. All you need to do is:
+Wanderer.js is an easy to use, user-onboarding library. It is still in its early stages so more work needs to be done, but at this stage it is still quite functional. Some features it already has include:
+
+- Tooltips
+- Theming
+- Smart auto-positioning
+- Multi-page support
+
+Since Wanderer.js is still at such an early stage, the early adopters will have a lot of say in regards to which features they want in upcoming releases. Things that are already on the roadmap include:
+
+- Modals - (For the introductory/final step of a Trip)
+- Analytics integrations
+- Tooltip WYSIWYG builder
+- More themes
+- User surveys
+
+## Why does this exist
+
+Based on my research, there are two types of solutions in this space. One option is geared more towards companies/enterprises like Appcues, Walkme, etc.) and the other options is small open source libraries like Intro.js or Shepherdjs.
+
+When it comes to the commercial offerings, the price is way too steep for individual developers, or small companies just starting out. So while they are very feature rich, they're simply not an option. On the other hand, open source libraries are generally lacking core features and come out of the box looking quite ugly.
+
+I intend on turning Wanderer.js into a hybrid of these two options. Creating a feature rich, user onboarding library (that's not just tooltips) that also looks nice right off the bat.
+
+# Installation
+
+The simplest way to get started with Wanderer.js is to install it using `npm`
 
 ```sh
 npm i wanderer.js
 ```
 
-Then, in order to actually use you can
+And then in your codebase somewhere you can use it like this:
 
-## Usage
+```js
+import Trip from "wanderer.js"
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+const steps = [
+  {
+	progressOn: "ELEMENT",
+	element: "#button",
+	headerText: "Welcome!",
+	bodyText: "Welcome to Wanderer.js"
+  }
+];
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+const theme = {
+  preset: "DARK"
+]
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+const trip = new Trip(steps, theme);
 
-<!-- ROADMAP -->
+trip.start();
 
-## Roadmap
+```
 
-- [] Feature 1
-- [] Feature 2
-- [] Feature 3
-  - [] Nested Feature
+This will create a tooltip that looks something like this.
 
-See the [open issues](https://github.com/yaakov123/wandererjs/issues) for a full list of proposed features (and known issues).
+<div style="width: 100%; display: flex; justify-content: center;">
+    <img style="height: 250px" src="./assets/tooltip-step-1.png" />
+</div>
+<br>
+And when you click on the "Sign In" button, the trip will be finished (since there is only one step)
+<br><br>
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+### Other installation methods
+
+You can also use Wanderer.js by including it in your HTML file at the following URL
+[https://unpkg.com/wanderer.js](https://unpkg.com/wanderer.js)
+
+```html
+<scrtipt src="https://unpkg.com/wanderer.js"></script>
+
+<script>
+    const trip = new Trip(steps, theme);
+</script>
+
+```
+
+_For more complete documentation, please refer to the [Documentation](https://yaakov123.github.io/wandererjs/)_
+
+<br>
 
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 <!-- CONTACT -->
 
 ## Contact
 
-Your Name - [@@JacobBeckerman](https://twitter.com/@JacobBeckerman)
+Your Name - [@JacobBeckerman](https://twitter.com/@JacobBeckerman)
 
 Project Link: [https://github.com/yaakov123/wandererjs](https://github.com/yaakov123/wandererjs)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGMENTS -->
 
