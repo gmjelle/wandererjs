@@ -8,6 +8,8 @@ module.exports = {
    */
   description: "Simple, beautiful user-onboarding",
 
+  base: "/wandererjs/",
+
   /**
    * Extra tags to be injected to the page HTML `<head>`
    *
