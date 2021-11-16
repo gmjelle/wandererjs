@@ -50,6 +50,7 @@ module.exports = {
             "/guide/introduction",
             "/guide/installation",
             "/guide/api",
+            "/guide/advanced",
           ],
         },
       ],
