@@ -20,10 +20,6 @@
   </p>
 </div>
 
-<!-- ABOUT THE PROJECT -->
-
-## About The Project
-
 ### Built With
 
 - [Vue.js](https://vuejs.org/)
