@@ -16,7 +16,7 @@
   <p align="center">
     Simple, Beautiful onboarding
     <br />
-    <a href="https://yaakov123.github.io/wandererjs/"><strong>Explore the docs »</strong></a>
+    <a href="https://wandererjs.com"><strong>Explore the docs »</strong></a>
   </p>
 </div>
 
@@ -111,7 +111,7 @@ You can also use Wanderer.js by including it in your HTML file at the following 
 
 ```
 
-_For more complete documentation, please refer to the [Documentation](https://yaakov123.github.io/wandererjs/)_
+_For more complete documentation, please refer to the [Documentation](https://wandererjs.com)_
 
 <br>
 
