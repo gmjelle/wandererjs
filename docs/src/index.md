@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: /logo.svg
-tagline: Simple, Beautiful onboarding.
+tagline: Simple. Beautiful. Onboarding.
 actionText: Quick Start →
 actionLink: /guide/introduction
 ---
