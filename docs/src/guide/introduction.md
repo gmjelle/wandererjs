@@ -17,7 +17,7 @@ Since Wanderer.js is still at such an early stage, the early adopters will have 
 
 ## Why does this exist
 
-Based on my research, there are two types of solutions in this space. One option is geared more towards companies/enterprises like Appcues, Walkme, etc.) and the other options is small open source libraries like Intro.js or Shepherdjs.
+Based on my research, there are two types of solutions in this space. One option is geared more towards companies/enterprises like Appcues, Walkme, etc.) and the other options is small open source libraries like Intro.js or ShepherdJS.
 
 When it comes to the commercial offerings, the price is way too steep for individual developers, or small companies just starting out. So while they are very feature rich, they're simply not an option. On the other hand, open source libraries are generally lacking core features and come out of the box looking quite ugly.
 
