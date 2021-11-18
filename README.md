@@ -14,7 +14,7 @@
 <h2 align="center">Wanderer.js</h3>
   <img src="./assets/logo.svg"/>
   <p align="center">
-    Simple, Beautiful onboarding
+    Simple, Beautiful onboarding.
     <br />
     <a href="https://wandererjs.com"><strong>Explore the docs »</strong></a>
   </p>
