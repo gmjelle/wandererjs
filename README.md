@@ -29,7 +29,7 @@
 
 # Introduction
 
-Wanderer.js is an easy to use, user-onboarding library. It is still in its early stages so more work needs to be done, but at this stage it is still quite functional. Some features it already has include:
+Wanderer.js is an easy to use, interactive product tour library. It allows you to create interactive product tours so that your users understand how to use your product quickly. It is still in its early stages so more work needs to be done, but at this stage it is still quite functional. Some features it already has include:
 
 - Tooltips
 - Theming

@@ -49,5 +49,10 @@ module.exports = (env) => {
         __VUE_PROD_DEVTOOLS__: false,
       }),
     ],
+    devServer: {
+      devMiddleware: {
+        writeToDisk: true,
+      },
+    },
   };
 };

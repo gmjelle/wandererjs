@@ -13,17 +13,17 @@ const steps = [
   {
     headerText: "Welcome!",
     bodyText: "Welcome to Wanderer.js",
-    element: "#first-elemet",
+    element: "#first-element",
   },
   {
     headerText: "Sign In",
     bodyText: "Click on this button to start the sign-in process",
-    element: "#second-elemet",
+    element: "#second-element",
   },
   {
     headerText: "Almost There",
     bodyText: "Click here to actually sign into your account",
-    element: "#third-elemet",
+    element: "#third-element",
   },
 ];
 

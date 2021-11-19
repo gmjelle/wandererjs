@@ -4,6 +4,7 @@
     :step="currentStep"
     :theme="theme"
     @NEXT_STEP="next"
+    @STOP_TRIP="stop"
     v-if="!shouldHide"
   ></component>
 </template>

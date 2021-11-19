@@ -25,6 +25,11 @@
     "
   >
     <div ref="arrow" id="arrow"></div>
+    <XIcon
+      class="gdx-w-4 gdx-absolute gdx-top-1 gdx-right-1 gdx-cursor-pointer"
+      :style="styles.closeButton"
+      @click="onCloseButtonClicked"
+    />
     <div class="gdx-flex gdx-flex-col">
       <div class="gdx-text-2xl" :style="styles.header">
         {{ step.headerText }}
@@ -58,17 +63,17 @@ import {
 } from "vue";
 import { Step, Theme } from "../types";
 import { createPopper, Instance } from "@popperjs/core";
-import { NEXT_STEP } from "../events";
-import { isElementInViewport } from "../utils/utils";
+import { NEXT_STEP, STOP_TRIP } from "../events";
 import { parseTheme } from "../utils/theme";
 import HardHighlight from "./HardHightlight.vue";
 import SoftHighlight from "./SoftHighlight.vue";
 import arrive from "../utils/arrive";
 import scrollToElementIfNecessary from "../utils/scroller";
+import { XIcon } from "@heroicons/vue/outline";
 
 const props = defineProps<{ step: Step; theme: Theme }>();
 
-const emit = defineEmits([NEXT_STEP]);
+const emit = defineEmits([NEXT_STEP, STOP_TRIP]);
 let popper: Instance | null = null;
 
 const ready = ref(false);
@@ -111,9 +116,10 @@ const styles = computed(() => {
     fontFamily,
     headerSize,
     bodySize,
-    buttonColor,
-    buttonTextColor,
+    nextButtonColor,
+    nextButtonTextColor,
     border,
+    closeButtonColor,
   } = parseTheme(props.theme);
 
   const container = {
@@ -133,8 +139,12 @@ const styles = computed(() => {
   };
 
   const button = {
-    color: buttonTextColor,
-    backgroundColor: buttonColor,
+    color: nextButtonTextColor,
+    backgroundColor: nextButtonColor,
+  };
+
+  const closeButton = {
+    color: closeButtonColor,
   };
 
   return {
@@ -142,6 +152,7 @@ const styles = computed(() => {
     body,
     container,
     button,
+    closeButton,
   };
 });
 
@@ -155,13 +166,7 @@ const progressType = computed(() => {
 
 function setupProgress(element) {
   if (progressType.value === "BUTTON") return;
-  element.addEventListener(
-    "click",
-    () => {
-      goToNextStep();
-    },
-    { once: true }
-  );
+  element.addEventListener("click", goToNextStep, { once: true });
 }
 
 function setupPopper(element) {
@@ -177,6 +182,10 @@ function setupPopper(element) {
 
 function goToNextStep() {
   emit(NEXT_STEP);
+}
+
+function onCloseButtonClicked() {
+  emit(STOP_TRIP);
 }
 
 onMounted(() => {

@@ -26,9 +26,10 @@ export type Theme = {
   fontFamily: string;
   headerSize: string;
   bodySize: string;
-  buttonColor?: string;
-  buttonTextColor?: string;
+  nextButtonColor?: string;
+  nextButtonTextColor?: string;
   border?: string;
+  closeButtonColor?: string;
 };
 
 export type Options = {

@@ -26,6 +26,7 @@
     "preversion": "npm run lint"
   },
   "dependencies": {
+    "@heroicons/vue": "^1.0.5",
     "@popperjs/core": "^2.10.2",
     "concurrently": "^6.3.0",
     "cross-env": "^7.0.3",

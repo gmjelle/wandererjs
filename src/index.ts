@@ -7,7 +7,6 @@ import validateSteps from "./utils/steps";
 import { retrieveTrip, storeTrip } from "./utils/storage";
 
 const ROOT_ID = "wandererjs-main";
-const STORAGE_KEY = "ACTIVE_TRIP";
 
 const root = document.createElement("div");
 root.id = ROOT_ID;

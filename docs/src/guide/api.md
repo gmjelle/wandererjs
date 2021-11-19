@@ -155,8 +155,8 @@ const theme = {
   fontFamily: "sans-serif";
   headerSize: "24px";
   bodySize: "16px";
-  buttonColor: "#3B82F6",
-  buttonTextColor: "#FFF",
+  nextButtonColor: "#3B82F6",
+  nextButtonTextColor: "#FFF",
   border: "1px solid red",
 }
 
@@ -198,9 +198,9 @@ As you can see in the above code snippet, there are a lot of theme options, and 
 
 `Theme.bodySize` - This font size for the body text in the tooltip
 
-`Theme.buttonColor` - The background color of the button (_When `Step.progressOn="BUTTON"`_)
+`Theme.nextButtonColor` - The background color of the button (_When `Step.progressOn="BUTTON"`_)
 
-`Theme.buttonTextColor` - The color of the text inside the button (_When `Step.progressOn="BUTTON"`_)
+`Theme.nextButtonTextColor` - The color of the text inside the button (_When `Step.progressOn="BUTTON"`_)
 
 `Theme.border` - Styling options for a border around the tooltip (_This needs to be a valid CSS border styling string_)
 
@@ -351,8 +351,8 @@ const theme = {
     fontFamily: "sans-serif",
     headerSize: "24px",
     bodySize: "16px",
-    buttonColor: "#3B82F6",
-    buttonTextColor: "#FFF",
+    nextButtonColor: "#3B82F6",
+    nextButtonTextColor: "#FFF",
     border: "1px solid #D1D5DB"
 }
 
