@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: /logo.svg
-tagline: Interactive Product Tours
+tagline: Reduce user frustration with interactive product tours.
 actionText: Quick Start →
 actionLink: /guide/introduction
 ---
