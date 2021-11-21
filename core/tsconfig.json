@@ -9,5 +9,6 @@
     "sourceMap": false,
     "declaration": true,
     "skipLibCheck": true
-  }
+  },
+  "include": ["./*"]
 }
