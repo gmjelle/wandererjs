@@ -1,8 +1,1 @@
-node_modules
-dist
-lib
-lib-esm
-_bundles
-.parcel-cache
-.cache
 .DS_Store
