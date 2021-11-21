@@ -19,10 +19,7 @@
   ],
   "settings": {
     "files.exclude": {
-      "node_modules": true,
-      "core": true,
-      "docs": true,
-      "web": true
+      "node_modules": true
     }
   }
 }
