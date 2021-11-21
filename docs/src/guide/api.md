@@ -204,6 +204,8 @@ As you can see in the above code snippet, there are a lot of theme options, and 
 
 `Theme.border` - Styling options for a border around the tooltip (_This needs to be a valid CSS border styling string_)
 
+`Theme.closeButtonColor` - The color of the close button that's on the tooltip.
+
 ## Trip
 
 A trip is the name of the class that you instantiate when you want to create a new user-onboaring flow. It has a whole bunch of methods to allow you to programatically control the user's progress throughout the trip.
