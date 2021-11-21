@@ -1,0 +1,21 @@
+{
+  "folders": [
+    {
+      "name": "Core",
+      "path": "../core"
+    },
+    {
+      "name": "Docs",
+      "path": "../docs"
+    },
+    {
+      "name": "Web",
+      "path": "../web"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "node_modules": true
+    }
+  }
+}
