@@ -1,5 +1,7 @@
 <template>
-  <Tutorial/>
+  <div>
+    <h1 class="text-lg">Interactive Product Tours</h1>
+  </div>
 </template>
 
 <script lang="ts">
