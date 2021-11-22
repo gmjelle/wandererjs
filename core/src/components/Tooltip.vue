@@ -82,14 +82,6 @@ let popper: Instance | null = null;
 
 const ready = ref(false);
 
-const target = computed(() => {
-  const { element } = props.step;
-  if (typeof element === "string") {
-    return <HTMLElement>document.body.querySelector(element);
-  }
-
-  return <HTMLElement>element;
-});
 
 const highlightTarget = ref();
 
@@ -112,57 +104,7 @@ watch(target, () => {
   performSetup();
 });
 
-const styles = computed(() => {
-  const {
-    backgroundColor,
-    headerTextColor,
-    bodyTextColor,
-    fontFamily,
-    headerSize,
-    bodySize,
-    nextButtonColor,
-    nextButtonTextColor,
-    border,
-    closeButtonColor,
-  } = parseTheme(props.theme);
 
-  const container = {
-    backgroundColor,
-    fontFamily,
-    border,
-  };
-
-  const header = {
-    fontSize: headerSize,
-    color: headerTextColor,
-  };
-
-  const body = {
-    fontSize: bodySize,
-    color: bodyTextColor,
-  };
-
-  const button = {
-    color: nextButtonTextColor,
-    backgroundColor: nextButtonColor,
-  };
-
-  const closeButton = {
-    color: closeButtonColor,
-  };
-
-  return {
-    header,
-    body,
-    container,
-    button,
-    closeButton,
-  };
-});
-
-const root = document.documentElement;
-root.style.setProperty("--arrow-color", props.theme.backgroundColor);
-root.style.setProperty("--border", props.theme.border);
 
 const progressType = computed(() => {
   return props.step.progressOn;
@@ -173,16 +115,6 @@ function setupProgress(element) {
   element.addEventListener("click", goToNextStep, { once: true });
 }
 
-function setupPopper(element) {
-  if (popper) popper.destroy();
-
-  popper = createPopper(element, container.value, {
-    modifiers: [
-      { name: "offset", options: { offset: [10, 20] } },
-      { name: "arrow", options: { element: arrow.value } },
-    ],
-  });
-}
 
 function goToNextStep() {
   emit(NEXT_STEP);
@@ -196,9 +128,6 @@ onMounted(() => {
   performSetup();
 });
 
-onBeforeUnmount(() => {
-  popper?.destroy();
-});
 </script>
 
 <style scoped></style> -->

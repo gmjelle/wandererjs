@@ -1,44 +1,25 @@
 <template>
   <div>
-    <component :is="Teleport" to="body">
-      <div
-        class="
-          gdx-absolute
-          gdx-top-0
-          gdx-left-0
-          gdx-w-full
-          gdx-h-full
-          gdx-pointer-events-none
-          hard-highlight
-          gdx-z-20
-        "
-      >
-        <div
-          ref="gradientElement"
-          class="gdx-absolute hard-highlight-shadow"
-        ></div>
+    <teleport to="body">
+      <div class="wanderer-hard-highlight">
+        <div ref="gradientElement" class="wanderer-hard-highlight-shadow"></div>
       </div>
-    </component>
+    </teleport>
   </div>
 </template>
 
 <script setup lang="ts">
 import { onUpdated, onMounted, onBeforeUnmount, ref } from "vue";
 import { matchBounds } from "../utils/utils";
-import { Teleport as teleport_, TeleportProps, VNodeProps } from "vue";
+import arrive from "../utils/arrive";
 
-const Teleport = teleport_ as {
-  new (): {
-    $props: VNodeProps & TeleportProps;
-  };
-};
-
-const props = defineProps<{ target: HTMLElement }>();
+const props = defineProps<{ target: string | Element }>();
 const gradientElement = ref();
 
-function showForElement() {
+async function showForElement() {
+  const element = await arrive(props.target);
   queueMicrotask(() => {
-    matchBounds(props.target, gradientElement.value, 0);
+    matchBounds(element, gradientElement.value, 0);
   });
 }
 

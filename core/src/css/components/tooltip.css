@@ -1,0 +1,28 @@
+.wanderer-tooltip {
+  position: absolute;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-radius: 0.25rem;
+  z-index: 50;
+  padding: 12px 20px;
+  max-width: 24rem;
+}
+
+.WANDERER_LIGHT .wanderer-tooltip {
+  background-color: #fff;
+  border: 1px solid #d1d5db;
+}
+
+.WANDERER_LIGHT .wanderer-tooltip-arrow::before {
+  background-color: #fff;
+}
+
+.WANDERER_DARK .wanderer-tooltip {
+  background-color: #1f2937;
+  color: #fff;
+}
+
+.WANDERER_DARK .wanderer-tooltip-arrow::before {
+  background-color: #1f2937;
+  border: none;
+}

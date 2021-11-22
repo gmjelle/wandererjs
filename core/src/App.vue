@@ -31,8 +31,6 @@ watch(currentIndex, () => {
 });
 
 let type = computed(() => {
-  console.log(currentStep.value);
-
   switch (currentStep.value?.type?.toLowerCase()) {
     case "tooltip":
       return BasicTooltip;

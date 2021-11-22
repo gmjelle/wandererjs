@@ -1,4 +1,6 @@
 <template>
+  <HardHightlight :target="step.element" v-if="step.highlightType === 'HARD'" />
+  <SoftHighlight :target="step.element" v-if="step.highlightType === 'SOFT'" />
   <div
     ref="container"
     :class="[theme]"
@@ -16,7 +18,14 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, nextTick, watch, computed, reactive } from "vue";
+import {
+  onMounted,
+  ref,
+  nextTick,
+  watch,
+  computed,
+  onBeforeUnmount,
+} from "vue";
 import { createPopper, Instance } from "@popperjs/core";
 import { Theme, TooltipStep } from "../@types";
 import { Block } from "../@types/blocks";
@@ -24,6 +33,8 @@ import arrive from "../utils/arrive";
 import scrollToElementIfNecessary from "../utils/scroller";
 import Custom from "./Custom.vue";
 import { NEXT_STEP, STOP_TRIP } from "../events";
+import HardHightlight from "./HardHightlight.vue";
+import SoftHighlight from "./SoftHighlight.vue";
 
 const props = defineProps<{ step: TooltipStep; theme: Theme }>();
 const emit = defineEmits([NEXT_STEP, STOP_TRIP]);
@@ -31,6 +42,7 @@ const emit = defineEmits([NEXT_STEP, STOP_TRIP]);
 const ready = ref<boolean>(false);
 const container = ref();
 const arrow = ref();
+
 let popper: Instance | null = null;
 
 const blocks: Block[] = [
@@ -79,5 +91,9 @@ watch(
 
 onMounted(() => {
   setup();
+});
+
+onBeforeUnmount(() => {
+  popper?.destroy();
 });
 </script>

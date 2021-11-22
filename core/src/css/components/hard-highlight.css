@@ -1,0 +1,14 @@
+.wanderer-hard-highlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.wanderer-hard-highlight-shadow {
+  position: absolute;
+  box-shadow: 0px 0px 10000px 10000px rgb(0 0 0 / 20%);
+}
