@@ -1,3 +1,6 @@
+@import "./css/headings.css";
+@import "./css/text-aligns.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -63,3 +66,5 @@
 .hard-highlight-shadow {
   box-shadow: 0px 0px 10000px 10000px rgb(0 0 0 / 20%);
 }
+
+/* CUSTOM STYLES */

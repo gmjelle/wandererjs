@@ -13,7 +13,6 @@ module.exports = (env) => {
         name: "Wanderer",
         type: "umd",
       },
-      clean: true,
     },
     module: {
       rules: [

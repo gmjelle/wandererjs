@@ -1,0 +1,29 @@
+.wanderer-h1 {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+.wanderer-h2 {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.wanderer-h3 {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.wanderer-h4 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.wanderer-h5 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.wanderer-h6 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}

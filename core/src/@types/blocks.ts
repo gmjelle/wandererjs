@@ -8,4 +8,11 @@ export type HeadingBlock = {
   text: string;
 };
 
-export type Block = HeadingBlock;
+export type TextBlock = {
+  type: "TEXT";
+  size: string;
+  align?: Align;
+  text: string;
+};
+
+export type Block = HeadingBlock | TextBlock;
