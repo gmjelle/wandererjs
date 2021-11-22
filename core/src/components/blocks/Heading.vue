@@ -1,20 +1,25 @@
 <template>
-  <div :class="[sizeClass, alignClass]">{{ text }}</div>
+  <div class="wanderer-heading" :class="[sizeClass, alignClass]">
+    {{ text }}
+  </div>
 </template>
 
 <script setup lang="ts">
-
 import { computed } from "vue";
 import { Align, HeadingBlock, HeadingSize } from "../../@types/blocks";
 
 interface Props {
-  properties: HeadingBlock
+  properties: HeadingBlock;
 }
-const props = defineProps<Props>()
+const props = defineProps<Props>();
 const DEFAULT_ALIGN: Align = "LEFT";
 const DEFAULT_SIZE: HeadingSize = "H3";
 
-const {align = DEFAULT_ALIGN, size = DEFAULT_SIZE, text = ""} = props.properties;
+const {
+  align = DEFAULT_ALIGN,
+  size = DEFAULT_SIZE,
+  text = "",
+} = props.properties;
 
 const sizeMap = {
   H1: "wanderer-h1",
@@ -29,13 +34,13 @@ const alignMap = {
   LEFT: "wanderer-text-left",
   RIGHT: "wanderer-text-right",
   CENTER: "wanderer-text-center",
-}
+};
 
 const sizeClass = computed(() => {
   return sizeMap[size];
 });
 
-const alignClass = computed(()=> {
+const alignClass = computed(() => {
   return alignMap[align];
-})
+});
 </script>

@@ -10,6 +10,7 @@
 import { onMounted, computed } from "vue";
 import { CustomStep, Theme } from "../@types";
 import Heading from "./blocks/Heading.vue";
+import Image from "./blocks/Image.vue";
 import Text from "./blocks/Text.vue";
 import { NEXT_STEP, STOP_TRIP } from "../events";
 
@@ -19,6 +20,7 @@ const emit = defineEmits([NEXT_STEP, STOP_TRIP]);
 const map = {
   HEADING: Heading,
   TEXT: Text,
+  IMAGE: Image,
 };
 
 const blocks = computed(() => {

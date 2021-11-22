@@ -6,7 +6,7 @@ import themePresets from "./themePresets";
 import validateSteps from "./utils/steps";
 import { retrieveTrip, storeTrip } from "./utils/storage";
 
-const ROOT_ID = "wandererjs-main";
+const ROOT_ID = "wanderer-main";
 
 const root = document.createElement("div");
 root.id = ROOT_ID;

@@ -15,4 +15,10 @@ export type TextBlock = {
   text: string;
 };
 
-export type Block = HeadingBlock | TextBlock;
+export type ImageBlock = {
+  type: "IMAGE";
+  src: string;
+  align?: Align;
+};
+
+export type Block = HeadingBlock | TextBlock | ImageBlock;

@@ -1,5 +1,7 @@
 <template>
-  <div :class="[alignClass]" :style="styleString">{{ text }}</div>
+  <div class="wanderer-text" :class="[alignClass]" :style="styleString">
+    {{ text }}
+  </div>
 </template>
 
 <script setup lang="ts">

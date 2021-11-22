@@ -1,0 +1,19 @@
+.wanderer-flex {
+  display: flex;
+}
+
+.wanderer-flex-col {
+  flex-direction: column;
+}
+
+.wanderer-justify-left {
+  justify-content: start;
+}
+
+.wanderer-justify-center {
+  justify-content: center;
+}
+
+.wanderer-justify-right {
+  justify-content: right;
+}
