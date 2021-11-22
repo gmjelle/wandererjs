@@ -11,10 +11,11 @@
   <div
     v-if="ready"
     ref="container"
-    id="wanderer-tooltip"
+    id="wanderer-tooltip-container"
     data-wanderer-id="tooltip"
     :style="styles.container"
     class="
+      wanderer-tooltip
       gdx-absolute
       gdx-shadow-lg
       gdx-rounded
@@ -24,9 +25,12 @@
       gdx-max-w-sm
     "
   >
-    <div ref="arrow" id="arrow"></div>
+    <div ref="arrow" id="arrow" class="wanderer-tooltip-arrow"></div>
     <XIcon
-      class="gdx-w-4 gdx-absolute gdx-top-1 gdx-right-1 gdx-cursor-pointer"
+      class="
+        gdx-w-4 gdx-absolute gdx-top-1 gdx-right-1 gdx-cursor-pointer
+        wanderer-close-button
+      "
       :style="styles.closeButton"
       @click="onCloseButtonClicked"
     />
@@ -61,7 +65,7 @@ import {
   ref,
   nextTick,
 } from "vue";
-import { Step, Theme } from "../types";
+import { Theme, TooltipStep } from "../@types/index";
 import { createPopper, Instance } from "@popperjs/core";
 import { NEXT_STEP, STOP_TRIP } from "../events";
 import { parseTheme } from "../utils/theme";
@@ -71,7 +75,7 @@ import arrive from "../utils/arrive";
 import scrollToElementIfNecessary from "../utils/scroller";
 import { XIcon } from "@heroicons/vue/outline";
 
-const props = defineProps<{ step: Step; theme: Theme }>();
+const props = defineProps<{ step: TooltipStep; theme: Theme }>();
 
 const emit = defineEmits([NEXT_STEP, STOP_TRIP]);
 let popper: Instance | null = null;

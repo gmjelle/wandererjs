@@ -1,6 +1,6 @@
-import { createApp, getCurrentInstance } from "vue";
+import { createApp } from "vue";
 import App from "./App.vue";
-import { Step, Theme, TripOptions } from "./types";
+import { Step, Theme } from "./@types/index";
 import "./index.css";
 import themePresets from "./themePresets";
 import validateSteps from "./utils/steps";
@@ -21,7 +21,7 @@ interface AppExport {
   start(startAt: number): void;
 }
 
-export default class Trip {
+export class Trip {
   steps: Step[];
   app: null | AppExport;
   theme: Theme | Pick<Theme, "preset">;

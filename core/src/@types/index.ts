@@ -1,11 +1,13 @@
-export type StepType = "TOOLTIP" | "MODAL";
+import { Block } from "./blocks";
+
+export type StepType = "TOOLTIP" | "MODAL" | "CUSTOM";
 export type HighlightType = "HARD" | "SOFT" | "NONE";
 export type ProgressType = "ELEMENT" | "BUTTON";
 export type Side = "RIGHT" | "LEFT" | "TOP" | "BOTTOM";
 export type Direction = "RIGHT" | "LEFT" | "UP" | "DOWN";
 
 export type TooltipStep = {
-  type?: StepType;
+  type: "TOOLTIP";
   highlightType?: HighlightType;
   progressOn?: ProgressType;
   element: string | Element | null;
@@ -13,7 +15,15 @@ export type TooltipStep = {
   bodyText?: string;
 };
 
-export type Step = TooltipStep;
+export type CustomStep = {
+  type: "CUSTOM";
+  showArrow?: boolean;
+  highlightType?: HighlightType;
+  blocks: Block[];
+  element?: string | Element;
+};
+
+export type Step = TooltipStep | CustomStep;
 
 export type ThemePreset = "LIGHT" | "DARK";
 

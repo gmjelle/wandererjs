@@ -1,4 +1,4 @@
-import { Step, Theme } from "../types";
+import { Step, Theme } from "../@types";
 import { warn } from "./logger";
 
 const STORAGE_KEY = "ACTIVE_TRIP";

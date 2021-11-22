@@ -1,18 +1,24 @@
-import { HighlightType, ProgressType, Step, StepType } from "../types";
+import {
+  HighlightType,
+  ProgressType,
+  Step,
+  StepType,
+  TooltipStep,
+} from "../@types";
 import { warn } from "./logger";
 
 export const DEFAULT_PROGRESS_ON: ProgressType = "BUTTON";
-export const DEFAULT_TYPE: StepType = "TOOLTIP";
+export const DEFAULT_TYPE = "TOOLTIP";
 export const DEFAULT_HIGHLIGHT_TYPE: HighlightType = "NONE";
 
-export function validateStep({
+function validateTooltipStep({
   element,
   type = DEFAULT_TYPE,
   progressOn = DEFAULT_PROGRESS_ON,
   highlightType = DEFAULT_HIGHLIGHT_TYPE,
   headerText = "",
   bodyText = "",
-}: Step): Step {
+}: TooltipStep) {
   if (!element) {
     throw new Error('Missing property "element"');
   }
@@ -33,6 +39,23 @@ export function validateStep({
   };
 
   return cloned;
+}
+
+function validateCustomStep(step: Step) {
+  return step;
+}
+
+export function validateStep(step: Step): Step {
+  switch (step.type) {
+    case "TOOLTIP":
+      return validateTooltipStep(step);
+
+    case "CUSTOM":
+      return validateCustomStep(step);
+
+    default:
+      return validateTooltipStep(step);
+  }
 }
 
 export default function validateSteps(steps: Step[] = []) {

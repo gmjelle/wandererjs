@@ -12,7 +12,8 @@
 <script setup lang="ts">
 import { computed, ref, watch } from "vue";
 import Tooltip from "./components/Tooltip.vue";
-import { Step, Theme } from "./types";
+import Custom from "./components/Custom.vue";
+import { Step, Theme } from "./@types/index";
 import { removeTrip, updateIndex } from "./utils/storage";
 
 const props = defineProps<{ steps: Step[]; theme: Theme }>();
@@ -31,6 +32,9 @@ let type = computed(() => {
   switch (currentStep.value?.type?.toLowerCase()) {
     case "tooltip":
       return Tooltip;
+
+    case "custom":
+      return Custom;
 
     default:
       return Tooltip;

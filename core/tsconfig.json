@@ -8,7 +8,7 @@
     "esModuleInterop": true,
     "sourceMap": false,
     "declaration": true,
-    "skipLibCheck": true
-  },
-  "include": ["./*"]
+    "skipLibCheck": true,
+    "importsNotUsedAsValues": "preserve"
+  }
 }
