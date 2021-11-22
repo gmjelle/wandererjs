@@ -119,7 +119,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Your Name - [@JacobBeckerman](https://twitter.com/@JacobBeckerman)
+Jacob Beckerman - [@JacobBeckerman](https://twitter.com/@JacobBeckerman)
 
 Project Link: [https://github.com/yaakov123/wandererjs](https://github.com/yaakov123/wandererjs)
 
