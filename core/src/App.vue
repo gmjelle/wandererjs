@@ -15,13 +15,15 @@ import Tooltip from "./components/Tooltip.vue";
 import Custom from "./components/Custom.vue";
 import { Step, Theme } from "./@types/index";
 import { removeTrip, updateIndex } from "./utils/storage";
+import BasicTooltip from "./components/BasicTooltip.vue";
+import { getStepWithDefaults } from "./utils/steps";
 
 const props = defineProps<{ steps: Step[]; theme: Theme }>();
 const currentIndex = ref(0);
 const shouldHide = ref(true);
 
 const currentStep = computed(() => {
-  return props.steps[currentIndex.value];
+  return getStepWithDefaults(props.steps[currentIndex.value]);
 });
 
 watch(currentIndex, () => {
@@ -29,9 +31,11 @@ watch(currentIndex, () => {
 });
 
 let type = computed(() => {
+  console.log(currentStep.value);
+
   switch (currentStep.value?.type?.toLowerCase()) {
     case "tooltip":
-      return Tooltip;
+      return BasicTooltip;
 
     case "custom":
       return Custom;
@@ -51,7 +55,7 @@ function start(startAt: number = 0) {
   shouldHide.value = false;
 }
 
-function next() {
+async function next() {
   if (currentIndex.value + 1 >= props.steps.length) return onDone();
   currentIndex.value++;
 }

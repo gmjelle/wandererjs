@@ -2,8 +2,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import { Step, Theme } from "./@types/index";
 import "./index.css";
-import themePresets from "./themePresets";
-import validateSteps from "./utils/steps";
+import { validateSteps } from "./utils/steps";
 import { retrieveTrip, storeTrip } from "./utils/storage";
 
 const ROOT_ID = "wanderer-main";
@@ -24,14 +23,14 @@ interface AppExport {
 export class Trip {
   steps: Step[];
   app: null | AppExport;
-  theme: Theme | Pick<Theme, "preset">;
-  constructor(
-    steps: Step[],
-    theme: Theme | Partial<Theme> = themePresets.LIGHT
-  ) {
-    this.steps = validateSteps(steps);
-    this.theme = { ...themePresets[theme.preset || "LIGHT"], ...theme };
+  theme: Theme;
+  constructor(steps: Step[], theme: Theme = "WANDERER_LIGHT") {
+    validateSteps(steps);
+    this.steps = steps;
+    this.theme = theme;
     this.app = null;
+
+    root.classList.add(theme);
   }
 
   static resume() {
@@ -56,7 +55,7 @@ export class Trip {
 
     storeTrip({
       steps: this.steps,
-      theme: <Theme>this.theme,
+      theme: this.theme,
       currentIndex: startAt,
     });
   }

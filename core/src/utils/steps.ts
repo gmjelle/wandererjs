@@ -7,57 +7,68 @@ import {
 } from "../@types";
 import { warn } from "./logger";
 
-export const DEFAULT_PROGRESS_ON: ProgressType = "BUTTON";
-export const DEFAULT_TYPE = "TOOLTIP";
-export const DEFAULT_HIGHLIGHT_TYPE: HighlightType = "NONE";
-
-function validateTooltipStep({
-  element,
-  type = DEFAULT_TYPE,
-  progressOn = DEFAULT_PROGRESS_ON,
-  highlightType = DEFAULT_HIGHLIGHT_TYPE,
-  headerText = "",
-  bodyText = "",
-}: TooltipStep) {
-  if (!element) {
+function validateTooltipStep(step: TooltipStep) {
+  if (!step.element) {
     throw new Error('Missing property "element"');
   }
 
-  if (!headerText && !bodyText) {
+  if (!step.headerText && !step.bodyText) {
     warn(
-      `The ${type} will not have any text because you didn't set the headerText or bodyText properties`
+      `The ${step.type} will not have any text because you didn't set the headerText or bodyText properties`
     );
   }
-
-  const cloned: Step = {
-    element,
-    type,
-    progressOn,
-    highlightType,
-    headerText,
-    bodyText,
-  };
-
-  return cloned;
 }
 
-function validateCustomStep(step: Step) {
-  return step;
-}
+function validateCustomStep(step: Step) {}
 
-export function validateStep(step: Step): Step {
+export function validateStep(step: Step): void {
   switch (step.type) {
     case "TOOLTIP":
-      return validateTooltipStep(step);
+      validateTooltipStep(step);
 
     case "CUSTOM":
-      return validateCustomStep(step);
+      validateCustomStep(step);
 
     default:
-      return validateTooltipStep(step);
+      validateTooltipStep(step as TooltipStep);
   }
 }
 
-export default function validateSteps(steps: Step[] = []) {
-  return steps.map((step) => validateStep(step));
+export function validateSteps(steps: Step[] = []): void {
+  steps.map((step) => validateStep(step));
+}
+
+export const DEFAULT_PROGRESS_ON: ProgressType = "ELEMENT";
+export const DEFAULT_TYPE = "TOOLTIP";
+export const DEFAULT_HIGHLIGHT_TYPE: HighlightType = "NONE";
+export const DEFAULT_SHOW_ARROW: boolean = true;
+
+function getTooltipStepWithDefaults({
+  type = DEFAULT_TYPE,
+  highlightType = DEFAULT_HIGHLIGHT_TYPE,
+  progressOn = DEFAULT_PROGRESS_ON,
+  showArrow = true,
+  headerText,
+  bodyText,
+  element,
+}: TooltipStep) {
+  return {
+    type,
+    highlightType,
+    progressOn,
+    showArrow,
+    headerText,
+    bodyText,
+    element,
+  };
+}
+
+export function getStepWithDefaults(step: Step): Step {
+  switch (step.type) {
+    case "TOOLTIP":
+      return getTooltipStepWithDefaults(step);
+
+    default:
+      return step;
+  }
 }

@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <HardHighlight
     v-if="step.highlightType === 'HARD' && ready"
     :target="highlightTarget"
@@ -201,4 +201,4 @@ onBeforeUnmount(() => {
 });
 </script>
 
-<style scoped></style>
+<style scoped></style> -->

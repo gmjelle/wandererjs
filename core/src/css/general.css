@@ -17,3 +17,7 @@
 .wanderer-justify-right {
   justify-content: right;
 }
+
+.wanderer-rounded {
+  border-radius: 0.25rem;
+}

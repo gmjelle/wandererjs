@@ -8,39 +8,22 @@ export type Direction = "RIGHT" | "LEFT" | "UP" | "DOWN";
 
 export type TooltipStep = {
   type: "TOOLTIP";
+  element: string | Element | null;
   highlightType?: HighlightType;
   progressOn?: ProgressType;
-  element: string | Element | null;
   headerText?: string;
   bodyText?: string;
+  showArrow?: boolean;
 };
 
 export type CustomStep = {
   type: "CUSTOM";
-  showArrow?: boolean;
-  highlightType?: HighlightType;
   blocks: Block[];
-  element?: string | Element;
 };
 
 export type Step = TooltipStep | CustomStep;
 
-export type ThemePreset = "LIGHT" | "DARK";
-
-export type Theme = {
-  preset?: ThemePreset;
-  backgroundColor: string;
-  textColor?: string;
-  headerTextColor?: string;
-  bodyTextColor?: string;
-  fontFamily: string;
-  headerSize: string;
-  bodySize: string;
-  nextButtonColor?: string;
-  nextButtonTextColor?: string;
-  border?: string;
-  closeButtonColor?: string;
-};
+export type Theme = "WANDERER_LIGHT" | "WANDERER_DARK";
 
 export type Options = {
   showCloseButton: boolean;
