@@ -64,6 +64,8 @@ function getTooltipStepWithDefaults({
 }
 
 export function getStepWithDefaults(step: Step): Step {
+  if (!step.type) step.type = DEFAULT_TYPE;
+
   switch (step.type) {
     case "TOOLTIP":
       return getTooltipStepWithDefaults(step);
