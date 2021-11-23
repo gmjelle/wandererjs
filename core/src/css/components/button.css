@@ -1,0 +1,42 @@
+.wanderer-button {
+  display: flex;
+}
+
+.wanderer-button[data-align="LEFT"] {
+  justify-content: start;
+}
+
+.wanderer-button[data-align="CENTER"] {
+  justify-content: center;
+}
+
+.wanderer-button[data-align="RIGHT"] {
+  justify-content: end;
+}
+
+.wanderer-button-wrapper {
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* ------- DEFAULT ------ */
+.wanderer-button-wrapper {
+  background-color: #2563eb;
+  color: #fff;
+}
+/* ------- DEFAULT ------ */
+
+.WANDERER_LIGHT {
+  .wanderer-button-wrapper {
+    background-color: #2563eb;
+    color: #fff;
+  }
+}
+
+.WANDERER_DARK {
+  .wanderer-button-wrapper {
+    background-color: #2563eb;
+    color: #fff;
+  }
+}

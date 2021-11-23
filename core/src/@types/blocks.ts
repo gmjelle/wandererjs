@@ -21,4 +21,11 @@ export type ImageBlock = {
   align?: Align;
 };
 
-export type Block = HeadingBlock | TextBlock | ImageBlock;
+export type ButtonBlock = {
+  type: "BUTTON";
+  text: string;
+  action?: () => void;
+  align?: Align;
+};
+
+export type Block = HeadingBlock | TextBlock | ImageBlock | ButtonBlock;

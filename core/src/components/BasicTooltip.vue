@@ -48,6 +48,7 @@ let popper: Instance | null = null;
 const blocks: Block[] = [
   { type: "HEADING", size: "H3", text: props.step.headerText },
   { type: "TEXT", size: "20px", text: props.step.bodyText },
+  { type: "BUTTON", text: "Next", align: "RIGHT" },
 ];
 
 function setupPopper(element) {

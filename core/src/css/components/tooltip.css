@@ -8,21 +8,37 @@
   max-width: 24rem;
 }
 
-.WANDERER_LIGHT .wanderer-tooltip {
+/* ------- DEFAULT ------ */
+.wanderer-tooltip {
   background-color: #fff;
   border: 1px solid #d1d5db;
 }
 
-.WANDERER_LIGHT .wanderer-tooltip-arrow::before {
+.wanderer-tooltip-arrow::before {
   background-color: #fff;
 }
+/* ------- DEFAULT ------ */
 
-.WANDERER_DARK .wanderer-tooltip {
-  background-color: #1f2937;
-  color: #fff;
+.WANDERER_LIGHT {
+  .wanderer-tooltip {
+    background-color: #fff;
+    border: 1px solid #d1d5db;
+  }
+
+  .wanderer-tooltip-arrow::before {
+    background-color: #fff;
+  }
 }
 
-.WANDERER_DARK .wanderer-tooltip-arrow::before {
-  background-color: #1f2937;
-  border: none;
+.WANDERER_DARK {
+  .wanderer-tooltip {
+    background-color: #1f2937;
+    color: #fff;
+    border: none;
+  }
+
+  .wanderer-tooltip-arrow::before {
+    background-color: #1f2937;
+    border: none;
+  }
 }

@@ -1,0 +1,15 @@
+.wanderer-image {
+  display: flex;
+}
+
+.wanderer-image[data-align="LEFT"] {
+  justify-content: start;
+}
+
+.wanderer-image[data-align="CENTER"] {
+  justify-content: center;
+}
+
+.wanderer-image[data-align="RIGHT"] {
+  justify-content: end;
+}

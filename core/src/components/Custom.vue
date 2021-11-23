@@ -11,6 +11,7 @@ import Heading from "./blocks/Heading.vue";
 import Image from "./blocks/Image.vue";
 import Text from "./blocks/Text.vue";
 import { Block } from "../@types/blocks";
+import Button from "./blocks/Button.vue";
 
 defineProps<{ blocks: Block[] }>();
 
@@ -18,5 +19,6 @@ const map = {
   HEADING: Heading,
   TEXT: Text,
   IMAGE: Image,
+  BUTTON: Button,
 };
 </script>
