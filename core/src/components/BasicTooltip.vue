@@ -1,12 +1,7 @@
 <template>
   <HardHightlight :target="step.element" v-if="step.highlightType === 'HARD'" />
   <SoftHighlight :target="step.element" v-if="step.highlightType === 'SOFT'" />
-  <div
-    ref="container"
-    :class="[theme]"
-    class="wanderer-tooltip wanderer-shadow-lg"
-    v-if="ready"
-  >
+  <div ref="container" :class="[theme]" class="wanderer-tooltip" v-if="ready">
     <div
       ref="arrow"
       id="arrow"

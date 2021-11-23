@@ -1,0 +1,15 @@
+.WANDERER_LIGHT {
+  .wanderer-button-wrapper {
+    background-color: #2563eb;
+    color: #fff;
+  }
+
+  .wanderer-tooltip {
+    background-color: #fff;
+    border: 1px solid #d1d5db;
+  }
+
+  .wanderer-tooltip-arrow::before {
+    background-color: #fff;
+  }
+}

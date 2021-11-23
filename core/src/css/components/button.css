@@ -1,5 +1,6 @@
 .wanderer-button {
   display: flex;
+  margin-top: 10px;
 }
 
 .wanderer-button[data-align="LEFT"] {
@@ -26,17 +27,3 @@
   color: #fff;
 }
 /* ------- DEFAULT ------ */
-
-.WANDERER_LIGHT {
-  .wanderer-button-wrapper {
-    background-color: #2563eb;
-    color: #fff;
-  }
-}
-
-.WANDERER_DARK {
-  .wanderer-button-wrapper {
-    background-color: #2563eb;
-    color: #fff;
-  }
-}

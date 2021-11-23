@@ -1,0 +1,17 @@
+.WANDERER_DARK {
+  .wanderer-button-wrapper {
+    background-color: #2563eb;
+    color: #fff;
+  }
+
+  .wanderer-tooltip {
+    background-color: #1f2937;
+    color: #fff;
+    border: none;
+  }
+
+  .wanderer-tooltip-arrow::before {
+    background-color: #1f2937;
+    border: none;
+  }
+}
