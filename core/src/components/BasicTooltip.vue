@@ -45,11 +45,25 @@ const arrow = ref();
 
 let popper: Instance | null = null;
 
-const blocks: Block[] = [
-  { type: "HEADING", size: "H3", text: props.step.headerText },
-  { type: "TEXT", size: "20px", text: props.step.bodyText },
-  { type: "BUTTON", text: "Next", align: "RIGHT" },
-];
+const blocks = computed<Block[]>(() => {
+  const temp: Block[] = [
+    { type: "HEADING", size: "H3", text: props.step.headerText },
+    { type: "TEXT", size: "20px", text: props.step.bodyText },
+  ];
+
+  if (props.step.progressOn === "BUTTON") {
+    temp.push({
+      type: "BUTTON",
+      text: "Next",
+      align: "RIGHT",
+      action: () => {
+        emit(NEXT_STEP);
+      },
+    });
+  }
+
+  return temp;
+});
 
 function setupPopper(element) {
   if (popper) popper.destroy();

@@ -11,7 +11,6 @@
 
 <script setup lang="ts">
 import { computed, ref, watch } from "vue";
-import Tooltip from "./components/Tooltip.vue";
 import Custom from "./components/Custom.vue";
 import { Step, Theme } from "./@types/index";
 import { removeTrip, updateIndex } from "./utils/storage";
@@ -39,7 +38,7 @@ let type = computed(() => {
       return Custom;
 
     default:
-      return Tooltip;
+      return BasicTooltip;
   }
 });
 
