@@ -28,4 +28,16 @@ export type ButtonBlock = {
   align?: Align;
 };
 
-export type Block = HeadingBlock | TextBlock | ImageBlock | ButtonBlock;
+export type IconBlock = {
+  type: "ICON";
+  icon: string;
+  align?: Align;
+  action?: () => void;
+};
+
+export type Block =
+  | HeadingBlock
+  | TextBlock
+  | ImageBlock
+  | ButtonBlock
+  | IconBlock;

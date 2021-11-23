@@ -12,6 +12,7 @@ import Image from "./blocks/Image.vue";
 import Text from "./blocks/Text.vue";
 import { Block } from "../@types/blocks";
 import Button from "./blocks/Button.vue";
+import Icon from "./blocks/Icon.vue";
 
 defineProps<{ blocks: Block[] }>();
 
@@ -20,5 +21,6 @@ const map = {
   TEXT: Text,
   IMAGE: Image,
   BUTTON: Button,
+  ICON: Icon,
 };
 </script>

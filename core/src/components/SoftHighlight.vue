@@ -21,7 +21,7 @@ const Teleport = teleport_ as {
   };
 };
 
-const props = defineProps<{ target: HTMLElement }>();
+const props = defineProps<{ target: string | Element }>();
 const gradientElement = ref();
 
 async function showForElement() {

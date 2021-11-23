@@ -1,0 +1,16 @@
+.wanderer-icon {
+  display: flex;
+  cursor: pointer;
+}
+
+.wanderer-icon[data-align="LEFT"] {
+  justify-content: start;
+}
+
+.wanderer-icon[data-align="CENTER"] {
+  justify-content: center;
+}
+
+.wanderer-icon[data-align="RIGHT"] {
+  justify-content: end;
+}

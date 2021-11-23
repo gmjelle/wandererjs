@@ -42,6 +42,14 @@ let popper: Instance | null = null;
 
 const blocks = computed<Block[]>(() => {
   const temp: Block[] = [
+    {
+      type: "ICON",
+      icon: "times",
+      align: "RIGHT",
+      action: () => {
+        emit(STOP_TRIP);
+      },
+    },
     { type: "HEADING", size: "H4", text: props.step.headerText },
     { type: "TEXT", size: "20px", text: props.step.bodyText },
   ];
