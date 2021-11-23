@@ -1,0 +1,17 @@
+.WANDERER_BLUE {
+  .wanderer-tooltip {
+    background-color: #2563eb;
+    color: #fff;
+    border: none;
+  }
+
+  .wanderer-tooltip-arrow::before {
+    background-color: #2563eb;
+    border: none;
+  }
+
+  .wanderer-button-wrapper {
+    background-color: #1e3a8a;
+    color: #fff;
+  }
+}

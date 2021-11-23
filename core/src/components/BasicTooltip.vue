@@ -42,7 +42,7 @@ let popper: Instance | null = null;
 
 const blocks = computed<Block[]>(() => {
   const temp: Block[] = [
-    { type: "HEADING", size: "H3", text: props.step.headerText },
+    { type: "HEADING", size: "H4", text: props.step.headerText },
     { type: "TEXT", size: "20px", text: props.step.bodyText },
   ];
 
