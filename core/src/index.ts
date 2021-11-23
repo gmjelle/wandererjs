@@ -4,6 +4,8 @@ import { Step, Theme } from "./@types/index";
 import "./index.css";
 import { validateSteps } from "./utils/steps";
 import { retrieveTrip, storeTrip } from "./utils/storage";
+import "./fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 const ROOT_ID = "wanderer-main";
 
@@ -49,7 +51,9 @@ export class Trip {
     this.app = createApp(App, {
       steps: this.steps,
       theme: this.theme,
-    }).mount(`#${ROOT_ID}`);
+    })
+      .component("font-awesome-icon", FontAwesomeIcon)
+      .mount(`#${ROOT_ID}`);
 
     this.app.start(startAt);
 
