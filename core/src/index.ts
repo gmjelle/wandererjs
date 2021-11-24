@@ -31,7 +31,6 @@ export class Trip {
     this.steps = steps;
     this.theme = theme;
     this.app = null;
-
     root.classList.add(theme);
   }
 
