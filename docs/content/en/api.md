@@ -122,6 +122,12 @@ const step = {
 
 ## Theming - Coming Soon!!!
 
+Currently there are 3 options that you can pass as the second argument to the `Trip` constructor.
+
+- `new Trip(steps, "WANDERER_LIGHT")`
+- `new Trip(steps, "WANDERER_DARK")`
+- `new Trip(steps, "WANDERER_BLUE")`
+
 ## Trip
 
 A trip is the name of the class that you instantiate when you want to create a new user-onboaring flow. It has a whole bunch of methods to allow you to programatically control the user's progress throughout the trip.
