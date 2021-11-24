@@ -120,7 +120,7 @@ const step = {
 };
 ```
 
-## Themeing - Coming Soon!!!
+## Theming - Coming Soon!!!
 
 ## Trip
 
