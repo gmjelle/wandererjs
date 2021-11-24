@@ -4,28 +4,36 @@
 @import "./css/headings.css";
 @import "./css/text-aligns.css";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
   --arrow-color: #fff;
 }
 
 .wanderer-tooltip[data-popper-placement^="top"] > #arrow::before {
-  @apply gdx-border-r gdx-border-b gdx-border-t-0 gdx-border-l-0;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-top-width: 0px;
+  border-left-width: 0px;
 }
 
 .wanderer-tooltip[data-popper-placement^="bottom"] > #arrow::before {
-  @apply gdx-border-l gdx-border-t gdx-border-b-0 gdx-border-r-0;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+  border-top-width: 1px;
+  border-left-width: 1px;
 }
 
 .wanderer-tooltip[data-popper-placement^="left"] > #arrow::before {
-  @apply gdx-border-t gdx-border-r gdx-border-b-0 gdx-border-l-0;
+  border-right-width: 1px;
+  border-bottom-width: 0px;
+  border-top-width: 1px;
+  border-left-width: 0px;
 }
 
 .wanderer-tooltip[data-popper-placement^="right"] > #arrow::before {
-  @apply gdx-border-b gdx-border-l gdx-border-t-0 gdx-border-r-0;
+  border-right-width: 0px;
+  border-bottom-width: 1px;
+  border-top-width: 0px;
+  border-left-width: 1px;
 }
 
 /*  */
