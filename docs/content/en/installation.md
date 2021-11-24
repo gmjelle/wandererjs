@@ -14,7 +14,7 @@ npm i wanderer.js
 And then in your codebase somewhere you can use it like this:
 
 ```js
-import Trip from "wanderer.js";
+import { Trip } from "wanderer.js";
 
 const steps = [
   {
@@ -25,9 +25,7 @@ const steps = [
   },
 ];
 
-const theme = {
-  preset: "DARK",
-};
+const theme = "WANDERER_DARK";
 
 const trip = new Trip(steps, theme);
 
@@ -45,6 +43,7 @@ You can also use Wanderer.js by including it in your HTML file at the following 
 <scrtipt src="https://unpkg.com/wanderer.js"></script>
 
 <script>
+    const { Trip } = window.Wanderer;
     const trip = new Trip(steps, theme);
 </script>
 ```

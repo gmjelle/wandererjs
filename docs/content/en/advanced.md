@@ -10,7 +10,7 @@ category: "Advanced Usage"
 There may be some cases that a `Trip` will need to span across multiple pages. Wanderer.js attempts to make the API for this as simple as possible, but I'm open to suggestions on making it even more intuitive.
 
 ```js
-import Trip from "wanderer.js";
+import { Trip } from "wanderer.js";
 
 const steps = [
   {
@@ -46,7 +46,7 @@ We're now in a state where we no longer have a reference to the active `trip`.
 So in order to resume the active trip all you have to do is the following
 
 ```js
-import Trip from "wanderer.js";
+import { Trip } from "wanderer.js";
 const trip = Trip.resume();
 ```
 

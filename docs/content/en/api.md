@@ -120,55 +120,7 @@ const step = {
 };
 ```
 
-## Theme
-
-The `Theme` object is the second paramter that you pass to the Trip constructor. In theory, Wanderer.js strives to look good in all settings, but there will be certain times when you'd like to customize the look and feel of the tooltips. As before, first off we'll outline all the properties that can exist on a `Theme`
-
-```js
-const theme = {
-  preset: "LIGHT" | "DARK";
-  backgroundColor: "#1F2937";
-  textColor: "#FFF";
-  headerTextColor: "#FFF";
-  bodyTextColor: "#FFF";
-  fontFamily: "sans-serif";
-  headerSize: "24px";
-  bodySize: "16px";
-  nextButtonColor: "#3B82F6",
-  nextButtonTextColor: "#FFF",
-  border: "1px solid red",
-}
-
-const trip = new Trip(steps, theme);
-```
-
-Whew, that's a lot to take in. Let's break it down one by one
-
-### `Theme.preset`
-
-As you can see in the above code snippet, there are a lot of theme options, and in the future there will probably be even more. So in order to save you time, there are a couple of theme presets that you can use in order to save time. The two that are currently supported are `"LIGHT"` and `"DARK"`:
-
-`Theme.backgroundColor` - The background color of the tooltip
-
-`Theme.textColor` - The color of all the text in the tooltip
-
-`Theme.headerTextColor` - The color the header text should be (_This overrides `Theme.textColor`_)
-
-`Theme.bodyTextColor` - The color the body text should be (_This overrides `Theme.textColor`_)
-
-`Theme.fontFamily` - This font family for the text in the tooltip
-
-`Theme.headerSize` - This font size for the header text in the tooltip
-
-`Theme.bodySize` - This font size for the body text in the tooltip
-
-`Theme.nextButtonColor` - The background color of the button (_When `Step.progressOn="BUTTON"`_)
-
-`Theme.nextButtonTextColor` - The color of the text inside the button (_When `Step.progressOn="BUTTON"`_)
-
-`Theme.border` - Styling options for a border around the tooltip (_This needs to be a valid CSS border styling string_)
-
-`Theme.closeButtonColor` - The color of the close button that's on the tooltip.
+## Themeing - Coming Soon!!!
 
 ## Trip
 
@@ -281,7 +233,7 @@ Okay, so we've gone over pretty much all of the options that you can provide to 
 First let's take a look at the minimum possible code you can write to create a valid `Trip`
 
 ```js
-import Trip from "wanderer.js";
+import { Trip } from "wanderer.js";
 
 const steps = [
   {
