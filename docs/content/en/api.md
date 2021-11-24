@@ -72,13 +72,9 @@ This property controls how the user progresses from one step to the next. There 
 
 This option means that the user will be shown the next step once they click on the target element. This option can be useful when the target element of the next step appears only after the user interacts with the target element of the current step. You can think of this option as more of a guided trip where the user interacts with your website.
 
-In the example below, the user will need to click on the "Sign In" button in order to progress to the next step.
-
 **`Step.progressOn = "BUTTON"`**
 
 This option means that the user will be shown the next step once they click on the next button. This option can be useful when you just want to show your user around a single page.
-
-In the example below, the user will need to click on the next button in order to progress to the next step
 
 ### `Step.element`
 
