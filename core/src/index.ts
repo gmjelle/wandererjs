@@ -1,11 +1,12 @@
+import "./index.css";
 import { createApp } from "vue";
 import App from "./App.vue";
 import { Step, Theme } from "./@types/index";
-import "./index.css";
 import { validateSteps } from "./utils/steps";
 import { retrieveTrip, storeTrip } from "./utils/storage";
 import "./fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import pageLoaded from "./utils/loaded";
 
 const ROOT_ID = "wanderer-main";
 
@@ -42,7 +43,8 @@ export class Trip {
     return trip;
   }
 
-  start(startAt: number = 0) {
+  async start(startAt: number = 0) {
+    await pageLoaded();
     if (this.app) {
       return this.app.start(startAt);
     }

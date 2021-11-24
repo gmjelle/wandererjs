@@ -92,12 +92,12 @@ async function setup() {
   ready.value = false;
   const element = await arrive(props.step.element);
   ready.value = true;
-
-  nextTick(() => {
+  queueMicrotask(() => {
     scrollToElementIfNecessary(element);
-    setupPopper(element);
     setupProgress(element);
+    setupPopper(element);
   });
+  nextTick(() => {});
 }
 
 watch(
