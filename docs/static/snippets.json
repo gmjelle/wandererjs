@@ -1,0 +1,3 @@
+{
+  "installation": "const steps = [\n  {\n    progressOn: \"ELEMENT\",\n    element: \"#button\",\n    headerText: \"Welcome!\",\n    bodyText: \"Welcome to Wanderer.js\",\n  },\n];\n\nconst theme = {\n  preset: \"DARK\",\n};\n\nconst trip = new Trip(steps, theme);\n\ntrip.start();"
+}

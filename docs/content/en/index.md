@@ -1,4 +1,11 @@
-# Introduction
+---
+title: Introduction
+description: ""
+position: 1
+category: "Guide"
+---
+
+## This library is still not ready for Production use!!!
 
 Wanderer.js is an easy to use, user-onboarding library. It is still in its early stages so more work needs to be done, but at this stage it is still quite functional. Some features it already has include:
 

@@ -1,0 +1,10 @@
+{
+  "title": "Wanderer.js",
+  "url": "https://wandererjs.com",
+  "logo": {
+    "light": "/logo.svg",
+    "dark": "/logo.svg"
+  },
+  "github": "yaakov123/wandererjs",
+  "twitter": "@JacobBeckerman"
+}

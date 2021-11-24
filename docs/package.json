@@ -1,17 +1,17 @@
 {
-  "name": "wandererjs",
-  "version": "0.0.1",
-  "description": "Easy to use, customizable user-onboarding",
-  "main": "index.js",
-  "authors": {
-    "name": "Jacob Beckerman"
-  },
+  "name": "docs-v2",
+  "version": "1.0.0",
+  "private": true,
   "scripts": {
-    "dev": "vuepress dev src",
-    "build": "vuepress build src"
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
   },
-  "license": "MIT",
-  "devDependencies": {
-    "vuepress": "^1.5.3"
+  "dependencies": {
+    "@nuxt/content-theme-docs": "^0.11.0",
+    "@nuxt/http": "^0.6.4",
+    "nuxt": "^2.15.8",
+    "wanderer.js": "file:../core"
   }
 }
