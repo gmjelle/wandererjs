@@ -265,16 +265,7 @@ const steps = [
   },
 ];
 
-const theme = {
-    backgroundColor: "#FFF",
-    textColor: "#000",
-    fontFamily: "sans-serif",
-    headerSize: "24px",
-    bodySize: "16px",
-    nextButtonColor: "#3B82F6",
-    nextButtonTextColor: "#FFF",
-    border: "1px solid #D1D5DB"
-}
+const theme = "WANDERER_LIGHT"
 
 const trip = new Trip(steps, theme);
 trip.start();

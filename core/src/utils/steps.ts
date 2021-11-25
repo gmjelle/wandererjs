@@ -38,7 +38,7 @@ export function validateSteps(steps: Step[] = []): void {
   steps.map((step) => validateStep(step));
 }
 
-export const DEFAULT_PROGRESS_ON: ProgressType = "ELEMENT";
+export const DEFAULT_PROGRESS_ON: ProgressType = "BUTTON";
 export const DEFAULT_TYPE = "TOOLTIP";
 export const DEFAULT_HIGHLIGHT_TYPE: HighlightType = "NONE";
 export const DEFAULT_SHOW_ARROW: boolean = true;
