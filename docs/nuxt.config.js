@@ -5,4 +5,7 @@ export default theme({
     primaryColor: "#1D4ED8",
   },
   modules: ["@nuxt/http"],
+  server: {
+    port: 5001,
+  },
 });

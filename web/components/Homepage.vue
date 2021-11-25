@@ -35,10 +35,23 @@
             cursor-pointer
           "
         >
-          Read the docs
+          <a :href="docsUrl"> Read the docs </a>
         </div>
       </div>
     </div>
     <div class="text-9xl w-1/2"></div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {}
+  },
+  computed: {
+    docsUrl() {
+      return process.env.DOCS_URL
+    },
+  },
+}
+</script>

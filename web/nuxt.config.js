@@ -54,4 +54,15 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  server: {
+    port: 5000,
+  },
+
+  env: {
+    DOCS_URL:
+      process.env.NODE_ENV === 'production'
+        ? 'https://docs.wandererjs.com'
+        : 'http://localhost:5001',
+  },
 }
