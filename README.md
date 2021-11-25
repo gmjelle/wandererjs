@@ -11,13 +11,14 @@
 <br />
 <div align="center">
 
-<h2 align="center">Wanderer.js</h2>
-  <img src="./core/assets/logo.svg"/>
-  <p align="center">
+<div style="display: flex; flex-direction: column">
+  <h2 text-align="center">Wanderer.js</h2>
+  <img style="height: 200px" src="./assets/logo.svg"/>
+  <p text-align="center">
     Simple, Beautiful onboarding.
-    <br />
-    <a href="https://wandererjs.com"><strong>Explore the docs »</strong></a>
   </p>
+  <a href="https://wandererjs.com"><strong>Explore the docs »</strong></a>
+</div>
 </div>
 
 ### Built With
