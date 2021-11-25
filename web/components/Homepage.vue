@@ -13,7 +13,7 @@
           bottom-14
         "
       >
-        <div class="flex flex-col w-1/2 mb-20">
+        <div class="flex flex-col w-1/2">
           <div id="tagline" class="text-5xl font-bold">
             Reduce user frustration with
             <span class="text-blue-700">interactive product tours</span>
