@@ -13,6 +13,7 @@ module.exports = (env) => {
         name: "Wanderer",
         type: "umd",
       },
+      globalObject: "this",
     },
     module: {
       rules: [

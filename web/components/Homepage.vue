@@ -1,8 +1,8 @@
 <template>
-  <div class="flex items-center p-16 h-3/4 mt-40">
+  <div class="flex items-center p-16 h-3/4 mt-32">
     <div class="pattern"></div>
     <div class="flex flex-col w-1/2 mb-20">
-      <div class="text-5xl font-bold">
+      <div id="tagline" class="text-5xl font-bold">
         Reduce user frustration with
         <span class="text-blue-700">interactive product tours</span>
       </div>
@@ -27,6 +27,7 @@
             transform
             hover:-translate-y-0.5
           "
+          @click="showDemo"
         >
           Live Demo
         </div>
@@ -55,14 +56,34 @@
 </template>
 
 <script>
+import { Trip } from 'wanderer.js'
 export default {
   data() {
     return {
+      data: null,
     }
   },
   computed: {
     docsUrl() {
       return process.env.DOCS_URL
+    },
+  },
+
+  mounted() {
+    this.$data.trip = new Trip(
+      [
+        {
+          headerText: 'Welcome!',
+          bodyText: 'Welcome to WandererJS',
+          element: '#tagline',
+        },
+      ],
+      'WANDERER_BLUE'
+    )
+  },
+  methods: {
+    showDemo() {
+      this.$data.trip.start()
     },
   },
 }
