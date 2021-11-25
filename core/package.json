@@ -4,7 +4,9 @@
   "name": "wanderer.js",
   "version": "0.0.9",
   "files": [
-    "dist/**/*"
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "dist/**/*.txt"
   ],
   "repository": {
     "type": "git",
