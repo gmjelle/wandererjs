@@ -63,7 +63,7 @@ npm i wanderer.js
 And then in your codebase somewhere you can use it like this:
 
 ```js
-import Trip from "wanderer.js"
+import { Trip }from "wanderer.js"
 
 const steps = [
   {
