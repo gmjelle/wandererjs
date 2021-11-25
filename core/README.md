@@ -11,7 +11,7 @@
 <br />
 <div align="center">
 
-<h2 align="center">Wanderer.js</h3>
+<h2 align="center">Wanderer.js</h2>
   <img src="./assets/logo.svg"/>
   <p align="center">
     Simple, Beautiful onboarding.
