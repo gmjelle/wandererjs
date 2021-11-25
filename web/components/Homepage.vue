@@ -1,57 +1,72 @@
 <template>
-  <div class="flex items-center p-16 h-3/4 mt-32">
-    <div class="pattern"></div>
-    <div class="flex flex-col w-1/2 mb-20">
-      <div id="tagline" class="text-5xl font-bold">
-        Reduce user frustration with
-        <span class="text-blue-700">interactive product tours</span>
-      </div>
-      <div class="text-xl mt-4">
-        Good UX can be a hard thing to nail. With WandererJS, you can guide your
-        users down the path of success with beautiful product tours. It's that
-        easy!
-      </div>
-      <div class="flex mt-8">
-        <div
-          class="
-            px-6
-            py-3
-            bg-blue-700
-            text-white
-            rounded
-            text-lg
-            cursor-pointer
-            transition
-            duration-400
-            ease-in-out
-            transform
-            hover:-translate-y-0.5
-          "
-          @click="showDemo"
-        >
-          Live Demo
+  <div class="h-full">
+    <div class="w-full h-full px-10">
+      <div class="pattern"></div>
+      <div
+        class="
+          flex
+          h-full
+          w-full
+          items-center
+          justify-center
+          relative
+          bottom-14
+        "
+      >
+        <div class="flex flex-col w-1/2 mb-20">
+          <div id="tagline" class="text-5xl font-bold">
+            Reduce user frustration with
+            <span class="text-blue-700">interactive product tours</span>
+          </div>
+          <div class="text-xl mt-4">
+            Good UX can be a hard thing to nail. With WandererJS, you can guide
+            your users down the path of success with beautiful product tours.
+            It's that easy!
+          </div>
+          <div class="flex mt-8">
+            <div
+              class="
+                px-6
+                py-3
+                bg-blue-700
+                text-white
+                rounded
+                text-lg
+                cursor-pointer
+                transition
+                duration-400
+                ease-in-out
+                transform
+                hover:-translate-y-0.5
+              "
+              @click="showDemo"
+            >
+              Live Demo
+            </div>
+            <div
+              class="
+                px-6
+                py-3
+                border border-blue-700
+                ml-4
+                rounded
+                text-lg text-blue-700
+                cursor-pointer
+                transition
+                duration-400
+                ease-in-out
+                transform
+                hover:-translate-y-0.5
+              "
+            >
+              <a :href="docsUrl"> Read the docs </a>
+            </div>
+          </div>
         </div>
-        <div
-          class="
-            px-6
-            py-3
-            border border-blue-700
-            ml-4
-            rounded
-            text-lg text-blue-700
-            cursor-pointer
-            transition
-            duration-400
-            ease-in-out
-            transform
-            hover:-translate-y-0.5
-          "
-        >
-          <a :href="docsUrl"> Read the docs </a>
-        </div>
+        <div class="w-1/2 h-full"></div>
       </div>
     </div>
-    <div class="w-1/2 h-full"></div>
+    <div>Hello There</div>
   </div>
 </template>
 
