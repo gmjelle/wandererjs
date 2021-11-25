@@ -63,25 +63,22 @@ npm i wanderer.js
 And then in your codebase somewhere you can use it like this:
 
 ```js
-import { Trip }from "wanderer.js"
+import { Trip } from "wanderer.js";
 
 const steps = [
   {
-	progressOn: "ELEMENT",
-	element: "#button",
-	headerText: "Welcome!",
-	bodyText: "Welcome to Wanderer.js"
-  }
+    progressOn: "ELEMENT",
+    element: "#button",
+    headerText: "Welcome!",
+    bodyText: "Welcome to Wanderer.js",
+  },
 ];
 
-const theme = {
-  preset: "DARK"
-]
+const theme = "WANDERER_DARK";
 
 const trip = new Trip(steps, theme);
 
 trip.start();
-
 ```
 
 This will create a tooltip that looks something like this.
