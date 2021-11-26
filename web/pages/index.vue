@@ -1,5 +1,5 @@
 <template>
-  <div class="w-screen h-screen absolute top-0 left-0">
+  <div class="w-screen h-screen absolute top-16 left-0 page-container">
     <Homepage />
   </div>
 </template>
@@ -10,3 +10,8 @@ import Homepage from '~/components/Homepage.vue'
 
 export default Vue.extend({ components: { Homepage } })
 </script>
+<style>
+.page-container {
+  height: calc(100% - theme('height.16'));
+}
+</style>

@@ -27,7 +27,7 @@ const gradientElement = ref();
 async function showForElement() {
   const element = await arrive(props.target);
   queueMicrotask(() => {
-    matchBounds(element, gradientElement.value, 0);
+    matchBounds(element, gradientElement.value, 25);
   });
 }
 

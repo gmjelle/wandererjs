@@ -1,20 +1,28 @@
 <template>
-  <div class="h-full">
-    <div class="w-full h-full px-10">
+  <div class="h-full w-full">
+    <div
+      class="
+        w-full
+        h-auto
+        px-3
+        max-w-screen-xl
+        xs:px-10
+        sm:px-10
+        lg:px-20
+        mx-auto
+      "
+    >
       <div class="pattern"></div>
       <div
         class="
-          flex
-          h-full
-          w-full
-          items-center
-          justify-center
-          relative
-          bottom-14
+          flex flex-col
+          justify-evenly
+          lg:flex-row lg:space-x-6 lg:mt-20
+          xl:space-x-12
         "
       >
-        <div class="flex flex-col w-1/2">
-          <div id="tagline" class="text-5xl font-bold">
+        <div class="flex flex-col lg:w-1/2">
+          <div id="tagline" class="text-5xl font-bold mt-10">
             Reduce user frustration with
             <span class="text-blue-700">interactive product tours</span>
           </div>
@@ -23,11 +31,19 @@
             your users down the path of success with beautiful product tours.
             It's that easy!
           </div>
-          <div class="flex mt-8">
+          <div
+            class="
+              flex flex-col
+              space-y-2
+              mt-8
+              xs:flex-row xs:space-x-2 xs:space-y-0
+            "
+          >
             <div
               class="
-                px-6
+                w-full
                 py-3
+                text-center
                 bg-blue-700
                 text-white
                 rounded
@@ -45,10 +61,10 @@
             </div>
             <div
               class="
-                px-6
+                w-full
                 py-3
+                text-center
                 border border-blue-700
-                ml-4
                 rounded
                 text-lg text-blue-700
                 cursor-pointer
@@ -63,10 +79,11 @@
             </div>
           </div>
         </div>
-        <div class="w-1/2 h-full"></div>
+        <div class="flex justify-center items-center mt-4 lg:w-1/2">
+          <img src="~/assets/code.png" class="shadow-xl w-full" />
+        </div>
       </div>
     </div>
-    <div>Hello There</div>
   </div>
 </template>
 
@@ -75,7 +92,7 @@ import { Trip } from 'wanderer.js'
 export default {
   data() {
     return {
-      data: null,
+      trip: null,
     }
   },
   computed: {
@@ -91,9 +108,10 @@ export default {
           headerText: 'Welcome!',
           bodyText: 'Welcome to WandererJS',
           element: '#tagline',
+          highlightType: 'SOFT',
         },
       ],
-      'WANDERER_BLUE'
+      'WANDERER_DARK'
     )
   },
   methods: {

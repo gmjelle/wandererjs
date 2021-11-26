@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="w-screen h-screen absolute top-0 left-0">
     <Topbar />
     <Nuxt />
   </div>
