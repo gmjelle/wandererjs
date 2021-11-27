@@ -3,34 +3,35 @@
     <div
       class="
         w-full
-        h-auto
+        h-full
         px-3
         max-w-screen-xl
         xs:px-10
         sm:px-10
         lg:px-20
         mx-auto
+        flex
+        items-center
       "
     >
-      <div class="pattern"></div>
-      <div
-        class="
-          flex flex-col
-          justify-evenly
-          lg:flex-row lg:space-x-6 lg:mt-20
-          xl:space-x-12
-        "
-      >
-        <div class="flex flex-col lg:w-1/2">
-          <div id="tagline" class="text-5xl font-bold mt-10">
-            Reduce user frustration with
+      <!-- <div class="pattern"></div> -->
+      <div class="relative z-10">
+        <div
+          class="
+            md:w-3/4
+            lg:w-1/2
+            md:bg-white md:px-10 md:py-10 md:rounded md:shadow-2xl
+          "
+        >
+          <h1 id="tagline" class="text-5xl font-bold mt-10">
+            Turn users into fans with
             <span class="text-blue-700">interactive product tours</span>
-          </div>
-          <div class="text-xl mt-4">
+          </h1>
+          <h3 class="text-xl mt-4">
             Good UX can be a hard thing to nail. With WandererJS, you can guide
             your users down the path of success with beautiful product tours.
             It's that easy!
-          </div>
+          </h3>
           <div
             class="
               flex flex-col
@@ -64,23 +65,21 @@
                 w-full
                 py-3
                 text-center
-                border border-blue-700
                 rounded
                 text-lg text-blue-700
+                bg-white
                 cursor-pointer
                 transition
                 duration-400
                 ease-in-out
                 transform
                 hover:-translate-y-0.5
+                md:border md:border-blue-700
               "
             >
               <a :href="docsUrl"> Read the docs </a>
             </div>
           </div>
-        </div>
-        <div class="flex justify-center items-center mt-4 lg:w-1/2">
-          <img src="~/assets/code.png" class="shadow-xl w-full" />
         </div>
       </div>
     </div>
@@ -93,6 +92,9 @@ export default {
   data() {
     return {
       trip: null,
+      features: [
+        // { heading: 'Beautiful', body: 'Looks beautiful right out of the box', icon: "" },
+      ],
     }
   },
   computed: {
