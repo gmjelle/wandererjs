@@ -146,72 +146,18 @@
 
 <script>
 import { Trip } from 'wanderer.js'
+import features from '../data/features.json'
+import reasons from '../data/reasons.json'
 import Card from './Card.vue'
 import FeatureCard from './FeatureCard.vue'
+
 export default {
   components: { Card, FeatureCard },
   data() {
     return {
       trip: null,
-      features: [
-        {
-          heading: 'Open Source',
-          body: `WandererJS is completely open source under the MIT license. Community driven products generally tend to be more stable and are developed more rapidly.`,
-          icon: 'github',
-          iconPrefix: 'fab',
-          iconColor: 'text-green-500',
-          iconBgColor: 'bg-green-200',
-        },
-        {
-          heading: 'Instantly Beautiful',
-          body: `Let's face it, some product tour libraries look ugly and require a lot of customization to make them look good. With WandererJS, your product tours will look good out of the box.`,
-          icon: 'fire',
-          iconColor: 'text-red-500',
-          iconBgColor: 'bg-red-200',
-        },
-        {
-          heading: 'Easily Themable',
-          body: `Even if WandererJS's beautiful defaults aren't enough for you, you can easily create a custom tour in about 5 minutes.`,
-          icon: 'mask',
-          iconColor: 'text-yellow-500',
-          iconBgColor: 'bg-yellow-200',
-        },
-        {
-          heading: 'Infinitely Customizable',
-          body: `Since you programatically create the tours, there's no limit to the amount of customization you can do. Conditional tours, custom branching, analytics. You have the ultimate power at your fingertips.`,
-          icon: 'cubes',
-          iconColor: 'text-blue-500',
-          iconBgColor: 'bg-blue-200',
-        },
-      ],
-      reasons: [
-        {
-          heading: 'Feature Adoption',
-          body: `Don't you hate it when you create a new feature and nobody knows it even exists? Product tours are a proven method to direct your users towards them.`,
-          icon: 'lightbulb',
-          iconColor: 'text-yellow-500',
-          iconBgColor: 'bg-yellow-200',
-        },
-        {
-          heading: 'User Satisfaction',
-          body: `Your users are churning almost immediately. Your bounce rate is
-              through the roof. Nobody knows how to use your product. With
-              interactive product tours, you can hold your user's hand as they
-              discover your amazing site.`,
-          icon: 'smile-beam',
-          iconColor: 'text-green-500',
-          iconBgColor: 'bg-green-200',
-        },
-        {
-          heading: 'Meaningful Actions',
-          body: `You built your product to provide the most value if your users use
-              it in a specific way. Product tours influnce users by explaining
-              the significance of each step.`,
-          icon: 'tasks',
-          iconColor: 'text-purple-500',
-          iconBgColor: 'bg-purple-200',
-        },
-      ],
+      features,
+      reasons,
     }
   },
   computed: {
