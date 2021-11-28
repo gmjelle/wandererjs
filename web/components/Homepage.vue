@@ -111,6 +111,7 @@
 import { Trip } from 'wanderer.js'
 import Reason from './Reason.vue'
 export default {
+  components: { Reason },
   data() {
     return {
       trip: null,
@@ -172,7 +173,6 @@ export default {
       this.$data.trip.start()
     },
   },
-  components: { Reason },
 }
 </script>
 <style>
