@@ -33,7 +33,13 @@ export default {
     '@nuxt/typescript-build',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-fonts',
+    '@nuxtjs/fontawesome',
   ],
+  fontawesome: {
+    icons: {
+      solid: ['faLightbulb', 'faSmileBeam', 'faTasks'],
+    },
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [

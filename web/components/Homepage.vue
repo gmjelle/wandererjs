@@ -16,13 +16,7 @@
     >
       <!-- <div class="pattern"></div> -->
       <div class="relative z-10">
-        <div
-          class="
-            md:w-3/4
-            lg:w-1/2
-            md:bg-white md:px-10 md:py-10 md:rounded md:shadow-2xl
-          "
-        >
+        <div class="md:w-3/4 lg:w-1/2 md:bg-white md:px-10 md:py-10 md:rounded">
           <h1 id="tagline" class="text-5xl font-bold mt-10">
             Turn users into fans with
             <span class="text-blue-700">interactive product tours</span>
@@ -83,15 +77,73 @@
         </div>
       </div>
     </div>
+    <div
+      class="
+        w-full
+        px-3
+        max-w-screen-xl
+        xs:px-10
+        sm:px-10
+        lg:px-20
+        mx-auto
+        py-20
+      "
+    >
+      <div class="">
+        <div class="text-3xl font-bold text-center">
+          Why do I need product tours?
+        </div>
+        <div
+          class="mt-20 md:flex divide-x-0 divide-y md:divide-y-0 md:divide-x"
+        >
+          <Reason
+            v-for="reason in reasons"
+            :key="reason.heading"
+            :reason="reason"
+          />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import { Trip } from 'wanderer.js'
+import Reason from './Reason.vue'
 export default {
   data() {
     return {
       trip: null,
+      reasons: [
+        {
+          heading: 'Feature Adoption',
+          body: `Don't you hate it when you create a new feature and nobody knows
+              it even exists? Product tours are a proven method to direct your
+              users towards them.`,
+          icon: 'lightbulb',
+          iconColor: 'text-yellow-500',
+          iconBgColor: 'bg-yellow-200',
+        },
+        {
+          heading: 'User Satisfaction',
+          body: `Your users are churning almost immediately. Your bounce rate is
+              through the roof. Nobody knows how to use your product. With
+              interactive product tours, you can hold your user's hand as they
+              discover your amazing site.`,
+          icon: 'smile-beam',
+          iconColor: 'text-green-500',
+          iconBgColor: 'bg-green-200',
+        },
+        {
+          heading: 'Meaningful Actions',
+          body: `You built your product to provide the most value if your users use
+              it in a specific way. Product tours influnce users by explaining
+              the significance of each step.`,
+          icon: 'tasks',
+          iconColor: 'text-purple-500',
+          iconBgColor: 'bg-purple-200',
+        },
+      ],
       features: [
         // { heading: 'Beautiful', body: 'Looks beautiful right out of the box', icon: "" },
       ],
@@ -102,7 +154,6 @@ export default {
       return process.env.DOCS_URL
     },
   },
-
   mounted() {
     this.$data.trip = new Trip(
       [
@@ -121,6 +172,7 @@ export default {
       this.$data.trip.start()
     },
   },
+  components: { Reason },
 }
 </script>
 <style>

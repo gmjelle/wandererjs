@@ -10,6 +10,7 @@
       bg-white
       fixed
       top-0
+      z-50
     "
   >
     <NuxtLink to="/" class="h-3/4 flex items-center">
