@@ -114,7 +114,7 @@
               border-b
               hidden
               md:block
-              border-blue-300
+              border-blue-200
             "
           ></div>
           <div
@@ -126,7 +126,7 @@
               relative
               z-10
               md:p-4 md:px-10 md:rounded md:border
-              border-blue-300
+              border-blue-200
             "
           >
             Okay, but why should I use WandererJS?

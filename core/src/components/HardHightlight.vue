@@ -31,6 +31,7 @@ async function showForElement() {
 }
 
 window.addEventListener("scroll", showForElement, { capture: true });
+window.addEventListener("resize", showForElement, { capture: true });
 
 onMounted(() => {
   showForElement();
