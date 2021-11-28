@@ -1,16 +1,16 @@
 <template>
   <div class="flex-1 py-5 md:px-5 md:py-0">
     <div class="flex items-center justify-between">
-      <div class="text-2xl">{{ reason.heading }}</div>
+      <div class="text-2xl">{{ card.heading }}</div>
       <div
         class="w-10 h-10 rounded-full flex items-center justify-center"
-        :class="[reason.iconColor, reason.iconBgColor]"
+        :class="[card.iconColor, card.iconBgColor]"
       >
-        <font-awesome-icon :icon="['fas', reason.icon]" />
+        <font-awesome-icon :icon="[card.iconPrefix || 'fas', card.icon]" />
       </div>
     </div>
     <div class="mt-2">
-      {{ reason.body }}
+      {{ card.body }}
     </div>
   </div>
 </template>
@@ -18,7 +18,7 @@
 <script>
 export default {
   props: {
-    reason: {
+    card: {
       type: Object,
       required: true,
     },

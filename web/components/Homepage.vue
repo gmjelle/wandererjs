@@ -89,17 +89,54 @@
         py-20
       "
     >
-      <div class="">
+      <div class="mt-20">
         <div class="text-3xl font-bold text-center">
           Why do I need product tours?
         </div>
         <div
           class="mt-20 md:flex divide-x-0 divide-y md:divide-y-0 md:divide-x"
         >
-          <Reason
+          <Card
             v-for="reason in reasons"
             :key="reason.heading"
-            :reason="reason"
+            :card="reason"
+          />
+        </div>
+      </div>
+
+      <div class="mt-40">
+        <div class="w-full flex justify-center relative">
+          <div
+            class="
+              w-full
+              absolute
+              top-1/2
+              border-b
+              hidden
+              md:block
+              border-blue-300
+            "
+          ></div>
+          <div
+            class="
+              text-3xl
+              font-bold
+              text-center
+              bg-white
+              relative
+              z-10
+              md:p-4 md:px-10 md:rounded md:border
+              border-blue-300
+            "
+          >
+            Okay, but why should I use WandererJS?
+          </div>
+        </div>
+        <div class="mt-20 py-10 md:flex md:flex-wrap md:justify-evenly">
+          <FeatureCard
+            v-for="feature in features"
+            :key="feature.heading"
+            :card="feature"
           />
         </div>
       </div>
@@ -109,18 +146,48 @@
 
 <script>
 import { Trip } from 'wanderer.js'
-import Reason from './Reason.vue'
+import Card from './Card.vue'
+import FeatureCard from './FeatureCard.vue'
 export default {
-  components: { Reason },
+  components: { Card, FeatureCard },
   data() {
     return {
       trip: null,
+      features: [
+        {
+          heading: 'Open Source',
+          body: `WandererJS is completely open source under the MIT license. Community driven products generally tend to be more stable and are developed more rapidly.`,
+          icon: 'github',
+          iconPrefix: 'fab',
+          iconColor: 'text-green-500',
+          iconBgColor: 'bg-green-200',
+        },
+        {
+          heading: 'Instantly Beautiful',
+          body: `Let's face it, some product tour libraries look ugly and require a lot of customization to make them look good. With WandererJS, your product tours will look good out of the box.`,
+          icon: 'fire',
+          iconColor: 'text-red-500',
+          iconBgColor: 'bg-red-200',
+        },
+        {
+          heading: 'Easily Themable',
+          body: `Even if WandererJS's beautiful defaults aren't enough for you, you can easily create a custom tour in about 5 minutes.`,
+          icon: 'mask',
+          iconColor: 'text-yellow-500',
+          iconBgColor: 'bg-yellow-200',
+        },
+        {
+          heading: 'Infinitely Customizable',
+          body: `Since you programatically create the tours, there's no limit to the amount of customization you can do. Conditional tours, custom branching, analytics. You have the ultimate power at your fingertips.`,
+          icon: 'cubes',
+          iconColor: 'text-blue-500',
+          iconBgColor: 'bg-blue-200',
+        },
+      ],
       reasons: [
         {
           heading: 'Feature Adoption',
-          body: `Don't you hate it when you create a new feature and nobody knows
-              it even exists? Product tours are a proven method to direct your
-              users towards them.`,
+          body: `Don't you hate it when you create a new feature and nobody knows it even exists? Product tours are a proven method to direct your users towards them.`,
           icon: 'lightbulb',
           iconColor: 'text-yellow-500',
           iconBgColor: 'bg-yellow-200',
@@ -144,9 +211,6 @@ export default {
           iconColor: 'text-purple-500',
           iconBgColor: 'bg-purple-200',
         },
-      ],
-      features: [
-        // { heading: 'Beautiful', body: 'Looks beautiful right out of the box', icon: "" },
       ],
     }
   },

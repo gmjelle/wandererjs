@@ -37,7 +37,15 @@ export default {
   ],
   fontawesome: {
     icons: {
-      solid: ['faLightbulb', 'faSmileBeam', 'faTasks'],
+      solid: [
+        'faLightbulb',
+        'faSmileBeam',
+        'faTasks',
+        'faFire',
+        'faCubes',
+        'faMask',
+      ],
+      brands: ['faGithub'],
     },
   },
 
