@@ -1,6 +1,5 @@
 .wanderer-button {
   display: flex;
-  margin-top: 10px;
 }
 
 .wanderer-button[data-align="LEFT"] {
@@ -20,10 +19,3 @@
   border-radius: 4px;
   cursor: pointer;
 }
-
-/* ------- DEFAULT ------ */
-.wanderer-button-wrapper {
-  background-color: #2563eb;
-  color: #fff;
-}
-/* ------- DEFAULT ------ */

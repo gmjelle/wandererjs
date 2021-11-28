@@ -150,6 +150,7 @@ import features from '../data/features.json'
 import reasons from '../data/reasons.json'
 import Card from './Card.vue'
 import FeatureCard from './FeatureCard.vue'
+import logo from '~/assets/logo.png'
 
 export default {
   components: { Card, FeatureCard },
@@ -169,14 +170,38 @@ export default {
     this.$data.trip = new Trip(
       [
         {
+          type: 'MODAL',
           headerText: 'Welcome!',
-          bodyText: 'Welcome to WandererJS',
-          element: '#tagline',
-          highlightType: 'SOFT',
+          bodyText:
+            'Welcome to an interactive product of WandererJS. Product tours are a great way to show off your cool features to potential users.',
+          imageSource: logo,
+        },
+        {
+          type: 'MODAL',
+          headerText: 'Onboarding Elemenets',
+          bodyText:
+            'Currently WandererJS has two different types of onboarding elements. Modals (like this), and Tooltips.',
+          imageSource: logo,
         },
       ],
       'WANDERER_DARK'
     )
+
+    // this.$data.trip = new Trip(
+    //   [
+    //     // {
+    //     //   type: 'MODAL',
+    //     //   highlightType: 'SOFT',
+    //     // },
+    //     {
+    //       headerText: 'Welcome!',
+    //       bodyText: 'Welcome to WandererJS',
+    //       element: '#tagline',
+    //       highlightType: 'SOFT',
+    //     },
+    //   ],
+    //   'WANDERER_DARK'
+    // )
   },
   methods: {
     showDemo() {

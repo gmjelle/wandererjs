@@ -16,6 +16,7 @@ import { Step, Theme } from "./@types/index";
 import { removeTrip, updateIndex } from "./utils/storage";
 import BasicTooltip from "./components/BasicTooltip.vue";
 import { getStepWithDefaults } from "./utils/steps";
+import Modal from "./components/Modal.vue";
 
 const props = defineProps<{ steps: Step[]; theme: Theme }>();
 const currentIndex = ref(0);
@@ -33,6 +34,9 @@ let type = computed(() => {
   switch (currentStep.value?.type?.toLowerCase()) {
     case "tooltip":
       return BasicTooltip;
+
+    case "modal":
+      return Modal;
 
     case "custom":
       return Custom;

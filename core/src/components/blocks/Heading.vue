@@ -1,11 +1,11 @@
 <template>
   <div class="wanderer-heading" :class="[sizeClass, alignClass]">
-    {{ text }}
+    {{ properties.text }}
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, reactive } from "vue";
 import { Align, HeadingBlock, HeadingSize } from "../../@types/blocks";
 
 interface Props {
@@ -15,11 +15,7 @@ const props = defineProps<Props>();
 const DEFAULT_ALIGN: Align = "LEFT";
 const DEFAULT_SIZE: HeadingSize = "H3";
 
-const {
-  align = DEFAULT_ALIGN,
-  size = DEFAULT_SIZE,
-  text = "",
-} = props.properties;
+const properties = reactive(props.properties);
 
 const sizeMap = {
   H1: "wanderer-h1",
@@ -37,10 +33,10 @@ const alignMap = {
 };
 
 const sizeClass = computed(() => {
-  return sizeMap[size];
+  return sizeMap[properties.size || DEFAULT_SIZE];
 });
 
 const alignClass = computed(() => {
-  return alignMap[align];
+  return alignMap[properties.align || DEFAULT_ALIGN];
 });
 </script>

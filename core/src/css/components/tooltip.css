@@ -9,13 +9,12 @@
   max-width: 24rem;
 }
 
-/* ------- DEFAULT ------ */
 .wanderer-tooltip {
-  background-color: #fff;
-  border: 1px solid #d1d5db;
-}
+  .wanderer-heading {
+    margin: 5px 0px;
+  }
 
-.wanderer-tooltip-arrow::before {
-  background-color: #fff;
+  .wanderer-button {
+    margin-top: 10px;
+  }
 }
-/* ------- DEFAULT ------ */

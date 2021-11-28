@@ -13,8 +13,9 @@ import Text from "./blocks/Text.vue";
 import { Block } from "../@types/blocks";
 import Button from "./blocks/Button.vue";
 import Icon from "./blocks/Icon.vue";
+import { onUpdated } from "@vue/runtime-core";
 
-defineProps<{ blocks: Block[] }>();
+const props = defineProps<{ blocks: Block[] }>();
 
 const map = {
   HEADING: Heading,

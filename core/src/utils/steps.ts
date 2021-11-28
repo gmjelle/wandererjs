@@ -1,5 +1,6 @@
 import {
   HighlightType,
+  ModalStep,
   ProgressType,
   Step,
   StepType,
@@ -19,15 +20,22 @@ function validateTooltipStep(step: TooltipStep) {
   }
 }
 
+function validateModalStep(step: ModalStep) {
+  return;
+}
+
 function validateCustomStep(step: Step) {}
 
 export function validateStep(step: Step): void {
   switch (step.type) {
     case "TOOLTIP":
-      validateTooltipStep(step);
+      validateTooltipStep(step as TooltipStep);
+
+    case "MODAL":
+      return validateModalStep(step as ModalStep);
 
     case "CUSTOM":
-      validateCustomStep(step);
+      return validateCustomStep(step);
 
     default:
       validateTooltipStep(step as TooltipStep);
@@ -63,6 +71,10 @@ function getTooltipStepWithDefaults({
   };
 }
 
+function getModalStepWithDefaults(step: ModalStep) {
+  return step;
+}
+
 export function getStepWithDefaults(step: Step): Step {
   if (!step.type) step.type = DEFAULT_TYPE;
 
@@ -70,6 +82,8 @@ export function getStepWithDefaults(step: Step): Step {
     case "TOOLTIP":
       return getTooltipStepWithDefaults(step);
 
+    case "MODAL":
+      return getModalStepWithDefaults(step);
     default:
       return step;
   }

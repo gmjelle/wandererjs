@@ -7,8 +7,7 @@ import { retrieveTrip, storeTrip } from "./utils/storage";
 import "./fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import pageLoaded from "./utils/loaded";
-
-const ROOT_ID = "wanderer-main";
+import { ROOT_ID } from "./utils/consts";
 
 const root = document.createElement("div");
 root.id = ROOT_ID;

@@ -1,4 +1,4 @@
-import { Block } from "./blocks";
+import { Align, Block } from "./blocks";
 
 export type StepType = "TOOLTIP" | "MODAL" | "CUSTOM";
 export type HighlightType = "HARD" | "SOFT" | "NONE";
@@ -16,21 +16,19 @@ export type TooltipStep = {
   showArrow?: boolean;
 };
 
+export type ModalStep = {
+  type: "MODAL";
+  align: Align;
+  imageSource?: string;
+  headerText?: string;
+  bodyText?: string;
+};
+
 export type CustomStep = {
   type: "CUSTOM";
   blocks: Block[];
 };
 
-export type Step = TooltipStep | CustomStep;
+export type Step = TooltipStep | CustomStep | ModalStep;
 
-export type Theme = "WANDERER_LIGHT" | "WANDERER_DARK";
-
-export type Options = {
-  showCloseButton: boolean;
-};
-
-export type TripOptions = {
-  onNext?: (step: Step) => void;
-  onDone?: () => void;
-  multiPage: boolean;
-};
+export type Theme = "WANDERER_LIGHT" | "WANDERER_DARK" | "WANDERER_BLUE";
