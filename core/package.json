@@ -13,7 +13,9 @@
     "url": "https://github.com/yaakov123/wandererjs.git"
   },
   "scripts": {
-    "dev": "webpack watch",
+    "dev:esm": "webpack watch --config webpack-esm.config.js",
+    "dev:umd": "webpack watch",
+    "dev":  "concurrently \"npm:dev:*\"",
     "patch": "npm version patch",
     "build:esm": "webpack --env production --config webpack-esm.config.js",
     "build:umd": "webpack --env production",

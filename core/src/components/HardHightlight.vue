@@ -43,5 +43,6 @@ onUpdated(() => {
 
 onBeforeUnmount(() => {
   window.removeEventListener("scroll", showForElement, { capture: true });
+  window.removeEventListener("resize", showForElement, { capture: true });
 });
 </script>

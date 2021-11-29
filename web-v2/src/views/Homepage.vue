@@ -143,7 +143,8 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { Trip } from "wanderer.js";
+// @ts-ignore
+import { Trip } from "wanderer.js/dist/index-esm.js";
 
 import reasons from "../data/reasons.json";
 import features from "../data/features.json";
