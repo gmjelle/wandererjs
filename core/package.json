@@ -2,7 +2,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "name": "wanderer.js",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "files": [
     "dist/**/*.js",
     "dist/**/*.d.ts",
@@ -15,7 +15,7 @@
   "scripts": {
     "dev:esm": "webpack watch --config webpack-esm.config.js",
     "dev:umd": "webpack watch",
-    "dev":  "concurrently \"npm:dev:*\"",
+    "dev": "concurrently \"npm:dev:*\"",
     "patch": "npm version patch",
     "build:esm": "webpack --env production --config webpack-esm.config.js",
     "build:umd": "webpack --env production",
