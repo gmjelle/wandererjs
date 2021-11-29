@@ -12,5 +12,5 @@
 }
 
 .wanderer-icon[data-align="RIGHT"] {
-  justify-content: end;
+  justify-content: flex-end;
 }

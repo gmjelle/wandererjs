@@ -11,5 +11,5 @@
 }
 
 .wanderer-image[data-align="RIGHT"] {
-  justify-content: end;
+  justify-content: flex-end;
 }
