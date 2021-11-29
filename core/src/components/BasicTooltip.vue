@@ -51,7 +51,7 @@ const blocks = computed<Block[]>(() => {
       },
     },
     { type: "HEADING", size: "H4", text: props.step.headerText },
-    { type: "TEXT", size: "20px", text: props.step.bodyText },
+    { type: "TEXT", size: "18px", text: props.step.bodyText },
   ];
 
   if (props.step.progressOn === "BUTTON") {

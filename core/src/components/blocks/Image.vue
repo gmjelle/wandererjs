@@ -1,11 +1,12 @@
 <template>
-  <div class="wanderer-image" :data-align="align">
-    <img :src="src" />
+  <div class="wanderer-image" :data-align="properties.align || DEFAULT_ALIGN">
+    <img :src="properties.src" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { Align, ImageBlock } from "../../@types/blocks";
+import { computed } from "vue";
 
 interface Props {
   properties: ImageBlock;
@@ -13,5 +14,5 @@ interface Props {
 
 const props = defineProps<Props>();
 const DEFAULT_ALIGN: Align = "LEFT";
-const { src, align = DEFAULT_ALIGN } = props.properties;
+const properties = computed(() => props.properties);
 </script>

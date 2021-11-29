@@ -17,7 +17,6 @@ const container = ref();
 
 const align = computed(() => props.step.align || "CENTER");
 const blocks = computed<Block[]>(() => {
-  console.log(props.step);
   const temp: Block[] = [
     {
       type: "ICON",
@@ -36,7 +35,7 @@ const blocks = computed<Block[]>(() => {
     { type: "IMAGE", src: props.step.imageSource, align: align.value },
     {
       type: "TEXT",
-      size: "20px",
+      size: "18px",
       text: props.step.bodyText,
       align: align.value,
     },

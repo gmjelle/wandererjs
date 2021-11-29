@@ -1,6 +1,6 @@
 <template>
   <div class="wanderer-text" :class="[alignClass]" :style="styleString">
-    {{ text }}
+    {{ properties.text }}
   </div>
 </template>
 
@@ -16,11 +16,13 @@ const props = defineProps<Props>();
 const DEFAULT_ALIGN: Align = "LEFT";
 const DEFAULT_SIZE: string = "16px";
 
-const {
-  align = DEFAULT_ALIGN,
-  size = DEFAULT_SIZE,
-  text = "",
-} = props.properties;
+const properties = computed(() => props.properties);
+const align = computed(() => {
+  return properties.value.align ? properties.value.align : DEFAULT_ALIGN;
+});
+const size = computed(() => {
+  return properties.value.size ? properties.value.size : DEFAULT_SIZE;
+});
 
 const alignMap = {
   LEFT: "wanderer-text-left",
@@ -29,10 +31,10 @@ const alignMap = {
 };
 
 const alignClass = computed(() => {
-  return alignMap[align];
+  return alignMap[align.value];
 });
 
 const styleString = computed(() => {
-  return `font-size: ${size}`;
+  return `font-size: ${size.value}`;
 });
 </script>
