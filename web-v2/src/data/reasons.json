@@ -1,0 +1,23 @@
+[
+  {
+    "heading": "Feature Adoption",
+    "body": "Don't you hate it when you create a new feature and nobody knows it even exists? Product tours are a proven method to direct your users towards them.",
+    "icon": "lightbulb",
+    "iconColor": "text-yellow-500",
+    "iconBgColor": "bg-yellow-200"
+  },
+  {
+    "heading": "User Satisfaction",
+    "body": "Your users are churning almost immediately. Your bounce rate is through the roof. Nobody knows how to use your product. With interactive product tours, you can hold your user's hand as they discover your amazing site.",
+    "icon": "smile-beam",
+    "iconColor": "text-green-500",
+    "iconBgColor": "bg-green-200"
+  },
+  {
+    "heading": "Meaningful Actions",
+    "body": "You built your product to provide the most value if your users use it in a specific way. Product tours influnce users by explaining the significance of each step.",
+    "icon": "tasks",
+    "iconColor": "text-purple-500",
+    "iconBgColor": "bg-purple-200"
+  }
+]
