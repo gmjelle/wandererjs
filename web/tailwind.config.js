@@ -1,20 +1,11 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
-
 module.exports = {
-  plugins: [require('@tailwindcss/typography')],
-  purge: {
-    content: [
-      `components/**/*.{vue,js}`,
-      `layouts/**/*.vue`,
-      `pages/**/*.vue`,
-      `plugins/**/*.{js,ts}`,
-      `nuxt.config.{js,ts}`,
-    ],
-  },
+  purge: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx,json}"],
+  darkMode: false, // or 'media' or 'class'
   theme: {
-    screens: {
-      xs: '475px',
-      ...defaultTheme.screens,
-    },
+    extend: {},
   },
-}
+  variants: {
+    extend: {},
+  },
+  plugins: [],
+};
