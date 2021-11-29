@@ -2,7 +2,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "name": "wanderer.js",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "files": [
     "dist/**/*.js",
     "dist/**/*.d.ts",
@@ -13,10 +13,10 @@
     "url": "https://github.com/yaakov123/wandererjs.git"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack watch",
+    "dev": "webpack watch",
     "patch": "npm version patch",
-    "build:esm": "cross-env NODE_ENV=production webpack --env production --config webpack-esm.config.js",
-    "build:umd": "cross-env NODE_ENV=production webpack --env production",
+    "build:esm": "webpack --env production --config webpack-esm.config.js",
+    "build:umd": "webpack --env production",
     "build": "npm run build:umd && npm run build:esm",
     "lint": "eslint --ext js,vue,ts",
     "prepare": "npm run build",

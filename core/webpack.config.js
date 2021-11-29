@@ -37,9 +37,6 @@ module.exports = (env) => {
     },
     resolve: {
       extensions: [".ts", ".tsx", ".js"],
-      alias: {
-        vue: "/node_modules/vue/dist/vue.runtime.esm-bundler.js",
-      },
     },
     plugins: [
       new VueLoaderPlugin(),
