@@ -7,5 +7,4 @@ export default defineConfig({
   server: {
     port: 5000,
   },
-  optimizeDeps: { exclude: ["wanderer.js"] },
 });

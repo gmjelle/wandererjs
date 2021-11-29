@@ -14,7 +14,7 @@
       z-50
     "
   >
-    <div class="flex items-center h-full">
+    <div class="h-full flex items-center">
       <router-link to="/" class="h-3/4 flex items-center">
         <img :src="logo" class="h-full" />
         <div class="text-xl font-bold ml-2">WandererJS</div>
