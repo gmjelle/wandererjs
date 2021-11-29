@@ -15,7 +15,7 @@
     "
   >
     <div class="h-full flex items-center">
-      <router-link to="/" class="h-3/4 flex items-center">
+      <router-link to="/" class="h-3/4 flex items-center whitespace-nowrap">
         <img :src="logo" class="h-full" />
         <div class="text-xl font-bold ml-2">WandererJS</div>
       </router-link>
