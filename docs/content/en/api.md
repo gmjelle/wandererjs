@@ -22,8 +22,9 @@ import { Trip } from "wanderer.js";
 
 const step = {
   type: "MODAL", // Options are "MODAL" or "TOOLTIP"
-  headerText: "Welcome!", // The text you'd like to appear in the heading of the modal
+  headerText: "Welcome!", // The text you'd like to appear in the body of the modal
   bodyText: "Welcome to Wanderer.js", //
+  // The source of the image you want to add to the modal
   imageSource:
     "https://raw.githubusercontent.com/yaakov123/wandererjs/master/assets/logo.png",
 };
@@ -33,120 +34,64 @@ const trip = new Trip([step]);
 
 ### Tooltip
 
-In this section we'll go over the structure of a `Step`. Essentially, a `Step` is an object which defines a single step within a `Trip`. You can pass an array of `Steps` when creating a new `Trip`. First we'll outline all the properties that can exist on a `Step`
+The structure of a `Tooltip` step is as follows:
 
 ```js
+import { Trip } from "wanderer.js";
+
 const step = {
-  type: "TOOLTIP", // This is currently the only type
-  highlightType: "HARD" | "SOFT" | "NONE",
-  progressOn: "ELEMENT" | "BUTTON",
-  element: "#element" | document.body.querySelector("#element"),
-  headerText: "Welcome!",
-  bodyText: "Welcome to Wanderer.js",
+  type: "TOOLTIP", // Options are "MODAL" or "TOOLTIP"
+  highlightType: "HARD" | "SOFT" | "NONE", // Controls what sort of backdrop appears to highlight the element on screen
+  progressOn: "ELEMENT" | "BUTTON", // Should the user progress to the next step by clicking on the element or the next button
+  element: "#element" | document.body.querySelector("#element"), // What element should the tooltip attach to
+  headerText: "Welcome!", // The text you want to appear in the heading of the tooltip
+  bodyText: "Welcome to Wanderer.js", // The text you want to appear in the body of the tooltip
 };
 
 const trip = new Trip([step]);
 ```
 
-### `Step.type`
-
-This property denotes what onboarding element will be shown for this step. Currently the only option is `TOOLTIP`, but in the future this will be extended with other options.
-
----
-
-### `Step.highlightType`
-
-This property controls how the target element will be emphasized on screen. The current options are `HARD`, `SOFT` or `NONE`.
-
-**`Step.highlightType = "SOFT"`**
-
-- This creates a soft highlight around the target element as seen here:
-
-```js
-const step = {
-  highlightType: "SOFT",
-};
-```
-
-**`Step.highlightType = "HARD"`**
-
-- This creates a hard highlight around the target element
-
-```js
-const step = {
-  highlightType: "HARD",
-};
-```
-
-**`Step.highlightType = "NONE"`**
-
-- This just shows the tooltip on the target element without any highlight
-
-```js
-const step = {
-  highlightType: "NONE",
-};
-```
-
-### `Step.progressOn`
-
-This property controls how the user progresses from one step to the next. There current options are - `ELEMENT` and `BUTTON`.
-
-**`Step.progressOn = "ELEMENT"`**
-
-This option means that the user will be shown the next step once they click on the target element. This option can be useful when the target element of the next step appears only after the user interacts with the target element of the current step. You can think of this option as more of a guided trip where the user interacts with your website.
-
-**`Step.progressOn = "BUTTON"`**
-
-This option means that the user will be shown the next step once they click on the next button. This option can be useful when you just want to show your user around a single page.
-
-### `Step.element`
-
-You can use this property to tell Wanderer.js, which element you want the tooltip to target. This can either be a selector of the element, or a reference to the element itself.
-
-```js
-const step = {
-  element: "#button",
-};
-```
-
-**OR**
-
-```js
-const step = {
-  element: document.body.querySelector("#button");
-}
-```
-
-### `Step.headerText`
-
-This is the text that you want to appear in the tooltip header:
-
-```js
-const step = {
-  headerText: "Welcome!",
-};
-```
-
-and related to this property, we have:
-
-### `Step.bodyText`
-
-This is the text that you want to appear in the tooltip body:
-
-```js
-const step = {
-  bodyText: "Click here to sign in",
-};
-```
-
-## Theming - Coming Soon!!!
+## Theming
 
 Currently there are 3 options that you can pass as the second argument to the `Trip` constructor.
 
 - `new Trip(steps, "WANDERER_LIGHT")`
 - `new Trip(steps, "WANDERER_DARK")`
 - `new Trip(steps, "WANDERER_BLUE")`
+
+### Custom Theme
+
+In the event that none of the default themes meets your requirements, you can always create a completely custom theme. Let's say you want to create a new theme called WANDERER_PURPLE. All you have to do is add the following css to your project:
+
+```css
+.WANDERER_PURPLE .wanderer-tooltip {
+  background-color: #6d28d9;
+  color: #fff;
+  border: none;
+}
+
+.WANDERER_PURPLE .wanderer-button-wrapper {
+  background-color: #6d28d9;
+  color: #fff;
+}
+
+.WANDERER_PURPLE .wanderer-tooltip-arrow::before {
+  background-color: #6d28d9;
+  border: none;
+}
+
+.WANDERER_PURPLE .wanderer-modal {
+  background-color: #6d28d9;
+  color: #fff;
+  border: none;
+}
+```
+
+And then when you create a new `Trip`, pass it in as the second argument.
+
+```js
+const trip = new Trip(steps, "WANDERER_PURPLE");
+```
 
 ## Trip
 
