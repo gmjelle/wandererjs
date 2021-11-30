@@ -18,5 +18,6 @@
   .wanderer-modal {
     background-color: #2563eb;
     color: #fff;
+    border: none;
   }
 }
