@@ -1,5 +1,6 @@
 <template>
-  <div ref="container" class="wanderer-modal shadow-xl">
+  <div class="wanderer-modal-backdrop"></div>
+  <div ref="container" class="wanderer-modal">
     <Custom :blocks="blocks" />
   </div>
 </template>
