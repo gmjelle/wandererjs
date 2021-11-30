@@ -33,11 +33,11 @@
           <div
             class="md:w-3/4 lg:w-1/2 md:bg-white md:px-10 md:py-10 md:rounded"
           >
-            <h1 id="tagline" class="text-5xl font-bold mt-10">
+            <h1 id="tagline" class="text-3xl font-bold xs:mt-10 xs:text-5xl">
               Turn users into fans with
               <span class="text-blue-700">interactive product tours</span>
             </h1>
-            <h3 class="text-xl mt-4">
+            <h3 class="text-lg xs:text-xl mt-4">
               Good UX can be a hard thing to nail. With WandererJS, you can
               guide your users down the path of success with beautiful product
               tours. It's that easy!
