@@ -71,6 +71,7 @@
                 Live Demo
               </div>
               <div
+                id="read-docs"
                 class="
                   w-full
                   py-3
@@ -308,11 +309,12 @@ const trip = new Trip(
       progressOn: "ELEMENT",
     },
     {
-      type: "MODAL",
-      align: "CENTER",
-      headerText: "The End!",
-      bodyText: `You've now made your way to the end of the tour. Hope you enjoyed!`,
-      imageSource: logo,
+      type: "TOOLTIP",
+      headerText: "Read the docs",
+      bodyText: `Learn how to integrate WandererJS into your`,
+      element: "#read-docs",
+      highlightType: "SOFT",
+      progressOn: "BUTTON",
     },
   ],
   "WANDERER_LIGHT"
