@@ -14,7 +14,7 @@
     "vue": "^3.2.16",
     "vue-router": "^4.0.12",
     "wanderer-local": "../core",
-    "wanderer.js": "^0.0.14"
+    "wanderer.js": "^0.0.15"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.9.3",
