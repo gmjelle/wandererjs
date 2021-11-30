@@ -120,7 +120,7 @@
               "
             ></div>
             <div
-              id="why-wanderer-js"
+              id="what-wanderer-js"
               class="
                 text-3xl
                 font-bold
@@ -273,6 +273,7 @@ const trip = new Trip(
       bodyText:
         "And this is a tooltip. It's useful for indicating to the user where a certain UI element is.",
       element: "#why-product-tours",
+      highlightType: "SOFT",
     },
     {
       type: "TOOLTIP",
