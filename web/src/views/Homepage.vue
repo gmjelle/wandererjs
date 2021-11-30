@@ -169,6 +169,7 @@ import FeatureCard from "../components/FeatureCard.vue";
 import Topbar from "../components/Topbar.vue";
 
 import { Trip } from "wanderer.js";
+import { AnalyticsEvent } from "../events";
 
 const docsUrl = computed(() => import.meta.env.VITE_DOCS_URL);
 
@@ -242,7 +243,7 @@ const trip = new Trip(
 
 function showDemo() {
   // @ts-ignore
-  panelbear("track", "Show Demo");
+  panelbear("track", AnalyticsEvent.HOMEPAGE_SHOW_DEMO);
   trip.start();
 }
 </script>
