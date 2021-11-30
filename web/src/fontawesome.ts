@@ -7,6 +7,7 @@ import {
   faFire,
   faMask,
   faCubes,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
@@ -18,5 +19,6 @@ library.add(
   faTasks,
   faFire,
   faMask,
-  faCubes
+  faCubes,
+  faBars
 );
