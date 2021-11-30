@@ -18,21 +18,32 @@ import { Trip } from "wanderer.js";
 
 const steps = [
   {
-    progressOn: "ELEMENT",
-    element: "#button",
-    headerText: "Welcome!",
-    bodyText: "Welcome to Wanderer.js",
+    type: "MODAL",
+    align: "CENTER",
+    headerText: "Onboarding Elements",
+    bodyText:
+      "Currently WandererJS has two different types of onboarding elements. Modals (like this), and Tooltips.",
+    imageSource: logo,
+  },
+  {
+    type: "TOOLTIP",
+    headerText: "Tooltip Example",
+    bodyText:
+      "And this is a tooltip. It's useful for indicating to the user where a certain UI element is.",
+    element: "#why-product-tours",
   },
 ];
 
-const theme = "WANDERER_DARK";
+const theme = "WANDERER_LIGHT";
 
 const trip = new Trip(steps, theme);
 
 trip.start();
 ```
 
-And when you click on the "Sign In" button, the trip will be finished (since there is only one step)
+This will produce the elements you see in the following GIF
+
+<img src="/installation-gif.gif" />
 
 ### Other installation methods
 

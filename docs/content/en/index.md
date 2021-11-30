@@ -5,21 +5,20 @@ position: 1
 category: "Guide"
 ---
 
-## This library is still not ready for Production use!!!
+WandererJS a library that allows you to create beautiful interactive product tours. This library is still in its infancy, but it still works quite well.
 
-Wanderer.js is an easy to use, user-onboarding library. It is still in its early stages so more work needs to be done, but at this stage it is still quite functional. Some features it already has include:
+Some features it already includes are:
 
 - Tooltips
+- Modals
 - Theming
 - Smart auto-positioning
 - Multi-page support
 
-Since Wanderer.js is still at such an early stage, the early adopters will have a lot of say in regards to which features they want in upcoming releases. Things that are already on the roadmap include:
+Since WandererJS is still at such an early stage, the early adopters will have a lot of say in regards to which features they want in upcoming releases. Things that are already on the roadmap include:
 
-- Modals - (For the introductory/final step of a Trip)
 - Analytics integrations
-- Tooltip WYSIWYG builder
-- More themes
+- WYSIWYG Builder
 - User surveys
 
 ## Why does this exist
@@ -28,4 +27,6 @@ Based on my research, there are two types of solutions in this space. One option
 
 When it comes to the commercial offerings, the price is way too steep for individual developers, or small companies just starting out. So while they are very feature rich, they're simply not an option. On the other hand, open source libraries are generally lacking core features and come out of the box looking quite ugly.
 
-I intend on turning Wanderer.js into a hybrid of these two options. Creating a feature rich, user onboarding library (that's not just tooltips) that also looks nice right off the bat.
+My first step is turning WandererJS into a hybrid of these two options. Creating a feature rich, user onboarding library that also looks nice right off the bat.
+
+My final vision is to turn WandererJS into the only product adoption library you'll ever need!
