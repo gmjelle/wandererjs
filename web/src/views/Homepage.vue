@@ -241,6 +241,8 @@ const trip = new Trip(
 );
 
 function showDemo() {
+  // @ts-ignore
+  panelbear("track", "Show Demo");
   trip.start();
 }
 </script>
