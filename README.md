@@ -97,7 +97,7 @@ You can also use Wanderer.js by including it in your HTML file at the following 
 [https://unpkg.com/wanderer.js](https://unpkg.com/wanderer.js)
 
 ```html
-<scrtipt src="https://unpkg.com/wanderer.js"></script>
+<script src="https://unpkg.com/wanderer.js"></script>
 
 <script>
     const trip = new Trip(steps, theme);
