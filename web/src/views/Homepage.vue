@@ -161,92 +161,84 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-// import { Trip } from "wanderer.js";
-
 import reasons from "../data/reasons.json";
 import features from "../data/features.json";
 import logo from "../assets/logo.png";
 import Card from "../components/Card.vue";
 import FeatureCard from "../components/FeatureCard.vue";
 import Topbar from "../components/Topbar.vue";
+
+import { Trip } from "wanderer.js";
+
 const docsUrl = computed(() => import.meta.env.VITE_DOCS_URL);
 
-// Weirdness to suppport development with local WandererJS
-const importPromise = import.meta.env.DEV
-  ? // @ts-ignore
-    import("wanderer-local/dist/index-esm.js") // Dev use
-  : import("wanderer.js"); // For production we want stable build
-
-let trip: any;
-importPromise.then(({ Trip }) => {
-  trip = new Trip(
-    [
-      {
-        type: "MODAL",
-        align: "CENTER",
-        headerText: "Welcome!",
-        bodyText:
-          "Welcome to an interactive product tour of WandererJS. Product tours are a great way to show off your cool features to potential users.",
-        imageSource: logo,
-      },
-      {
-        type: "MODAL",
-        align: "CENTER",
-        headerText: "Onboarding Elements",
-        bodyText:
-          "Currently WandererJS has two different types of onboarding elements. Modals (like this), and Tooltips.",
-        imageSource: logo,
-      },
-      {
-        type: "TOOLTIP",
-        headerText: "Tooltip Example",
-        bodyText:
-          "And this is a tooltip. It's useful for indicating to the user where a certain UI element is.",
-        element: "#why-product-tours",
-      },
-      {
-        type: "TOOLTIP",
-        headerText: "Hard Highlight",
-        bodyText:
-          "You can also draw the user's attention even more with highlights. A hard highlight (like this one) and...",
-        element: "#why-product-tours",
-        highlightType: "HARD",
-      },
-      {
-        type: "TOOLTIP",
-        headerText: "Soft Highlight",
-        bodyText: "A soft highlight for something a little less harsh",
-        element: "#why-product-tours",
-        highlightType: "SOFT",
-      },
-      {
-        type: "MODAL",
-        align: "CENTER",
-        headerText: "Progressing through the tour",
-        bodyText: `
+const trip = new Trip(
+  [
+    {
+      type: "MODAL",
+      align: "CENTER",
+      headerText: "Welcome!",
+      bodyText:
+        "Welcome to an interactive product tour of WandererJS. Product tours are a great way to show off your cool features to potential users.",
+      imageSource: logo,
+    },
+    {
+      type: "MODAL",
+      align: "CENTER",
+      headerText: "Onboarding Elements",
+      bodyText:
+        "Currently WandererJS has two different types of onboarding elements. Modals (like this), and Tooltips.",
+      imageSource: logo,
+    },
+    {
+      type: "TOOLTIP",
+      headerText: "Tooltip Example",
+      bodyText:
+        "And this is a tooltip. It's useful for indicating to the user where a certain UI element is.",
+      element: "#why-product-tours",
+    },
+    {
+      type: "TOOLTIP",
+      headerText: "Hard Highlight",
+      bodyText:
+        "You can also draw the user's attention even more with highlights. A hard highlight (like this one) and...",
+      element: "#why-product-tours",
+      highlightType: "HARD",
+    },
+    {
+      type: "TOOLTIP",
+      headerText: "Soft Highlight",
+      bodyText: "A soft highlight for something a little less harsh",
+      element: "#why-product-tours",
+      highlightType: "SOFT",
+    },
+    {
+      type: "MODAL",
+      align: "CENTER",
+      headerText: "Progressing through the tour",
+      bodyText: `
           You can also choose to have the user click on the element to progress to the next step.
           This pattern leads to more engaged users since they actually have to interact with the page`,
-        imageSource: logo,
-      },
-      {
-        type: "TOOLTIP",
-        headerText: "Progressing by clicking",
-        bodyText: `To move to the next step, you'll have to click on the highlighted element.`,
-        element: "#why-wanderer-js",
-        highlightType: "SOFT",
-        progressOn: "ELEMENT",
-      },
-      {
-        type: "MODAL",
-        align: "CENTER",
-        headerText: "The End!",
-        bodyText: `You've now made your way to the end of the tour. Hope you enjoyed!`,
-        imageSource: logo,
-      },
-    ],
-    "WANDERER_LIGHT"
-  );
-});
+      imageSource: logo,
+    },
+    {
+      type: "TOOLTIP",
+      headerText: "Progressing by clicking",
+      bodyText: `To move to the next step, you'll have to click on the highlighted element.`,
+      element: "#why-wanderer-js",
+      highlightType: "SOFT",
+      progressOn: "ELEMENT",
+    },
+    {
+      type: "MODAL",
+      align: "CENTER",
+      headerText: "The End!",
+      bodyText: `You've now made your way to the end of the tour. Hope you enjoyed!`,
+      imageSource: logo,
+    },
+  ],
+  "WANDERER_LIGHT"
+);
 
 function showDemo() {
   trip.start();
