@@ -5,6 +5,8 @@ position: 1
 category: "Guide"
 ---
 
+# These docs are currently a WIP! Check back here soon!
+
 WandererJS a library that allows you to create beautiful interactive product tours. This library is still in its infancy, but it still works quite well.
 
 Some features it already includes are:

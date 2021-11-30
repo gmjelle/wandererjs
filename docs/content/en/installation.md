@@ -23,7 +23,8 @@ const steps = [
     headerText: "Onboarding Elements",
     bodyText:
       "Currently WandererJS has two different types of onboarding elements. Modals (like this), and Tooltips.",
-    imageSource: logo,
+    imageSource:
+      "https://raw.githubusercontent.com/yaakov123/wandererjs/master/assets/logo.png",
   },
   {
     type: "TOOLTIP",

@@ -106,9 +106,85 @@
           py-20
         "
       >
-        <div class="mt-20">
+        <div class="">
+          <div class="w-full flex justify-center relative">
+            <div
+              class="
+                w-full
+                absolute
+                top-1/2
+                border-b
+                hidden
+                md:block
+                border-blue-200
+              "
+            ></div>
+            <div
+              id="why-wanderer-js"
+              class="
+                text-3xl
+                font-bold
+                text-center
+                bg-white
+                relative
+                z-10
+                md:p-4 md:px-10 md:rounded md:border
+                border-blue-200
+              "
+            >
+              What is WandererJS anyways?
+            </div>
+          </div>
+          <div class="text-center text-lg mt-20 sm:px-20">
+            WandererJS is an open source library that allows you to create
+            beautiful interactive product tours programatically. At this stage
+            you need programming experience to create the product tours, but I'm
+            working on a no-code aspect as well.
+          </div>
+          <!-- HERE!! -->
+        </div>
+        <!-- <div class="mt-20">
           <div id="why-product-tours" class="text-3xl font-bold text-center">
             Why do I need product tours?
+          </div>
+          <div
+            class="mt-20 md:flex divide-x-0 divide-y md:divide-y-0 md:divide-x"
+          >
+            <Card
+              v-for="reason in reasons"
+              :key="reason.heading"
+              :card="reason"
+            />
+          </div>
+        </div> -->
+        <div class="mt-40">
+          <div class="w-full flex justify-center relative">
+            <div
+              class="
+                w-full
+                absolute
+                top-1/2
+                border-b
+                hidden
+                md:block
+                border-blue-200
+              "
+            ></div>
+            <div
+              id="why-product-tours"
+              class="
+                text-3xl
+                font-bold
+                text-center
+                bg-white
+                relative
+                z-10
+                md:p-4 md:px-10 md:rounded md:border
+                border-blue-200
+              "
+            >
+              Why do I need product tours?
+            </div>
           </div>
           <div
             class="mt-20 md:flex divide-x-0 divide-y md:divide-y-0 md:divide-x"

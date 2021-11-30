@@ -9,6 +9,30 @@ In this section, we'll take a deep dive into all the configuration options that 
 
 ## Step
 
+A `Step` is the first parameter that goes into the `Trip` constructor. There are two different types of steps at the moment, but more will be added as time goes on
+
+There are two types of steps at the moment
+
+### Modal
+
+The structure of a `Modal` step is as follows:
+
+```js
+import { Trip } from "wanderer.js";
+
+const step = {
+  type: "MODAL", // Options are "MODAL" or "TOOLTIP"
+  headerText: "Welcome!", // The text you'd like to appear in the heading of the modal
+  bodyText: "Welcome to Wanderer.js", //
+  imageSource:
+    "https://raw.githubusercontent.com/yaakov123/wandererjs/master/assets/logo.png",
+};
+
+const trip = new Trip([step]);
+```
+
+### Tooltip
+
 In this section we'll go over the structure of a `Step`. Essentially, a `Step` is an object which defines a single step within a `Trip`. You can pass an array of `Steps` when creating a new `Trip`. First we'll outline all the properties that can exist on a `Step`
 
 ```js
